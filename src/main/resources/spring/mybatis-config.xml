@@ -6,7 +6,9 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="user.bean.UserDTO" alias="user" />
 		<typeAlias type="admin.bean.AdminDTO" alias="admin" />
+		<typeAlias type="user.bean.UserDTO" alias="user" />
+		<typeAlias type="admin.bean.RecipeDTO" alias="recipe" />
+		<typeAlias type="admin.bean.ReviewDTO" alias="review" />
 	</typeAliases>
 </configuration>
