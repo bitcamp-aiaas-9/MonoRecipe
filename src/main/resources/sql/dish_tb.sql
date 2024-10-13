@@ -8,7 +8,7 @@ CREATE TABLE dish_tb (
     dscore FLOAT DEFAULT 0                    -- 음식 평균 평점
 );
 
-
+-- 트리거: 리뷰 추가 시 음식의 평균 평점 업데이트
 CREATE TRIGGER update_dscore
 AFTER INSERT ON review_tb
 FOR EACH ROW
