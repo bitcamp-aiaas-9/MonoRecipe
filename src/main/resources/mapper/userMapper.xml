@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SpringProject/src/main/resources/mapper/userMapper.xml -->
+<!-- MonoRecipe/src/main/java/mapper/userMapper.xml -->
  <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
