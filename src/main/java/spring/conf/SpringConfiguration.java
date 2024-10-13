@@ -15,12 +15,10 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
-// @PropertySource("classpath:spring/db.properties"): 외부 프로퍼티 파일인 db.properties에서 데이터베이스 연결 정보를 읽어옴
-
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:spring/db.properties")
-@MapperScan("user.dao") 
+@MapperScan("admin.dao user.dao dish.dao review.dao") 
 public class SpringConfiguration { 
 	
 	/** Connection Pool */
@@ -53,7 +51,7 @@ public class SpringConfiguration {
 				new ClassPathResource[] {
 						new ClassPathResource("mapper/adminMapper.xml"),
 						new ClassPathResource("mapper/userMapper.xml"),
-						new ClassPathResource("mapper/recipeMapper.xml"),
+						new ClassPathResource("mapper/dishMapper.xml"),
 						new ClassPathResource("mapper/reviewMapper.xml")
 				}
 		);

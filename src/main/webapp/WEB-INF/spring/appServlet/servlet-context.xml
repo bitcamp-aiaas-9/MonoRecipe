@@ -16,6 +16,7 @@
 
 <resources mapping="/resources/**" location="/resources/" />
 
+
 <!-- DispatcherServlet 으로 보내지 않을 파일들 -->
 <resources location="/WEB-INF/css/" mapping="/css/**"></resources>
 <resources location="/WEB-INF/js/" mapping="/js/**"></resources>

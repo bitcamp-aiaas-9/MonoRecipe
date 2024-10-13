@@ -8,7 +8,7 @@
 	<typeAliases>
 		<typeAlias type="admin.bean.AdminDTO" alias="admin" />
 		<typeAlias type="user.bean.UserDTO" alias="user" />
-		<typeAlias type="admin.bean.RecipeDTO" alias="recipe" />
-		<typeAlias type="admin.bean.ReviewDTO" alias="review" />
+		<typeAlias type="dish.bean.DishDTO" alias="dish" />
+		<typeAlias type="Review.bean.ReviewDTO" alias="review" />
 	</typeAliases>
 </configuration>

@@ -4,11 +4,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="recipe.dao.RecipeDAO">
+<mapper namespace="dish.dao.DishDAO">
 
-<!-- 채연; recipeView.jsp -->
-
-
+<!-- 채연; dishView.jsp -->
 
 
 
@@ -27,7 +25,9 @@
 
 
 
-<!-- 민선; recipeWrite.jsp, recipeUpdate.jsp, recipeDelete.jsp -->
+
+
+<!-- 민선; dishWrite.jsp, recipeUpdate.jsp, recipeDelete.jsp -->
 
 
 
