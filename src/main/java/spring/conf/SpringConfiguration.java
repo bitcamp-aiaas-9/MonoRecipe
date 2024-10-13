@@ -52,7 +52,9 @@ public class SpringConfiguration {
 		sqlSessionFactoryBean.setMapperLocations(
 				new ClassPathResource[] {
 						new ClassPathResource("mapper/adminMapper.xml"),
-						new ClassPathResource("mapper/userMapper.xml")
+						new ClassPathResource("mapper/userMapper.xml"),
+						new ClassPathResource("mapper/recipeMapper.xml"),
+						new ClassPathResource("mapper/reviewMapper.xml")
 				}
 		);
 		return sqlSessionFactoryBean.getObject(); // SqlSessionFactory 로 변환하여 넘겨줌
