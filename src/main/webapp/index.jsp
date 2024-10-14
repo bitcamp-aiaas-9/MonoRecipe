@@ -47,7 +47,7 @@
 					<div id="hitScore">조회수 130회  / ⭐4.3</div>
 				</td>
 				<td>
-					<div id="dname">돼지고기김치찌개</div>
+					<div id="dname">김치찌개</div>
 					<div id="hitScore">조회수 130회  / ⭐4.3</div>
 				</td>
 			</tr>
