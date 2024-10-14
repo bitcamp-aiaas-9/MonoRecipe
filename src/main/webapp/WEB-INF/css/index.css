@@ -3,10 +3,21 @@
 @import url("init.css");
 
 
-div#test {
-	border: 3px solid red;
-	height: 2000px;
+table {
+	/* border-collapse: collapse; */
+	border: 1px solid black;
+	margin: 20px auto;
 }
 
+td {
+   max-width: 220px;
+   padding: 10px;
+}
 
-
+th, td {
+		border: 1px solid black;
+}
+.dishImg {
+	max-width: 200px;
+	object-fit: contain;
+}
