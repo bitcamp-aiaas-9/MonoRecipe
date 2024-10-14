@@ -10,3 +10,4 @@ db.properties
 # 빌드 디렉토리
 /bin/
 target/
+/.metadata/
