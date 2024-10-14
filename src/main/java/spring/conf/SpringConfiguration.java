@@ -6,7 +6,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -27,7 +29,9 @@ public class SpringConfiguration {
 	private @Value("${jdbc.username}") String username;
 	private @Value("${jdbc.password}") String password;
 
-	
+	@Autowired
+	private ApplicationContext context;
+
 	/** DataSource */
 	@Bean
 	public BasicDataSource dataSource() {
@@ -40,21 +44,20 @@ public class SpringConfiguration {
 		return basicDataSource;
 	}
 	
-	
+
 	/** SqlSessionFactory */
 	@Bean
 	public SqlSessionFactory sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(dataSource());
 		sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("spring/mybatis-config.xml"));
+		
 		sqlSessionFactoryBean.setMapperLocations(
-				new ClassPathResource[] {
-						new ClassPathResource("mapper/adminMapper.xml"),
-						new ClassPathResource("mapper/userMapper.xml"),
-						new ClassPathResource("mapper/dishMapper.xml"),
-						new ClassPathResource("mapper/reviewMapper.xml")
-				}
+				context.getResources("classpath:mapper/*Mapper.xml")
 		);
+		
+		sqlSessionFactoryBean.setTypeAliasesPackage("*.bean");
+		
 		return sqlSessionFactoryBean.getObject(); // SqlSessionFactory 로 변환하여 넘겨줌
 	}
 	
