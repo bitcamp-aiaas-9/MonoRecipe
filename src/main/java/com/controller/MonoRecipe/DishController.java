@@ -11,6 +11,7 @@ import dish.service.ObjectStorageService;
 // String dimageUUID; 수업 userupload 테이블의 imageFileName
 
 @Controller
+
 @RequestMapping(value = "/dish")
 public class DishController {
 
@@ -38,7 +39,10 @@ public class DishController {
 	
 	
 	/** 민선 */
-	
+	@RequestMapping(value="/dishWrite")
+	public String index() {
+	   return "/dish/dishWrite"; // /WEB-INF/index.jsp
+	}
 	
 	
 		

@@ -9,7 +9,9 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
 	</context-param>
-	
+	<listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
 
 	<!-- 웹과 관련된 WAC (Web Application Context) -->
 	<servlet>
