@@ -1,5 +1,32 @@
 package dish.service;
 
 public interface DishService {
- // 수업 Spring/../ObjectStorageService.java 참고
+	
+	
+	
+	/** 채연 */
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/** 민선 */
+	
+	
+	
+	
 }

@@ -18,4 +18,8 @@ public class MainController {
 	    return "/common/header"; // /WEB-INF/common/header.jsp
 	}
 
+	@RequestMapping(value = "/common/footer", method = RequestMethod.GET)
+	public String footer() {
+	    return "/common/footer"; // /WEB-INF/common/footer.jsp
+	}
 }
