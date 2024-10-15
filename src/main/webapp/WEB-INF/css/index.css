@@ -10,13 +10,27 @@ table {
 }
 
 td {
-   max-width: 220px;
-   padding: 10px;
+	text-align: center;
+	width: 23%;
+	max-width: 220px;
+	padding: 5px 10px;
+	border: 1px solid black;
 }
 
-th, td {
-		border: 1px solid black;
+.dname {
+	text-align: right;
 }
+
+.scoreDiv {
+	text-align: right;
+	color: #333;
+	font-size: 14px;
+}
+
+.scoreDiv .dscore {
+	margin-left: 5px;
+}
+
 .dishImg {
 	max-width: 200px;
 	object-fit: contain;

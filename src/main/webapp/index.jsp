@@ -28,27 +28,27 @@
 	<div class="dishTable">
 		<table>
 			<tr>
-				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
-				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
-				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
-				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
 			</tr>
 			<tr>
 				<td>
-					<div id="dname">돼지고기김치찌개</div>
-					<div id="hitScore">조회수 130회  / ⭐4.3</div>
+					<div class="dname">돼지고기김치찌개</div>
+					<div class="scoreDiv">평점<span class="dscore">4.3</span></div>
 				</td>
 				<td>
-					<div id="dname">돼지고기김치찌개</div>
-					<div id="hitScore">조회수 130회  / ⭐4.3</div>
+					<div class="dname">돼지고기김치찌개</div>
+					<div class="scoreDiv">평점<span class="dscore">4.3</span></div>
 				</td>
 				<td>
-					<div id="dname">돼지고기김치찌개</div>
-					<div id="hitScore">조회수 130회  / ⭐4.3</div>
+					<div class="dname">대박대박 존나 맛있는 돼지고기 김치찌개</div>
+					<div class="scoreDiv">평점<span class="dscore">4.3</span></div>
 				</td>
 				<td>
-					<div id="dname">김치찌개</div>
-					<div id="hitScore">조회수 130회  / ⭐4.3</div>
+					<div class="dname">돼지고기김치찌개</div>
+					<div class="scoreDiv">평점<span class="dscore">4.3</span></div>
 				</td>
 			</tr>
 		</table>
