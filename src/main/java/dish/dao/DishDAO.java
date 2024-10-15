@@ -6,5 +6,27 @@ import dish.bean.DishDTO;
 
 @Mapper
 public interface DishDAO {
+	
+	/** 채연 */
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/** 민선 */
+	
+	
+	
+	
+	
+	
 }
