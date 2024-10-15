@@ -29,7 +29,10 @@
 
 <!-- 민선; dishWrite.jsp, dishUpdate.jsp, dishDelete.jsp -->
 
-
+<insert id="dishWrite" parameterType="dish.bean.DishDTO">
+    INSERT INTO dish_tb (dimage, dimageUUID, dname, dintro, drecipe)
+    VALUES (#{dimage}, #{dimageUUID}, #{dname}, #{dintro}, #{drecipe}
+</insert>
 
 
 

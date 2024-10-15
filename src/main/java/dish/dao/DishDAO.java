@@ -24,7 +24,7 @@ public interface DishDAO {
 	
 	/** 민선 */
 	
-	
+	void dishWrite(DishDTO dishDTO);
 	
 	
 	
