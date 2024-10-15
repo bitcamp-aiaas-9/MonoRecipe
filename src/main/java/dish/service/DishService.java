@@ -1,5 +1,7 @@
 package dish.service;
 
+import dish.bean.DishDTO;
+
 public interface DishService {
 	
 	
@@ -26,7 +28,7 @@ public interface DishService {
 	
 	/** 민선 */
 	
-	
+	void dishwrite(DishDTO dishDTO);
 	
 	
 }

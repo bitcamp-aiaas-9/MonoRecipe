@@ -35,12 +35,14 @@
                     <td colspan="2"><textarea id="foodRecipe" name="foodRecipe"  rows="6" placeholder="음식 레시피"></textarea></td>
                 </tr>
     <tr class="foodImage">
+   
     <td>
         <label for="foodImage"  class="file-label">음식 사진:</label>
     </td>
     <td>
         <input type="file" id="foodImage" name="foodImage" accept="image/*">
     </td>
+    
 </tr>
 
                
@@ -58,7 +60,7 @@
 <c:import url="/common/footer" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../js/../dishWrite.css.js"></script>
+<script type="text/javascript" src="../js/dishWrite.js"></script>
 
 </body>
 </html>
