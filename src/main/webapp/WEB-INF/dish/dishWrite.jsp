@@ -9,6 +9,9 @@
 <link rel="icon" href="../image/mono_favicon.png" type="image/png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="../css/dishWrite.css">
+<style type="text/css">
+
+</style>
 <title> 레시피 등록 </title>
 </head>
 <body>
@@ -18,28 +21,36 @@
         <h1>레시피 작성</h1>
         <form action="#" method="post">
             <table>
+                
                 <tr>
-                    <td><label for="foodImage">음식 사진:</label></td>
-                    <td><input type="file" id="foodImage" name="foodImage" accept="image/*" required></td>
+                    
+                    <td colspan="2"><input type="text" id="foodName" name="foodName"   placeholder="음식 이름"></td>
                 </tr>
                 <tr>
-                    <td><label for="foodName">음식 이름:</label></td>
-                    <td><input type="text" id="foodName" name="foodName" required></td>
+                    
+                    <td colspan="2"><textarea id="foodDescription" name="foodDescription" rows="4" placeholder="음식 소개글"></textarea></td>
                 </tr>
                 <tr>
-                    <td><label for="foodDescription">음식 소개글:</label></td>
-                    <td><textarea id="foodDescription" name="foodDescription" rows="4" required></textarea></td>
+                   
+                    <td colspan="2"><textarea id="foodRecipe" name="foodRecipe"  rows="6" placeholder="음식 레시피"></textarea></td>
                 </tr>
-                <tr>
-                    <td><label for="foodRecipe">음식 레시피:</label></td>
-                    <td><textarea id="foodRecipe" name="foodRecipe" rows="6" required></textarea></td>
-                </tr>
+    <tr class="foodImage">
+    <td>
+        <label for="foodImage"  class="file-label">음식 사진:</label>
+    </td>
+    <td>
+        <input type="file" id="foodImage" name="foodImage" accept="image/*">
+    </td>
+</tr>
+
+               
                 <tr>
                     <td colspan="2" class="button-row">
                         <button type="submit">등록</button>
                         <button type="button" onclick="history.back();">취소</button>
                     </td>
                 </tr>
+                
             </table>
         </form>
     </div>
