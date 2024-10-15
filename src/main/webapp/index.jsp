@@ -28,10 +28,10 @@
 	<div class="dishTable">
 		<table>
 			<tr>
-				<td><img class ="dishImg" src="./image/apple.jpg" alt="Dish 2"></td>
-				<td><img class ="dishImg" src="./image/apple.jpg" alt="Dish 2"></td>
-				<td><img class ="dishImg" src="./image/apple.jpg" alt="Dish 2"></td>
-				<td><img class ="dishImg" src="./image/buang.jpg" alt="Dish 2"></td>
+				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
 			</tr>
 			<tr>
 				<td>
