@@ -28,10 +28,10 @@
 	<div class="dishTable">
 		<table>
 			<tr>
-				<td><img class ="dishImg" src="./image/apple.jpg" alt="Dish 2"></td>
-				<td><img class ="dishImg" src="./image/apple.jpg" alt="Dish 2"></td>
-				<td><img class ="dishImg" src="./image/apple.jpg" alt="Dish 2"></td>
-				<td><img class ="dishImg" src="./image/buang.jpg" alt="Dish 2"></td>
+				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
+				<td><img class ="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
 			</tr>
 			<tr>
 				<td>
@@ -59,7 +59,7 @@
     
 
 </main>
-
+<c:import url="/common/footer" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
