@@ -1,5 +1,10 @@
 package dish.dao;
 
-public class DishDAO {
+import org.apache.ibatis.annotations.Mapper;
+
+import dish.bean.DishDTO;
+
+@Mapper
+public interface DishDAO {
 
 }
