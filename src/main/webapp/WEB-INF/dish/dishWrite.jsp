@@ -16,7 +16,7 @@
 <main>
     <div class="container">
         <h1>레시피 작성</h1>
-        <form action="/MonoRecipe/dish/dishWriteUpload" method="post" enctype="multipart/form-data">
+        <form id="dishWriteUpload">
             <table>
                 
                 <tr>
@@ -38,8 +38,8 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="button-row">
-                        <button type="submit">등록</button>
-                        <button type="button" onclick="history.back();">취소</button>
+                        <button type="button" id="writeBtn">등록</button>
+                        <button type="button">취소</button>
                     </td>
                 </tr>
                 
