@@ -1,23 +1,79 @@
-/* MonoRecipe/src/main/webapp/WEB-INF/css/index.css */
 @charset "UTF-8";
 @import url("init.css");
 
-
-table {
-	/* border-collapse: collapse; */
-	border: 1px solid black;
-	margin: 20px auto;
+.dishSection {
+    margin: 20px 0;
+    
 }
 
-td {
-   max-width: 220px;
-   padding: 10px;
+.dishCategory {
+	padding: 0 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-th, td {
-		border: 1px solid black;
+.categoryTitle {
+	font-size: 1.4rem;
+	font-weight: bold;
+	margin-right: 10px;
 }
+
+.categoryAll {
+	font-size: 0.8rem;
+	color: #888;
+}
+
+.categoryAll:hover {
+	text-decoration: underline;
+}
+
+.dishGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.dishItem {
+    width: 22%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 10px;
+}
+
 .dishImg {
-	max-width: 200px;
-	object-fit: contain;
+    width: 100%;
+    height: auto;
 }
+
+.dishInfo {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dname {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.scoreDiv {
+	text-align: right;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* 600px 이하일 때 적용될 스타일 */
+@media (max-width: 600px) {
+    .dishItem {
+        width: 46%;
+    }
+}
+

@@ -23,6 +23,7 @@ header.header {
     align-items: center; 	
 }
 
+
 #headerLogo, #headerContent {
     margin: 0;
     padding: 0;
@@ -33,6 +34,8 @@ header.header {
 	font-family: "Noto Serif Oriya", serif;
 	font-size: 28px;
 	letter-spacing: 3px;
+	display: flex;
+	align-items: center; 
 	color: white;
 }
 
