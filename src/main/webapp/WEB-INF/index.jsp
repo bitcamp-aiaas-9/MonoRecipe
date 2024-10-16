@@ -8,24 +8,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<link rel="icon" href="./image/mono_favicon.png" type="image/png">
+<link rel="icon" href="../image/mono_favicon.png" type="image/png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
 <title>Mono Recipe</title>
 </head>
 <body>
-<c:import url="/common/header" />
+<c:import url="common/header" />
 
 <div class="carouselContainer">
-    <img src="./image/carouselImg1.png" class="carouselImg active" alt="Image 1">
-    <img src="./image/carouselImg2.png" class="carouselImg" alt="Image 2">
-    <img src="./image/carouselImg3.png" class="carouselImg" alt="Image 3">
+    <img src="image/carouselImg1.png" class="carouselImg active" alt="Image 1">
+    <img src="image/carouselImg2.png" class="carouselImg" alt="Image 2">
+    <img src="image/carouselImg3.png" class="carouselImg" alt="Image 3">
 
     <div class="carouselOverlay">
         <div class="carouselText">프로를 위한 프리미엄 레시피</div>
         <div class="searchBox">
             <input type="text" placeholder="레시피, 재료, 아티스트, 태그 검색">
-            <img class="searchIcon" id="searchIconBlack" src="./image/search_icon_black.png" alt="Search Icon">
+            <img class="searchIcon" id="searchIconBlack" src="image/search_icon_black.png" alt="Search Icon">
         </div>
     </div>
 </div>
@@ -67,7 +67,7 @@
     
 
 </main>
-<c:import url="/common/footer" />
+<c:import url="common/footer" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script>

@@ -45,7 +45,9 @@ $(function() {
     	else if($('#upwd').val() == '')
     		$('#upwdDiv').html('비밀번호 입력');
         else if($('#uemail').val() == '')
-    		$('#uemailDiv').html('비밀번호 입력');
+    		$('#uemailDiv').html('이메일 입력');
+    	else if($('#inputCode').val() == '')
+    		$('#inputCodeDiv').html('인증번호 입력');	
     	else
     		$.ajax({
     			type: 'post',
@@ -62,19 +64,39 @@ $(function() {
     });
 });
 
+let randomNum = null; 
+
 $("#emailAuth").click(function() {
-	const uemail = $("#uemail").val(); //사용자가 입력한 이메일 값 얻어오기
-		
-	//Ajax로 전송
+    const uemail = $("#uemail").val();
+
+    const min = 111111;
+    const max = 999999;
+    randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+
     $.ajax({
-      	type : 'POST',
-    	url : '/MonoRecipe/user/emailAuth',
-    	data : {uemail : uemail},
-    	dataType : 'text',
-    	success : function() {
-    		alert("인증 코드가 입력하신 이메일로 전송 되었습니다.");
-   		}
-    }); 
+        type: 'POST',
+        url: '/MonoRecipe/user/emailAuth',
+        data: {
+            uemail: uemail,
+            randomNum: randomNum 
+        },
+        dataType: 'text',
+        success: function(data) {
+            alert("인증 코드가 입력하신 이메일로 전송 되었습니다.");
+        }
+    });
+});
+
+$('#inputCode').focusout(function() {
+    const inputCode = $('#inputCode').val();
+    if (inputCode == randomNum) {
+        $('#inputCodeDiv').text("인증코드가 일치합니다.").css("color", "blue");
+    } else {
+        alert("불일치합니다. 메일을 다시 확인하세요.");
+        $('#inputCode').val('');
+        $('#inputCodeDiv').text(""); 
+    }
 });
 
 

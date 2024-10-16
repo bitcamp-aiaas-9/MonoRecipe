@@ -64,7 +64,8 @@
 				<tr>			
 				<th class="label">인증번호 입력</th>	
 				  <td class="input">
-				 <input type="text" id="inputCode" > 
+				 <input type="text" id="inputCode" required> 
+				 <div id="inputCodeDiv"></div>
 				  </td >
 								
 			<tr>
@@ -81,6 +82,6 @@
 <c:import url="/common/footer" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../js/userSignUp.js"></script>
+<script type="text/javascript" src="../js/userSignUp.js"></script> 
 </body>
 </html>
