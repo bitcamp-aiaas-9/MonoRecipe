@@ -4,7 +4,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="recipe.dao.ReviewDAO">
+<mapper namespace="review.dao.ReviewDAO">
 
-  
+<insert id="reviewWrite" parameterType="review.bean.ReviewDTO">
+        INSERT INTO review_tb (rdishcode, ruserid, rscore, rcontent,rdate)
+        VALUES (#{rdishcode}, #{ruserid}, #{rscore}, #{rcontent},NOW())
+    </insert>
+  <select id="getReviewList" parameterType="int" resultType="review.bean.ReviewDTO">
+   SELECT * FROM review_tb WHERE rdishcode = #{rdishcode}
+  </select>
 </mapper>
