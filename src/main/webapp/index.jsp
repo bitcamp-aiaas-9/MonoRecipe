@@ -15,15 +15,30 @@
 </head>
 <body>
 <c:import url="/common/header" />
+
+<div class="carouselContainer">
+    <img src="./image/carouselImg1.png" class="carouselImg active" alt="Image 1">
+    <img src="./image/carouselImg2.png" class="carouselImg" alt="Image 2">
+    <img src="./image/carouselImg3.png" class="carouselImg" alt="Image 3">
+
+    <div class="carouselOverlay">
+        <div class="carouselText">프로를 위한 프리미엄 레시피</div>
+        <div class="searchBox">
+            <input type="text" placeholder="레시피, 재료, 아티스트, 태그 검색">
+            <img class="searchIcon" id="searchIconBlack" src="./image/search_icon_black.png" alt="Search Icon">
+        </div>
+    </div>
+</div>
+
+
+
+
 <main>
-
-
-
 <section class="dishSection">
     <div class="dishCategory">
         <div class="categoryTitle">오늘의 NEW RECIPE</div>
         <div class="categoryAll">
-        	<a href="/Monorecipe/dish/dishList">모두보기 ></a>
+        	<a href="/MonoRecipe/dish/dishList">모두보기  ></a>
         </div>
     </div>
     
@@ -66,6 +81,6 @@
 <c:import url="/common/footer" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
+<script type="text/javascript" src="./js/index.js"></script>
 </body>
 </html>
