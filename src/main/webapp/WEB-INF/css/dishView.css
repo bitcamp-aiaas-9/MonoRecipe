@@ -94,13 +94,43 @@ button:hover {
 }
 
 #reviewTable th, #reviewTable td {
-    padding: 10px; /* 셀 여백 */
-    border: 1px solid #ddd; /* 경계선 */
-    text-align: left; /* 텍스트 왼쪽 정렬 */
+    padding: 15px; /* 셀 여백 */
+    font-size: 14px; /* 글자 크기 */
+    word-wrap: break-word; /* 줄 바꿈 */
+    white-space: normal; /* 공백 처리 */
 }
 
-#average-rating {
+/* 첫 번째 tr의 th 및 td 테두리 제거 */
+#reviewTable tr:first-child th,
+#reviewTable tr:first-child td,
+#reviewTable tr:nth-child(2) th,
+#reviewTable tr:nth-child(2) td {
+    border: none; /* 테두리 제거 */
+}
+
+/* 세 번째 tr부터 테두리 추가 */
+#reviewTable tr:nth-child(n+3) {
+    border: 1px solid #ddd; /* 세 번째 tr부터 테두리 추가 */
+	border-bottom: none; 
+}
+
+#reviewTable tr:nth-child(n+3) td {
+    border-bottom: 1px solid #ddd; /* 세 번째 tr부터 td의 하단 테두리 추가 */
+}
+
+#reviewTable th {
+    background-color: #f0f0f0; /* 헤더 배경색 */
     font-weight: bold; /* 굵게 표시 */
+    color: #333; /* 헤더 글자색 */
+}
+
+#reviewTable td.right-align {
+    text-align: right; /* 오른쪽 정렬 */
+}
+
+#reviewTable td {
+    line-height: 1.5; /* 줄 간격 */
+    color: #555; /* 글자색 */
 }
 
 /* 평점 라인 스타일링 */
@@ -151,48 +181,11 @@ input[type="radio"]:checked + .star {
     background-color: #444;
 }
 
-#reviewTable {
-    width: 100%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#reviewTable th, #reviewTable td {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-    word-wrap: break-word;
-    white-space: normal;
-}
-
-#reviewTable th {
-    background-color: #f0f0f0;
-    font-weight: bold;
-    color: #333;
-}
-#reviewTable td.right-align {
-    text-align: right; /* 오른쪽 정렬 */
-}
-#reviewTable td {
-    line-height: 1.5;
-    color: #555;
-}
-
-
 .input-container {
     display: flex;
     align-items: center; /* 수직 가운데 정렬 */
     gap: 10px; /* 입력 필드와 버튼 사이의 간격 */
     margin-top: 10px; /* 상단 여백 */
-}
-
-#content {
-    flex-grow: 1; /* 입력 필드가 남는 공간을 차지하도록 설정 */
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
 }
 
 #btn-write {
@@ -214,12 +207,7 @@ input[type="radio"]:checked + .star {
     font-size: 14px; /* 버튼 텍스트 크기 */
     padding: 6px 12px; /* 패딩 조정 */
     margin: 0 5px; /* 버튼 간격 */
-    border-color:
-    color: black; /* 버튼 글자색 */
+    color: white; /* 버튼 글자색 */
     border: none; /* 테두리 제거 */
-    
     cursor: pointer; /* 커서 포인터 */
-    
 }
-
-

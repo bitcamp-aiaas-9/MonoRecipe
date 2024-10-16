@@ -28,14 +28,16 @@
                 <tr>
                     <td colspan="2"><textarea id="drecipe" name="drecipe" rows="6" placeholder="음식 레시피"></textarea></td>
                 </tr>
-                <tr class="foodImage">
-                    <td>
-                        <label for="dimage" class="file-label">음식 사진:</label>
-                    </td>
-                    <td>
-                        <input type="file" id="image" name="image" accept="image/*">
-                    </td>
-                </tr>
+                
+                    <tr class="foodImage">
+						<td colspan="2">
+							<div class="file-image-container">
+								<label for="foodImage" class="file-label">음식 사진:</label> <input
+									type="file" id="image" name="image" accept="image/*">
+							</div>
+						</td>
+					</tr>
+               
                 <tr>
                     <td colspan="2" class="button-row">
                         <button type="button" id="writeBtn">등록</button>
