@@ -51,6 +51,7 @@
     align-items: center;
     background-color: white;
     width: 40%;
+    max-height: 50px;
     padding: 10px;
     border-radius: 5px;
 }
@@ -125,7 +126,7 @@ main {
 }
 
 .dishItem:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* 5% 확대 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;	
 }
