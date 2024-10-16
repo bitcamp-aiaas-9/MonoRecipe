@@ -22,7 +22,9 @@
 <section class="dishSection">
     <div class="dishCategory">
         <div class="categoryTitle">오늘의 NEW RECIPE</div>
-        <div class="categoryAll">모두보기 ></div>
+        <div class="categoryAll">
+        	<a href="/Monorecipe/dish/dishList">모두보기 ></a>
+        </div>
     </div>
     
     <div class="dishGrid">
