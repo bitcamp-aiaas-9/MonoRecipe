@@ -1,8 +1,9 @@
+// MonoRecipe/src/main/java/dish/service/impl/DishServiceImpl.java
 package dish.service.impl;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.UUID;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -37,11 +38,12 @@ public class DishServiceImpl implements DishService {
 	
 	
 	/** 채연 */
-
 	
-	
-	
-	
+	@Override
+	public List<DishDTO> getDishIndexList() {
+	    List<DishDTO> dishList = dishDAO.getDishIndexList();
+	    return dishList;
+	}
 	
 	
 	

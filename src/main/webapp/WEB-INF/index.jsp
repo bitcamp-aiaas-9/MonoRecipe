@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <link rel="icon" href="./image/mono_favicon.png" type="image/png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
 <title>Mono Recipe</title>
 </head>
 <body>
@@ -43,35 +43,24 @@
     </div>
     
     <div class="dishGrid">
-        <div class="dishItem">
-            <img class="dishImg" src="./image/tomato.png" alt="Dish 1">
-            <div class="dishInfo">
-                <div class="dname">돼지고기김치찌개</div>
-                <div class="scoreDiv">평점 4.3</div>
-            </div>
-        </div>
-        <div class="dishItem">
-            <img class="dishImg" src="./image/tomato.png" alt="Dish 2">
-            <div class="dishInfo">
-                <div class="dname">대박대박 존나 맛있는 돼지고기 김치찌개</div>
-                <div class="scoreDiv">평점 4.3</div>
-            </div>
-        </div>
-        <div class="dishItem">
-            <img class="dishImg" src="./image/tomato.png" alt="Dish 3">
-            <div class="dishInfo">
-                <div class="dname">돼지고기김치찌개</div>
-                <div class="scoreDiv">평점 4.3</div>
-            </div>
-        </div>
-        <div class="dishItem">
-            <img class="dishImg" src="./image/tomato.png" alt="Dish 4">
-            <div class="dishInfo">
-                <div class="dname">돼지고기김치찌개</div>
-                <div class="scoreDiv">평점 4.3</div>
-            </div>
-        </div>
-    </div>
+    <c:if test="${not empty dishList}">
+	    <c:forEach var="dishDTO" items="${dishList}">
+	        <div class="dishItem">
+	            <img class="dishImg" 
+	                 src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
+	                 alt="${dishDTO.dname}" />
+	            <div class="dishInfo">
+	                <input type="hidden" value="${dishDTO.dcode}" />
+	                <div class="dname">${dishDTO.dname}</div>
+	                <div class="scoreDiv">평점 : ${dishDTO.dscore}</div>
+	            </div>
+	        </div>
+	    </c:forEach>
+	</c:if>  
+    <c:if test="${empty dishList}">
+        <div>등록된 레시피가 없습니다.</div>
+    </c:if>	    
+	</div>
 </section>
 
 
@@ -81,6 +70,9 @@
 <c:import url="/common/footer" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="./js/index.js"></script>
+<script>
+    var context = '${pageContext.request.contextPath}';
+</script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/index.js"></script>
 </body>
 </html>

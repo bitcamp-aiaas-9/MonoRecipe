@@ -7,11 +7,11 @@
 <mapper namespace="dish.dao.DishDAO">
 
 <!-- 채연; dishView.jsp -->
-
-
-
-
-
+<!-- MonoRecipe/src/main/java/mapper/recipeMapper.xml -->
+<!-- index.jsp 음식 목록 -->
+<select id="getDishIndexList" resultType="dish.bean.DishDTO">
+	SELECT * FROM dish_tb ORDER BY dcode DESC limit 4;
+</select>
 
 
 
