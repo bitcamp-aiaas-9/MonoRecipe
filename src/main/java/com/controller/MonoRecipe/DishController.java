@@ -53,6 +53,16 @@ public class DishController {
 	
 	
 	/** 민선 */
+	@RequestMapping(value="/dishView")
+	public String dishView(@RequestParam String dcode,Model model) {
+	   
+		DishDTO dishDTO=dishService.getDishDTO(dcode);
+		model.addAttribute("dishDTO", dishDTO);
+		return "/dish/dishView"; 
+	}
+	
+	
+	
 	@RequestMapping(value="/dishWrite")
 	public String dishWrite() {
 	   return "/dish/dishWrite"; 
