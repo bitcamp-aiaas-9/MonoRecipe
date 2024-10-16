@@ -60,8 +60,7 @@ public class DishController {
 	@RequestMapping(value = "/dishWriteUpload", method = RequestMethod.POST)
 	@ResponseBody
 	public String dishWriteUpload(@ModelAttribute DishDTO dishDTO,
-	                     @RequestParam("dimage") MultipartFile img,
-	                     HttpSession session) {
+	                     @RequestParam("dimage") MultipartFile img) {
 	    
 
 	    // DB 저장 로직

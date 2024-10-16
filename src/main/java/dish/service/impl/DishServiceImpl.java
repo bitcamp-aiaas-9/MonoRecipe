@@ -60,22 +60,28 @@ public class DishServiceImpl implements DishService {
 	    System.out.println("실제폴더 =" + filePath);
 
 	    // 이미지 파일 이름
-	    String imageOriginalFileName = img.getOriginalFilename();
-	    File file = new File(filePath, imageOriginalFileName);
-
+	    
+		
+	    
+	    
 	    String imageFileName = objectStorageService.uploadFile(bucketName, "storage/", img);
+	    String imageOriginalFileName=img.getOriginalFilename();
+	     File file =new File(filePath,imageOriginalFileName);
+
 	    
 	    
 	    try {
-	        // 파일 저장
-	        img.transferTo(file);
-	    } catch (IllegalStateException | IOException e) {
-	        e.printStackTrace();
-	        throw new RuntimeException("파일 업로드 실패: " + e.getMessage());
-	    }
+			img.transferTo(file);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-	    dishDTO.setDimage(imageFileName);
-	    dishDTO.setDimageUUID(imageOriginalFileName);
+	    dishDTO.setDimage(imageOriginalFileName);
+	    dishDTO.setDimageUUID(imageFileName);
 
 	    // DB에 저장
 	    dishDAO.dishWrite(dishDTO);
