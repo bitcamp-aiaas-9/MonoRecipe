@@ -110,5 +110,9 @@
 	
 	.footerLeft, .footerRight {
 	margin-left: 20px;		
+	}
+	
+	.footerRight ul li {
+		margin-right: 10px;
 }
 }

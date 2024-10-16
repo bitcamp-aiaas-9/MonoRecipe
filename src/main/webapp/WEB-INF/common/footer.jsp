@@ -19,10 +19,10 @@
 				<a href="https://github.com/bitcamp-aiaas-9/MonoRecipe" target="_blank">
 					<img src="${pageContext.request.contextPath}/image/lab_icon.png" alt="Lab">
 				</a>
-				<a href="#" target="_blank">
+				<a href="#">
 					<img src="${pageContext.request.contextPath}/image/playstore_icon.png" alt="Play Store">
 				</a>
-				<a href="#" target="_blank">
+				<a href="#">
 					<img src="${pageContext.request.contextPath}/image/appstore_icon.png" alt="App Store">
 				</a>
 				
