@@ -1,5 +1,7 @@
 package dish.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import dish.bean.DishDTO;
@@ -8,7 +10,7 @@ import dish.bean.DishDTO;
 public interface DishDAO {
 	
 	/** 채연 */
-
+	public List<DishDTO> getDishList();
 	
 	
 	

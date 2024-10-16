@@ -1,5 +1,7 @@
 package dish.service;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import dish.bean.DishDTO;
@@ -10,7 +12,7 @@ public interface DishService {
 	
 	/** 채연 */
 
-	
+	public List<DishDTO> getDishList();
 	
 	
 	
