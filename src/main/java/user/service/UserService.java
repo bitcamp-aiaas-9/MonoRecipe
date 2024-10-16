@@ -8,6 +8,8 @@ public interface UserService {
 
 	void write(UserDTO userDTO);
 
+	UserDTO login(UserDTO userDTO);
+
 
 
 }

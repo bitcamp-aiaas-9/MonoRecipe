@@ -10,6 +10,7 @@ public class MainController {
    
 	@RequestMapping(value="/")
 	public String index() {
+		System.out.println("hello");
 	   return "/index"; // /WEB-INF/index.jsp
 	}
    
