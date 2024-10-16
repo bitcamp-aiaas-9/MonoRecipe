@@ -43,6 +43,7 @@
     </div>
     
     <div class="dishGrid">
+    <input type="hidden" id="pg" name="pg" value="1" />
     <c:if test="${not empty dishList}">
 	    <c:forEach var="dishDTO" items="${dishList}">
 	        <div class="dishItem">
@@ -52,7 +53,7 @@
 		                 alt="${dishDTO.dname}" />
 	        	</div>
 	            <div class="dishInfo">
-	                <input type="hidden" value="${dishDTO.dcode}" />
+	                <input type="hidden" id="dcode" name="dcode" value="${dishDTO.dcode}" />
 	                <div class="dname">${dishDTO.dname}</div>
 					<div class="scoreDiv">
 					    평점 : <fmt:formatNumber value="${dishDTO.dscore}" type="number" maxFractionDigits="2" minFractionDigits="2" />
