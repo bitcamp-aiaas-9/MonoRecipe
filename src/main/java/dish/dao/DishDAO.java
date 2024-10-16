@@ -24,7 +24,15 @@ public interface DishDAO {
 	
 	/** 민선 */
 	
-	
+	void dishWrite(DishDTO dishDTO);
+
+	DishDTO getDishDTO(String seq);
+
+	String getImageFileName(int dcode);
+
+	void dishUpdate(DishDTO dishDTO);
+
+	void dishDelete(String seq);
 	
 	
 	

@@ -16,23 +16,25 @@
 <main>
     <div class="container">
         <h1>레시피 작성</h1>
-        <form action="#" method="post">
+        <form action="/MonoRecipe/dish/dishWriteUpload" method="post" enctype="multipart/form-data">
             <table>
+                
                 <tr>
-                    <td><label for="foodImage">음식 사진:</label></td>
-                    <td><input type="file" id="foodImage" name="foodImage" accept="image/*" required></td>
+                    <td colspan="2"><input type="text" id="dname" name="dname" placeholder="음식 이름"></td>
                 </tr>
                 <tr>
-                    <td><label for="foodName">음식 이름:</label></td>
-                    <td><input type="text" id="foodName" name="foodName" required></td>
+                    <td colspan="2"><textarea id="dintro" name="dintro" rows="4" placeholder="음식 소개글"></textarea></td>
                 </tr>
                 <tr>
-                    <td><label for="foodDescription">음식 소개글:</label></td>
-                    <td><textarea id="foodDescription" name="foodDescription" rows="4" required></textarea></td>
+                    <td colspan="2"><textarea id="drecipe" name="drecipe" rows="6" placeholder="음식 레시피"></textarea></td>
                 </tr>
-                <tr>
-                    <td><label for="foodRecipe">음식 레시피:</label></td>
-                    <td><textarea id="foodRecipe" name="foodRecipe" rows="6" required></textarea></td>
+                <tr class="foodImage">
+                    <td>
+                        <label for="dimage" class="file-label">음식 사진:</label>
+                    </td>
+                    <td>
+                        <input type="file" id="image" name="image" accept="image/*">
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2" class="button-row">
@@ -40,6 +42,7 @@
                         <button type="button" onclick="history.back();">취소</button>
                     </td>
                 </tr>
+                
             </table>
         </form>
     </div>
@@ -47,7 +50,7 @@
 <c:import url="/common/footer" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../js/../dishWrite.css.js"></script>
+<script type="text/javascript" src="../js/dishWrite.js"></script>
 
 </body>
 </html>

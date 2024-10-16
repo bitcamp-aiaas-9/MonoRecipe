@@ -1,11 +1,25 @@
 package com.controller.MonoRecipe;
 
+
+
+
+
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import dish.bean.DishDTO;
 import dish.service.DishService;
-import dish.service.ObjectStorageService;
+
 
 // String dimage; 수업 userupload 테이블의 imageOriginalFileName
 // String dimageUUID; 수업 userupload 테이블의 imageFileName
@@ -40,11 +54,53 @@ public class DishController {
 	
 	/** 민선 */
 	@RequestMapping(value="/dishWrite")
-	public String index() {
-	   return "/dish/dishWrite"; // /WEB-INF/index.jsp
+	public String dishWrite() {
+	   return "/dish/dishWrite"; 
+	}
+	
+	@RequestMapping(value = "/dishWriteUpload", method = RequestMethod.POST)
+	@ResponseBody
+	public String dishWriteUpload(@ModelAttribute DishDTO dishDTO,
+	                     @RequestParam("image") MultipartFile img) {
+	    
+		
+		System.out.println("dto = "+dishDTO);
+	    // DB 저장 로직
+	    dishService.dishWrite(dishDTO ,img); 
+
+	   
+	    return "이미지 저장";
+	    
+	}
+	
+	@RequestMapping(value="/dishUpdate")
+	public String dishUpdate(@RequestParam String seq,Model model) {
+		DishDTO dishDTO=dishService.getDishDTO(seq);
+		model.addAttribute("dishDTO", dishDTO);
+	   return "/dish/dishUpdate"; 
 	}
 	
 	
+	@RequestMapping(value = "/dishUpdateUpload", method = RequestMethod.POST)
+	@ResponseBody
+	public String dishUpdateUpload(@ModelAttribute DishDTO dishDTO,
+	                     @RequestParam("image") MultipartFile img) {
+	    
 		
+		System.out.println("dto = "+dishDTO);
+	    // DB 저장 로직
+	    dishService.dishupdate(dishDTO ,img); 
+
+	   
+	    return "이미지 수정";
+	    
+	}
+	
+	@RequestMapping(value="/dishDelete")
+	public String dishDelete(@RequestParam String seq,Model model) {
+		dishService.dishDelete(seq);
+		
+	   return "삭제 완료"; 
+	}	
 
 }
