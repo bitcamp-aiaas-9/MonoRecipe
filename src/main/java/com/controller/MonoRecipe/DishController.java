@@ -1,10 +1,6 @@
 package com.controller.MonoRecipe;
 
 
-
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +33,7 @@ public class DishController {
 	
 	/** 채연 */
 	@RequestMapping(value="/dishList")
-	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg) {
+	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg, Model model) {
 	   return "/dish/dishList"; 
 	}
 	

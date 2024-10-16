@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +26,9 @@ public class UserController {
 	
 	@Autowired
 	JavaMailSender mailSender;
+	
+	@Autowired
+	UserDTO userDTO;
 	
 	@RequestMapping(value="/user/signUp", method = RequestMethod.GET)
 	public String userSignUp() {
@@ -49,12 +53,24 @@ public class UserController {
 		userService.write(userDTO);
 	}
 	
+	@RequestMapping(value="/user/login")
+	public String login(@ModelAttribute UserDTO userDTO, Model model) {
+	    userDTO = userService.login(userDTO);
+	    
+	    if (userDTO == null) {
+	        model.addAttribute("error", "로그인 실패! 이메일 또는 비밀번호가 잘못되었습니다.");
+	        return "/user/userSignIn"; 
+	    }
+	    model.addAttribute("userDTO", userDTO);
+
+	    return "/index"; // /WEB-INF/index.jsp
+	}
+	
 	//이메일 인증
 	  @RequestMapping(value = "/user/emailAuth", method = RequestMethod.POST)
 	    @ResponseBody
-	    public int emailAuth(String uemail) {	  		
-		        Random random = new Random();
-		        int checkNum = random.nextInt(888888) + 111111;
+	    public int emailAuth(String uemail , int randomNum) {	  		
+		        int checkNum = randomNum;
 		        String setFrom = "lunasc@naver.com"; // 보내는 이메일 주소
 		        String toMail = uemail; // 수신자 이메일 주소
 		        String title = "회원가입 인증 이메일입니다."; // 이메일 제목

@@ -17,7 +17,11 @@
 <main>
     <div id="container">
         <div id="edit-header">로그인</div>
-        <form name="loginForm" id="loginForm">
+        
+            <c:if test="${not empty error}">
+        <div style="color: red; text-align:center; margin-left:20px;">${error}</div>
+   			 </c:if>
+        <form name="loginForm" id="loginForm" action="/MonoRecipe/user/login" >
             <table>
                 <tr>
                     <th class="label">이메일</th>
@@ -36,20 +40,22 @@
                 <tr>
                     <th class="label"></th>
                     <td class="input">
-                        <button type="button" id="loginBtn" style="width: 100%;">로그인</button>
+                        <button type="submit" id="loginBtn" style="width: 95%;">로그인</button>
                     </td>
                 </tr>
             </table>
         </form>
-        <div class="text-center" style="margin-top: 10px;">
-            <a href="/userSignUp.jsp" style="font-size: 0.8em;">회원가입</a> | 
-            <a href="/admin/dashboard.jsp" style="font-size: 0.8em;">관리자 페이지</a>
-        </div>
+<div style="margin-top: 10px; margin-right:27px;  margin-bottom: 20px; ">
+    <a href="/admin/dashboard.jsp" style="font-size: 1em; float: right;  ">관리자 페이지</a>
+    <a href="/userSignUp.jsp" style="font-size: 1em; float: right; margin-right:15px;">회원가입</a>  
+
+</div>
     </div>
 </main>
 <c:import url="/common/footer" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../js/userSignUp.js"></script>
+<script type="text/javascript" src="../js/userSignIn.js"></script>
+
 </body>
 </html>

@@ -11,4 +11,6 @@ public interface UserDAO {
 
 	void write(UserDTO userDTO);
 
+	UserDTO login(UserDTO userDTO);
+
 }

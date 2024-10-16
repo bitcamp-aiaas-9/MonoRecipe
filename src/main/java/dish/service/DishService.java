@@ -1,4 +1,7 @@
+// MonoRecipe/src/main/java/dish/service/DishService.java
 package dish.service;
+
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -9,8 +12,8 @@ public interface DishService {
 	
 	
 	/** 채연 */
-
 	
+	public List<DishDTO> getDishIndexList();
 	
 	
 	
