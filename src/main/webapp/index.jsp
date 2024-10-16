@@ -20,42 +20,44 @@
 
 
 <section class="dishSection">
-	<div class="dishCategory">
-		<div class="categoryTitle">오늘의 NEW RECIPE</div>
-		<div class="categoryAll">모두보기</div>
-	</div>
-	
-	<div class="dishTable">
-		<table>
-			<tr>
-				<td><img class="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
-				<td><img class="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
-				<td><img class="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
-				<td><img class="dishImg" src="./image/tomato.png" alt="Dish 2"></td>
-			</tr>
-			<tr>
-				<td>
-					<div class="dname">돼지고기김치찌개</div>
-					<div class="scoreDiv">평점<span class="dscore">4.3</span></div>
-				</td>
-				<td>
-					<div class="dname">돼지고기김치찌개</div>
-					<div class="scoreDiv">평점<span class="dscore">4.3</span></div>
-				</td>
-				<td>
-					<div class="dname">대박대박 존나 맛있는 돼지고기 김치찌개</div>
-					<div class="scoreDiv">평점<span class="dscore">4.3</span></div>
-				</td>
-				<td>
-					<div class="dname">돼지고기김치찌개</div>
-					<div class="scoreDiv">평점<span class="dscore">4.3</span></div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	
-	
+    <div class="dishCategory">
+        <div class="categoryTitle">오늘의 NEW RECIPE</div>
+        <div class="categoryAll">모두보기 ></div>
+    </div>
+    
+    <div class="dishGrid">
+        <div class="dishItem">
+            <img class="dishImg" src="./image/tomato.png" alt="Dish 1">
+            <div class="dishInfo">
+                <div class="dname">돼지고기김치찌개</div>
+                <div class="scoreDiv">평점 4.3</div>
+            </div>
+        </div>
+        <div class="dishItem">
+            <img class="dishImg" src="./image/tomato.png" alt="Dish 2">
+            <div class="dishInfo">
+                <div class="dname">대박대박 존나 맛있는 돼지고기 김치찌개</div>
+                <div class="scoreDiv">평점 4.3</div>
+            </div>
+        </div>
+        <div class="dishItem">
+            <img class="dishImg" src="./image/tomato.png" alt="Dish 3">
+            <div class="dishInfo">
+                <div class="dname">돼지고기김치찌개</div>
+                <div class="scoreDiv">평점 4.3</div>
+            </div>
+        </div>
+        <div class="dishItem">
+            <img class="dishImg" src="./image/tomato.png" alt="Dish 4">
+            <div class="dishInfo">
+                <div class="dname">돼지고기김치찌개</div>
+                <div class="scoreDiv">평점 4.3</div>
+            </div>
+        </div>
+    </div>
 </section>
+
+
     
 
 </main>
