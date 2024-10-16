@@ -45,7 +45,7 @@
 							<div id="showImageList">
 								<img
 									src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}"
-									alt="${dishDTO.dimage}" width="70" height="70"
+									alt="${dishDTO.dimage}" width="300" height="300"
 									style="cursor: pointer;">
 							</div>
 
@@ -53,12 +53,12 @@
 					</tr>
 
 					<tr class="foodImage">
-
-						<td><label for="foodImage" class="file-label">음식 사진:</label>
+						<td colspan="2">
+							<div class="file-image-container">
+								<label for="foodImage" class="file-label">음식 사진:</label> <input
+									type="file" id="image" name="image" accept="image/*">
+							</div>
 						</td>
-						<td><input type="file" id="image" name="image"
-							accept="image/*"></td>
-
 					</tr>
 
 
