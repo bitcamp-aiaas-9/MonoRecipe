@@ -2,6 +2,7 @@
 package dish.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,12 +12,12 @@ import dish.bean.DishDTO;
 public interface DishDAO {
 	
 	/** 채연 */
-	
+	// MonoRecipe/src/main/java/dish/dao/DishDAO.java
 	public List<DishDTO> getDishIndexList();
 	
+	public List<DishDTO> getDishList(Map<String, Integer> map);
 	
-	
-	
+	public int getTotalA();
 	
 	
 	

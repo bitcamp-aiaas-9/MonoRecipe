@@ -50,6 +50,7 @@ section {
     align-items: center;
     background-color: white;
     width: 40%;
+    max-height: 50px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid black;
@@ -77,7 +78,6 @@ section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 10px;
 }
 
 .adminBtn {
@@ -85,25 +85,29 @@ section {
 	display: flex;
     align-items: center;
     justify-content: center;
-	width: 100px;
-    height: 30px;
-    border-radius: 3px;
+	width: 20%;
+    height: 45px;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     text-align: center;
+    border: 1px solid black;
+    background: white;
 }
 
 #writePageBtn {
-	background: #457ABF;
+/* 	background: #457ABF;
 	color: white;
-	border: 1px solid #457ABF;
+	border: 1px solid #457ABF; */
+	border-radius: 5px 0 0 5px;
+	border-right: none;
 }
 
 #deleteBtn {
-    background: #77B3D9;
+/*     background: #77B3D9;
 	color: white;
-	border: 1px solid #77B3D9;	
+	border: 1px solid #77B3D9; */
+	border-radius: 0 5px 5px 0;	
 }
 
 
@@ -123,22 +127,41 @@ section {
 	margin-top: 30px;
 }
 
+
 .dishGrid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr); /* 4열 구성*/
     gap: 20px;
 }
+ 
 
 .dishItem {
     width: 22%;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
     padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dishItem:hover {
+    transform: scale(1.05); /* 5% 확대 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;	
+}
+
+/* 빈 플레이스홀더 아이템 스타일 */
+.dishItem.placeholder {
+    visibility: hidden; /* 보이지 않게 처리 */
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
 }
 
 .dishImgDiv {
@@ -182,6 +205,7 @@ section {
 /** <section class="pageSection"> */
 #page-block {
    margin: 20px auto;
+   margin-bottom: 30px;
    font-size: 13pt;
    display: flex;
    justify-content: center;
@@ -207,7 +231,11 @@ span:hover {
 }
 
 
-/* 600px 이하일 때 적용될 스타일 */
+
+
+
+
+/** 600px 이하일 때 적용될 스타일 */
 @media (max-width: 600px) {
 	
 	/** <section class="topSection"> */
@@ -245,6 +273,20 @@ span:hover {
     
     
     
+    /** <section class="adminSection"> */
+    .adminBtn {
+    	width: 40%;
+    	max-height: 40px;
+    	font-size: 0.9rem;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     .dishItem {
         width: 46%;
@@ -254,5 +296,3 @@ span:hover {
 		padding-top: 80px;
 	}
 }
-
-

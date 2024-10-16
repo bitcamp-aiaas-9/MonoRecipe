@@ -1,6 +1,8 @@
 package com.controller.MonoRecipe;
 
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,9 +34,15 @@ public class DishController {
 	
 	
 	/** 채연 */
+	// MonoRecipe/src/main/java/com/controller/MonoRecipe/DishController.java
 	@RequestMapping(value="/dishList")
 	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg, Model model) {
-	   return "/dish/dishList"; 
+		Map<String, Object> dishPageMap = dishService.getDishList(pg);
+		dishPageMap.put("pg", pg);
+		model.addAttribute("dishPageMap", dishPageMap);
+		System.out.println(dishPageMap); // 디버깅용
+
+		return "/dish/dishList"; 
 	}
 	
 	
