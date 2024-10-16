@@ -9,7 +9,7 @@
         <div id="headerLogo">
             <a href="${pageContext.request.contextPath}/" id="logoLink">
                 <img src="${pageContext.request.contextPath}/image/mono_logo.png" alt="logo" />
-                Mono Recipe
+                <div id="projectName">Mono Recipe</div>
             </a>
         </div>
         

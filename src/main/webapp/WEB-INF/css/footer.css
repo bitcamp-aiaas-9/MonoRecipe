@@ -50,6 +50,10 @@
   font-size: 16x;
 }
 
+.socialIcons {
+	display: flex;
+}
+
 .socialIcons img {
   width: 40px;
   height: 40px;
