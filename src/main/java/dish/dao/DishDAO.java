@@ -1,3 +1,4 @@
+// MonoRecipe/src/main/java/dish/dao/DishDAO.java
 package dish.dao;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import dish.bean.DishDTO;
 public interface DishDAO {
 	
 	/** 채연 */
-	// MonoRecipe/src/main/java/dish/dao/DishDAO.java
+	
 	public List<DishDTO> getDishIndexList();
 	
 	

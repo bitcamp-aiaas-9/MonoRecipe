@@ -43,6 +43,7 @@
     </div>
     
     <div class="dishGrid">
+    <c:if test="${not empty dishList}">
 	    <c:forEach var="dishDTO" items="${dishList}">
 	        <div class="dishItem">
 	            <img class="dishImg" 
@@ -55,6 +56,10 @@
 	            </div>
 	        </div>
 	    </c:forEach>
+	</c:if>  
+    <c:if test="${empty dishList}">
+        <div>등록된 레시피가 없습니다.</div>
+    </c:if>	    
 	</div>
 </section>
 

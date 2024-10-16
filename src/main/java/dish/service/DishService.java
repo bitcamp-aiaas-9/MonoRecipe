@@ -1,3 +1,4 @@
+// MonoRecipe/src/main/java/dish/service/DishService.java
 package dish.service;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface DishService {
 	
 	
 	/** 채연 */
-	// MonoRecipe/src/main/java/dish/service/DishService.java
+	
 	public List<DishDTO> getDishIndexList();
 	
 	

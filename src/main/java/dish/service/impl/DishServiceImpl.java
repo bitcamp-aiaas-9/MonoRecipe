@@ -1,3 +1,4 @@
+// MonoRecipe/src/main/java/dish/service/impl/DishServiceImpl.java
 package dish.service.impl;
 
 import java.io.File;
@@ -37,12 +38,16 @@ public class DishServiceImpl implements DishService {
 	
 	
 	/** 채연 */
-	// MonoRecipe/src/main/java/dish/service/impl/DishServiceImpl.java
+	
 	@Override
 	public List<DishDTO> getDishIndexList() {
-		List<DishDTO> list = dishDAO.getDishIndexList();;
-		System.out.println("list : " + list);
-		return dishDAO.getDishIndexList();
+	    List<DishDTO> dishList = dishDAO.getDishIndexList();
+	    if (dishList == null || dishList.isEmpty()) {
+	        System.out.println("Dish dishList is empty or null");
+	    } else {
+	        System.out.println("Dish dishList: " + dishList);
+	    }
+	    return dishList;
 	}
 	
 	
