@@ -96,9 +96,9 @@ public class DishServiceImpl implements DishService {
 
 	//음식 레시피 불러오기
 	@Override
-	public DishDTO getDishDTO(String seq) {
+	public DishDTO getDishDTO(String dcode) {
 		
-		return dishDAO.getDishDTO(seq);
+		return dishDAO.getDishDTO(dcode);
 	}
 
 
@@ -146,15 +146,15 @@ public class DishServiceImpl implements DishService {
 
 
 	@Override
-	public void dishDelete(String seq) {
-		DishDTO dishDTO=dishDAO.getDishDTO(seq);
+	public void dishDelete(String dcode) {
+		DishDTO dishDTO=dishDAO.getDishDTO(dcode);
 		String imageFileName=dishDTO.getDimageUUID();
 		System.out.println("imageFileName=" + imageFileName);
 		//이미지 삭제
 		objectStorageService.deleteFile(bucketName, "storage/", imageFileName);
 	    System.out.println("기존 이미지 삭제 완료: " + imageFileName);
 	    //db
-	    dishDAO.dishDelete(seq);
+	    dishDAO.dishDelete(dcode);
 	}
 	
 	

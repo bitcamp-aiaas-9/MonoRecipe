@@ -74,8 +74,8 @@ public class DishController {
 	}
 	
 	@RequestMapping(value="/dishUpdate")
-	public String dishUpdate(@RequestParam String seq,Model model) {
-		DishDTO dishDTO=dishService.getDishDTO(seq);
+	public String dishUpdate(@RequestParam String dcode,Model model) {
+		DishDTO dishDTO=dishService.getDishDTO(dcode);
 		model.addAttribute("dishDTO", dishDTO);
 	   return "/dish/dishUpdate"; 
 	}
@@ -97,8 +97,9 @@ public class DishController {
 	}
 	
 	@RequestMapping(value="/dishDelete")
-	public String dishDelete(@RequestParam String seq,Model model) {
-		dishService.dishDelete(seq);
+	@ResponseBody
+	public String dishDelete(@RequestParam String dcode,Model model) {
+		dishService.dishDelete(dcode);
 		
 	   return "삭제 완료"; 
 	}	
