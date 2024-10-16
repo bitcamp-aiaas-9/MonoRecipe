@@ -32,8 +32,40 @@ $(document).ready(function() {
             reader.readAsDataURL(file);
         }
 		
-		$('#updateBtn').click(function(event) {
-    event.preventDefault(); // 기본 제출 방지
+	
+		
+		$('#updateBtn').click(function(e) {
+        // 초기화
+        let isValid = true;
+        $('.error-message').remove(); // 기존 오류 메시지 제거
+
+        // 음식 이름 검증
+        const dname = $('#dname').val().trim();
+        if (dname === "") {
+            isValid = false;
+            $('#dname').after('<div class="error-message text-danger">음식 이름을 입력하세요.</div>');
+        }
+
+        // 음식 소개글 검증
+        const dintro = $('#dintro').val().trim();
+        if (dintro === "") {
+            isValid = false;
+            $('#dintro').after('<div class="error-message text-danger">음식 소개글을 입력하세요.</div>');
+        }
+
+        // 음식 레시피 검증
+        const drecipe = $('#drecipe').val().trim();
+        if (drecipe === "") {
+            isValid = false;
+            $('#drecipe').after('<div class="error-message text-danger">음식 레시피를 입력하세요.</div>');
+        }
+
+       
+        
+
+        // 모든 필드가 유효할 경우 폼 제출
+        if (isValid) {
+            event.preventDefault(); // 기본 제출 방지
     let formData = new FormData($('#dishUpdateUpload')[0]);
     
     $.ajax({
@@ -51,6 +83,14 @@ $(document).ready(function() {
             console.log(e);
         }
     }); // $.ajax
+        }
+    });
+
+    
+ 
+		
+		
+    
 });
 
 $('#deleteBtn').click(function(event) {
@@ -71,5 +111,5 @@ $('#deleteBtn').click(function(event) {
 });
         	    
     
-});
+
 
