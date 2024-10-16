@@ -41,6 +41,9 @@
 <select id="getImageFileName" parameterType="int" resultType="String">
 select dimageUUID from dish_tb where dcode=#{dcode}
 </select>
+<select id="getimageOriginalFileName" parameterType="int" resultType="String">
+select dimage from dish_tb where dcode=#{dcode}
+</select>
 
  <update id="dishUpdate" parameterType="dish.bean.DishDTO">
  UPDATE dish_tb

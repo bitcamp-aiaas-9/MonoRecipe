@@ -108,36 +108,41 @@ public class DishServiceImpl implements DishService {
 	@Override
 	public void dishupdate(DishDTO dishDTO, MultipartFile img) {
 		String filePath = session.getServletContext().getRealPath("WEB-INF/storage");
-		
+		System.out.println("받은값"+dishDTO.getDimage());
 		System.out.println("실제폴더 =" +filePath);
-		
+		String orginimageFileName=dishDAO.getImageFileName(dishDTO.getDcode()); 
+		System.out.println("imageFileName=" + orginimageFileName);
 		//object Storage(NCP)는 이미지를 어어쓰지않은다
 		//db에서 seq에 해당하는 이미지 파일이름을 꺼내와 삭제하고 집어넣어 새로운 이미지로 수정
-		
-		String imageFileName=dishDAO.getImageFileName(dishDTO.getDcode());
-		System.out.println("imageFileName=" + imageFileName);
-		//이미지 삭제
-		objectStorageService.deleteFile(bucketName, "storage/", imageFileName);
-	    System.out.println("기존 이미지 삭제 완료: " + imageFileName);
-	     
-	     
-		//새로운 이미지 올리기
-	     imageFileName = objectStorageService.uploadFile(bucketName, "storage/", img);
-	     String imageOriginalFileName=img.getOriginalFilename();
-	     File file =new File(filePath,imageOriginalFileName);
-	     
-	     try {
-			img.transferTo(file);
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	     dishDTO.setDimageUUID(imageFileName);
-		 dishDTO.setDimage(imageOriginalFileName);
-
+		if (img != null && !img.isEmpty()) {
+	        // 기존 이미지 삭제
+	        objectStorageService.deleteFile(bucketName, "storage/", orginimageFileName);
+	        System.out.println("기존 이미지 삭제 완료: " + orginimageFileName);
+	     // 새로운 이미지 업로드
+	        orginimageFileName = objectStorageService.uploadFile(bucketName, "storage/", img);
+	        
+	        String imageOriginalFileName = img.getOriginalFilename();
+	        File file = new File(filePath, imageOriginalFileName);
+	        // 파일 경로 설정
+	        
+	        
+	        try {
+	            img.transferTo(file);
+	        } catch (IllegalStateException | IOException e) {
+	            e.printStackTrace();
+	            return; // 오류 발생 시 메소드 종료
+	        }
+	        
+	        dishDTO.setDimageUUID(orginimageFileName);
+	        dishDTO.setDimage(imageOriginalFileName);
+	     	System.out.println(orginimageFileName+"/"+imageOriginalFileName);
+	 	   
+	    } else {
+	    	String imageOriginalFileName=dishDAO.getimageOriginalFileName(dishDTO.getDcode());
+	    	dishDTO.setDimage(imageOriginalFileName);
+	    	 dishDTO.setDimageUUID(orginimageFileName);
+	    	System.out.println(orginimageFileName);
+	    }
 	//DB
 		 dishDAO.dishUpdate(dishDTO);
 	}

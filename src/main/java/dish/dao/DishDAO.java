@@ -35,6 +35,8 @@ public interface DishDAO {
 	void dishUpdate(DishDTO dishDTO);
 
 	void dishDelete(String seq);
+
+	String getimageOriginalFileName(int dcode);
 	
 	
 	

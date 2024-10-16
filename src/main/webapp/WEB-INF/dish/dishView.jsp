@@ -18,6 +18,7 @@
 <body>
     <c:import url="/common/header" />
     <main>
+    <p id="dcode" style="visibility: hidden;">${dishDTO.dcode}</p>
         <div class="container">
             <h1>${dishDTO.dname}</h1>
             <table class="table">
@@ -31,23 +32,23 @@
                         <td colspan="2" class="highlight">소개글</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="highlight">${dishDTO.dintro}</td>
+                        <td colspan="2" class="highlight"><pre>${dishDTO.dintro}</pre></td>
+                    </tr>
+                    <tr>
+                    	<td></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="highlight">레시피</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="highlight">${dishDTO.drecipe}</td>
+                        <td colspan="2" class="highlight"><pre>${dishDTO.drecipe}</pre></td>
                     </tr>
-                    <tr>
-                        <th width="90">총 별점:</th>
-                        <td align="left">${dishDTO.dscore}</td>
-                    </tr>
+                    
                 </tbody>
             </table>
             <hr/>
             <div class="button-row" style="text-align: right;">
-                <button type="button" >수정하기</button>
+                <button type="button" id="dishUpdateBtn">수정하기</button>
             </div>
         </div>
 
@@ -77,26 +78,35 @@
             </form>
 		<br>	<br>	<br>
             <h3 id="reviewtite">리뷰 목록</h3>
-            <table id="reviewTable">
-                <thead>
-                <!--예시  -->
-                    <tr>
-                        <td align="left" width="200">작성자</td>
-                        
-                        <td class="right-align" width="650">작성날짜</td>
-                        <td class="right-align">
-                        <button type="button" id="reviewWriteBtn">수정하기</button>
-                        <button type="button" id="revireDeleteBtn">삭제하기</button>
-                        </td>
-                    </tr>
-                    <tr>
-                    	<td height="200">별점</td>
-                        <td colspan="2">내용</td>
-                    </tr>
-                    <!--예시  -->
-                </thead>
-                <tbody id="reviewlist"></tbody>
-            </table>
+<table id="reviewTable">
+    <thead>
+        <tr>
+            <th width="90">총 별점: ${dishDTO.dscore}</th>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <!-- 예시 -->
+        <tr>
+            <td align="left" width="200">작성자</td>
+            <td class="right-align" width="650">작성날짜</td>
+            <td class="right-align">
+                <button type="button" id="reviewWriteBtn">수정하기</button>
+                <button type="button" id="revireDeleteBtn">삭제하기</button>
+            </td>
+        </tr>
+        <tr class="review-content">
+            <td height="200">별점</td>
+            <td colspan="2">내용</td>
+        </tr>
+        <!-- 예시 -->
+        <tr>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody id="reviewlist"></tbody>
+</table>
         </div>
         
     </main>
