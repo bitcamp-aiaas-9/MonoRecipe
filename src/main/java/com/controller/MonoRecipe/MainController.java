@@ -19,11 +19,17 @@ public class MainController {
 	
 	@RequestMapping(value="/")
 	public String index(Model model) {
-		List<DishDTO> dishList = dishService.getDishList();
-		model.addAttribute("dishList", dishList);
-		
-		return "/index"; // /WEB-INF/index.jsp
+	    List<DishDTO> dishList = dishService.getDishIndexList();
+	    
+	    if (dishList == null || dishList.isEmpty()) {
+	        model.addAttribute("dishList", List.of()); // 빈 리스트 전달
+	    } else {
+	        model.addAttribute("dishList", dishList);
+	    }
+
+	    return "/index"; // /WEB-INF/index.jsp
 	}
+
    
 	@RequestMapping(value = "/common/header", method = RequestMethod.GET)
 	public String header() {

@@ -37,10 +37,12 @@ public class DishServiceImpl implements DishService {
 	
 	
 	/** 채연 */
-
+	// MonoRecipe/src/main/java/dish/service/impl/DishServiceImpl.java
 	@Override
-	public List<DishDTO> getDishList() {
-		return dishDAO.getDishList();
+	public List<DishDTO> getDishIndexList() {
+		List<DishDTO> list = dishDAO.getDishIndexList();;
+		System.out.println("list : " + list);
+		return dishDAO.getDishIndexList();
 	}
 	
 	

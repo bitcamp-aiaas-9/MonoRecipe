@@ -11,8 +11,8 @@ public interface DishService {
 	
 	
 	/** 채연 */
-
-	public List<DishDTO> getDishList();
+	// MonoRecipe/src/main/java/dish/service/DishService.java
+	public List<DishDTO> getDishIndexList();
 	
 	
 	

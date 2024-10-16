@@ -43,35 +43,19 @@
     </div>
     
     <div class="dishGrid">
-        <div class="dishItem">
-            <img class="dishImg" src="./image/tomato.png" alt="Dish 1">
-            <div class="dishInfo">
-                <div class="dname">돼지고기김치찌개</div>
-                <div class="scoreDiv">평점 4.3</div>
-            </div>
-        </div>
-        <div class="dishItem">
-            <img class="dishImg" src="./image/tomato.png" alt="Dish 2">
-            <div class="dishInfo">
-                <div class="dname">대박대박 존나 맛있는 돼지고기 김치찌개</div>
-                <div class="scoreDiv">평점 4.3</div>
-            </div>
-        </div>
-        <div class="dishItem">
-            <img class="dishImg" src="./image/tomato.png" alt="Dish 3">
-            <div class="dishInfo">
-                <div class="dname">돼지고기김치찌개</div>
-                <div class="scoreDiv">평점 4.3</div>
-            </div>
-        </div>
-        <div class="dishItem">
-            <img class="dishImg" src="./image/tomato.png" alt="Dish 4">
-            <div class="dishInfo">
-                <div class="dname">돼지고기김치찌개</div>
-                <div class="scoreDiv">평점 4.3</div>
-            </div>
-        </div>
-    </div>
+	    <c:forEach var="dishDTO" items="${dishList}">
+	        <div class="dishItem">
+	            <img class="dishImg" 
+	                 src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
+	                 alt="${dishDTO.dname}" />
+	            <div class="dishInfo">
+	                <input type="hidden" value="${dishDTO.dcode}" />
+	                <div class="dname">${dishDTO.dname}</div>
+	                <div class="scoreDiv">평점 : ${dishDTO.dscore}</div>
+	            </div>
+	        </div>
+	    </c:forEach>
+	</div>
 </section>
 
 
