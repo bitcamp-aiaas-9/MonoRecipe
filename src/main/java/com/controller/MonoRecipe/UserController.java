@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import user.bean.UserDTO;
@@ -38,6 +39,21 @@ public class UserController {
 	@RequestMapping(value="/user/signIn", method = RequestMethod.GET)
 	public String userSignIn() {
 		return "/user/userSignIn";
+	}
+	
+	@RequestMapping(value="/user/userUpdate", method = RequestMethod.GET)
+	public String userUpdate(@RequestParam("uemail") String uemail, Model model)  {
+		userDTO=userService.getMember(uemail);
+		
+	    model.addAttribute("userDTO", userDTO);
+		
+		return "/user/userUpdate";
+	}
+	
+	@RequestMapping(value="/user/update", method = RequestMethod.POST)
+	@ResponseBody
+	public void userUpdate(@ModelAttribute UserDTO userDTO)  {
+		userService.update(userDTO);
 	}
 	
 	@RequestMapping(value="/user/getExistId", method = RequestMethod.POST)

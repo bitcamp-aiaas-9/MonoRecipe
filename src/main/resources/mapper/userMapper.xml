@@ -20,6 +20,16 @@
     SELECT * FROM user_tb WHERE uemail = #{uemail} AND upwd = #{upwd}
 </select>
 
+	<select id="getMember" parameterType="String" resultType="userDTO">
+		select * from user_tb where uemail=#{uemail}
+	</select>
+	
+	
+	<update id="update" parameterType="user.bean.UserDTO">
+		update user_tb set uname=#{uname}, upwd=#{upwd}, uemail=#{uemail} where uid=#{uid}
+	</update>	
+
+
 	
 	<select id="list" resultType="userDTO">
 		select * from usertable limit #{startNum}, #{endNum}
@@ -29,13 +39,8 @@
 		select count(*) from usertable
 	</select>
 	
-	<select id="getUser" parameterType="String" resultType="userDTO">
-		select * from usertable where id=#{id}
-	</select>
-	
-	<update id="update" parameterType="userDTO">
-		update usertable set name=#{name}, pwd=#{pwd} where id=#{id}
-	</update>
+
+
 	
 	<select id="getExistPwd" parameterType="String" resultType="userDTO">
 		select * from usertable where id=#{id}
