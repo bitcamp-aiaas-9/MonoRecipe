@@ -1,4 +1,3 @@
-/* MonoRecipe/src/main/webapp/WEB-INF/css/header.css */
 @charset "UTF-8";
 @import url("init.css");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&display=swap');
@@ -23,12 +22,10 @@ header.header {
     align-items: center; 	
 }
 
-
 #headerLogo, #headerContent {
     margin: 0;
     padding: 0;
 }
-
 
 #headerLogo #logoLink {
 	font-family: "Noto Serif Oriya", serif;
@@ -77,27 +74,54 @@ header.header {
     align-items: center;
 }
 
-#mobileMenu i {
-    font-size: 24px;
-    font-weight: 200px;
-    color: white;
-    margin-left: 15px;
+#menuIcon, #closeIcon {
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 
-/* 가로가 600px 이하일 때 모바일 메뉴와 검색 아이콘 표시 */
+#mobileMenuList {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    display: none;
+}
+
+#mobileMenuList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#mobileMenuList ul li {
+    margin: 10px 0;
+}
+
+#mobileMenuList ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+#mobileMenuList ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 모바일 환경에서 스타일 */
 @media screen and (max-width: 600px) {
     #headerContent {
-        display: none; /* 모바일에서는 메뉴 숨김 */
-    }
-    
-    /* 아이콘 스타일 (검색과 햄버거 메뉴) */
-    #mobileMenu {
-        display: flex;
-        align-items: center;
+        display: none;
     }
 
-    #searchIcon, #menuIcon {
+    #mobileMenu {
+        display: flex;
+    }
+
+    #searchIcon, #menuIcon #closeIcon {
         width: 30px;
         height: 30px;
         margin-left: 10px;
@@ -111,4 +135,18 @@ header.header {
     #headerLogo #logoLink {
         font-size: 18px;
     }
+    
+    #mobileMenuList {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    display: none;
+    z-index: -1; /* 기본적으로 숨겨진 상태에서는 z-index를 낮게 설정 */
+}
+    
 }

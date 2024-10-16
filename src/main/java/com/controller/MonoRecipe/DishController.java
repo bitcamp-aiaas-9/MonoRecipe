@@ -5,8 +5,6 @@ package com.controller.MonoRecipe;
 
 
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,11 +36,10 @@ public class DishController {
 	
 	
 	/** 채연 */
-
-	
-	
-	
-	
+	@RequestMapping(value="/dishList")
+	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg) {
+	   return "/dish/dishList"; 
+	}
 	
 	
 	
