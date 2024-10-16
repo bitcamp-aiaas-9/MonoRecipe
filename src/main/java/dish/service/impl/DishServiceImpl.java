@@ -42,11 +42,6 @@ public class DishServiceImpl implements DishService {
 	@Override
 	public List<DishDTO> getDishIndexList() {
 	    List<DishDTO> dishList = dishDAO.getDishIndexList();
-	    if (dishList == null || dishList.isEmpty()) {
-	        System.out.println("Dish dishList is empty or null");
-	    } else {
-	        System.out.println("Dish dishList: " + dishList);
-	    }
 	    return dishList;
 	}
 	

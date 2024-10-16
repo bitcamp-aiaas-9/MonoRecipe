@@ -22,10 +22,8 @@ public class MainController {
 	    List<DishDTO> dishList = dishService.getDishIndexList();
 	    
 	    if (dishList == null || dishList.isEmpty()) {
-	    	System.out.println("DishList가 비어 있음");  // 디버깅 로그
 	        model.addAttribute("dishList", List.of()); // 빈 리스트 전달
 	    } else {
-	    	System.out.println("DishList: " + dishList);  // 디버깅 로그
 	        model.addAttribute("dishList", dishList);
 	    }
 
