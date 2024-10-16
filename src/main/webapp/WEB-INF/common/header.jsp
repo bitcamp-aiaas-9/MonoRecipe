@@ -32,7 +32,7 @@
 </header>
 <div id="mobileMenuList" style="display: none;">
     <ul>
-        <li><a href="${pageContext.request.contextPath}/user/signIn">로그인/회원가입</a></li>
+        <li><a href="${pageContext.request.contextPath}/user/userSignIn">로그인/회원가입</a></li>
         <li><a href="https://www.youtube.com/playlist?list=PLL1qZqiuec_Qctidjh4_euZOpPQA_bp_W" target="_blank">모노레시피 YouTube</a></li>
         <li><a href="https://github.com/bitcamp-aiaas-9/MonoRecipe">모노레시피 Lab</a></li>
     </ul>
