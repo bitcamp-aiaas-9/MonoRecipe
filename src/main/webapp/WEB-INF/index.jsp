@@ -24,7 +24,7 @@
     <div class="carouselOverlay">
         <div class="carouselText">프로를 위한 프리미엄 레시피</div>
         <div class="searchBox">
-            <input type="text" placeholder="레시피, 재료, 아티스트, 태그 검색">
+            <input type="text" placeholder="음식, 레시피 검색">
             <img class="searchIcon" id="searchIconBlack" src="image/search_icon_black.png" alt="Search Icon">
         </div>
     </div>
@@ -46,9 +46,11 @@
     <c:if test="${not empty dishList}">
 	    <c:forEach var="dishDTO" items="${dishList}">
 	        <div class="dishItem">
-	            <img class="dishImg" 
-	                 src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
-	                 alt="${dishDTO.dname}" />
+	        	<div class="dishImgDiv">
+		            <img class="dishImg"
+		                 src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
+		                 alt="${dishDTO.dname}" />
+	        	</div>
 	            <div class="dishInfo">
 	                <input type="hidden" value="${dishDTO.dcode}" />
 	                <div class="dname">${dishDTO.dname}</div>

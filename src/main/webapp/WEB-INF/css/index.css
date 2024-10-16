@@ -70,7 +70,7 @@
     cursor: pointer;
 }
 
-/* 모바일 환경에서의 카루셀 스타일 */
+/* 모바일 환경에서의 carousel 스타일 */
 @media (max-width: 600px) {
     .carouselContainer {
     	padding-top: 80px;
@@ -170,9 +170,21 @@ main {
     padding: 10px;
 }
 
+.dishImgDiv {
+	width: 100%;
+	max-widh: 220px;
+	aspect-ratio: 1; /* 정사각형 유지 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+
 .dishImg {
     width: 100%;
     height: auto;
+    object-fit: contain;
 }
 
 .dishInfo {
