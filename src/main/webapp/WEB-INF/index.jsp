@@ -14,8 +14,7 @@
 <title>Mono Recipe</title>
 </head>
 <body>
-<c:import url="common/header" />
-
+<jsp:include page="/WEB-INF/common/header.jsp" />
 <div class="carouselContainer">
     <img src="image/carouselImg1.png" class="carouselImg active" alt="Image 1">
     <img src="image/carouselImg2.png" class="carouselImg" alt="Image 2">
@@ -69,7 +68,7 @@
     
 
 </main>
-<c:import url="common/footer" />
+<jsp:include page="/WEB-INF/common/footer.jsp" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
