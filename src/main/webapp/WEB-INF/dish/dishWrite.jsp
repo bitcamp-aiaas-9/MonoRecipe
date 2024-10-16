@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -14,37 +13,33 @@
 <body>
 <c:import url="/common/header" />
 <main>
-    <div class="container">
-        <h1>레시피 작성</h1>
+    <div class="container mt-4 mb-4">
+        <h1 class="text-center">레시피 작성</h1>
         <form id="dishWriteUpload">
-            <table>
-                
+            <table class="table">
                 <tr>
-                    <td colspan="2"><input type="text" id="dname" name="dname" placeholder="음식 이름"></td>
+                    <td colspan="2"><input type="text" class="form-control" id="dname" name="dname" placeholder="음식 이름"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><textarea id="dintro" name="dintro" rows="4" placeholder="음식 소개글"></textarea></td>
+                    <td colspan="2"><textarea class="form-control" id="dintro" name="dintro" rows="4" placeholder="음식 소개글"></textarea></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><textarea id="drecipe" name="drecipe" rows="6" placeholder="음식 레시피"></textarea></td>
+                    <td colspan="2"><textarea class="form-control" id="drecipe" name="drecipe" rows="6" placeholder="음식 레시피"></textarea></td>
                 </tr>
-                
-                    <tr class="foodImage">
-						<td colspan="2">
-							<div class="file-image-container">
-								<label for="foodImage" class="file-label">음식 사진:</label> <input
-									type="file" id="image" name="image" accept="image/*">
-							</div>
-						</td>
-					</tr>
-               
-                <tr>
-                    <td colspan="2" class="button-row">
-                        <button type="button" id="writeBtn">등록</button>
-                        <button type="button">취소</button>
+                <tr class="foodImage">
+                    <td colspan="2">
+                        <div class="file-image-container">
+                            <label for="foodImage" class="file-label">음식 사진:</label>
+                            <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                        </div>
                     </td>
                 </tr>
-                
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <button type="button" class="btn btn-black" id="writeBtn">등록</button>
+                        <button type="button" class="btn btn-black">취소</button>
+                    </td>
+                </tr>
             </table>
         </form>
     </div>

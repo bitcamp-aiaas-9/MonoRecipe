@@ -15,4 +15,34 @@
         window.location.href = `http://localhost:8080/MonoRecipe/dish/dishUpdate?dcode=${dcode}`;
     });
         
+ 	$('#btn-write').click(function(e) {
+        e.preventDefault(); // 기본 제출 동작 방지
+        
+        // 초기화
+        let isValid = true;
+        $('.error-message').remove(); // 기존 오류 메시지 제거
+
+        // 평점 검증
+        const rating = $('input[name="rating"]:checked').val();
+        if (!rating) {
+            isValid = false;
+            $('.rating-container').after('<div class="error-message text-danger">평점을 선택하세요.</div>');
+        }
+
+        // 리뷰 내용 검증
+        const content = $('#content').val().trim();
+        if (content === "") {
+            isValid = false;
+            $('#content').after('<div class="error-message text-danger">리뷰 내용을 입력하세요.</div>');
+        }
+
+        // 모든 필드가 유효할 경우 폼 제출
+        if (isValid) {
+            ////
+        }
     });
+ 
+        
+        
+        
+ });
