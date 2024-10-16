@@ -124,7 +124,7 @@ header.header {
     #searchIcon, #menuIcon #closeIcon {
         width: 30px;
         height: 30px;
-        margin-left: 10px;
+        margin: 10px;
     }
 
     #headerLogo img {
@@ -144,7 +144,7 @@ header.header {
     background-color: #000;
     color: white;
     text-align: left;
-    padding: 20px;
+    padding: 10px 30px 30px 30px;
     display: none;
     z-index: -1; /* 기본적으로 숨겨진 상태에서는 z-index를 낮게 설정 */
 }
