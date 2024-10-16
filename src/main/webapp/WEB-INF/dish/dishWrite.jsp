@@ -33,7 +33,7 @@
                         <label for="dimage" class="file-label">음식 사진:</label>
                     </td>
                     <td>
-                        <input type="file" id="dimage" name="dimage" accept="image/*">
+                        <input type="file" id="image" name="image" accept="image/*">
                     </td>
                 </tr>
                 <tr>

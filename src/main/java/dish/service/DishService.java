@@ -32,8 +32,14 @@ public interface DishService {
 	 * @param img */
 	
 	
-
+	
 	public void dishWrite(DishDTO dishDTO, MultipartFile img);
+
+	public DishDTO getDishDTO(String seq);
+
+	public void dishupdate(DishDTO dishDTO, MultipartFile img);
+
+	public void dishDelete(String seq);
 	
 	
 }

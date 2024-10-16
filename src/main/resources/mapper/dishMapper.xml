@@ -28,15 +28,33 @@
 
 
 <!-- 민선; dishWrite.jsp, dishUpdate.jsp, dishDelete.jsp -->
-
+<!-- 이미지 등록 -->
 <insert id="dishWrite" parameterType="dish.bean.DishDTO">
     INSERT INTO dish_tb (dimage, dimageUUID, dname, dintro, drecipe)
-    VALUES (#{dimage}, #{dimageUUID}, #{dname}, #{dintro}, #{drecipe}
+    VALUES (#{dimage}, #{dimageUUID}, #{dname}, #{dintro}, #{drecipe})
 </insert>
+<!-- 업데이트 하기전 정보 불러오기 -->
+<select id="getDishDTO" parameterType="String">
+	select * from dish_tb where dcode=#{seq}
+</select>
+<!-- 업데이트전 이미지 파일만 불러오기 -->
+<select id="getImageFileName" parameterType="int" resultType="String">
+select dimageUUID from dish_tb where dcode=#{dcode}
+</select>
 
-
-
-
-
-  
+ <update id="dishUpdate" parameterType="dish.bean.DishDTO">
+ UPDATE dish_tb
+    SET 
+        dimage = #{dimage},
+        dimageUUID = #{dimageUUID},
+        dname = #{dname},
+        dintro = #{dintro},
+        drecipe = #{drecipe}
+    WHERE dcode = #{dcode};
+ </update> 
+ <delete id="dishDelete" parameterType="String">
+  DELETE FROM dish_tb
+    WHERE dcode = #{seq};
+ </delete>
+ 
 </mapper>

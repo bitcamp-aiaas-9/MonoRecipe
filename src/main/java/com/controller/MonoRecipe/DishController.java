@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,9 +61,10 @@ public class DishController {
 	@RequestMapping(value = "/dishWriteUpload", method = RequestMethod.POST)
 	@ResponseBody
 	public String dishWriteUpload(@ModelAttribute DishDTO dishDTO,
-	                     @RequestParam("dimage") MultipartFile img) {
+	                     @RequestParam("image") MultipartFile img) {
 	    
-
+		
+		System.out.println("dto = "+dishDTO);
 	    // DB 저장 로직
 	    dishService.dishWrite(dishDTO ,img); 
 
@@ -72,11 +74,33 @@ public class DishController {
 	}
 	
 	@RequestMapping(value="/dishUpdate")
-	public String dishUpdate() {
+	public String dishUpdate(@RequestParam String seq,Model model) {
+		DishDTO dishDTO=dishService.getDishDTO(seq);
+		model.addAttribute("dishDTO", dishDTO);
 	   return "/dish/dishUpdate"; 
 	}
 	
 	
+	@RequestMapping(value = "/dishUpdateUpload", method = RequestMethod.POST)
+	@ResponseBody
+	public String dishUpdateUpload(@ModelAttribute DishDTO dishDTO,
+	                     @RequestParam("image") MultipartFile img) {
+	    
 		
+		System.out.println("dto = "+dishDTO);
+	    // DB 저장 로직
+	    dishService.dishupdate(dishDTO ,img); 
+
+	   
+	    return "이미지 수정";
+	    
+	}
+	
+	@RequestMapping(value="/dishDelete")
+	public String dishDelete(@RequestParam String seq,Model model) {
+		dishService.dishDelete(seq);
+		
+	   return "삭제 완료"; 
+	}	
 
 }

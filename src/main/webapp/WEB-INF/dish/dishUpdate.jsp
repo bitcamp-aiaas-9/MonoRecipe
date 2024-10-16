@@ -17,24 +17,26 @@
 <main>
     <div class="container">
         <h1>레시피 수정</h1>
-        <form action="#" method="post">
-            <table>
+        <form action="/MonoRecipe/dish/dishUpdateUpload" method="post" enctype="multipart/form-data">
+           <input type="text" style="visibility: hidden;" name="dcode" value="${dishDTO.dcode}">
+           <table>
                 
                 <tr>
                     
-                    <td colspan="2"><input type="text" id="foodName" name="foodName"  value="음식 이름" ></td>
+                    <td colspan="2"><input type="text" id="dname" name="dname"  value="${dishDTO.dname}" ></td>
                 </tr>
                 <tr>
                     
-                    <td colspan="2"><textarea id="foodDescription" name="foodDescription" rows="4" >음식 소개글</textarea></td>
+                    <td colspan="2"><textarea id="dintro" name="dintro" rows="4" >${dishDTO.dintro}</textarea></td>
                 </tr>
                 <tr>
                    
-                    <td colspan="2"><textarea id="foodRecipe" name="foodRecipe"  rows="6" >음식 레시피</textarea></td>
+                    <td colspan="2"><textarea id="drecipe " name="drecipe "  rows="6" >${dishDTO.drecipe}</textarea></td>
                 </tr>
                 <tr>
     <td colspan="2" class="image-row" style="text-align: center;">
-        <img alt="" src="" width="100" height="100" class="food-image">
+        <img src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" alt="${dishDTO.dimage}" width="70" height="70" style="cursor: pointer;">
+                    
     </td>
 </tr>
                 
@@ -44,7 +46,7 @@
 							        <label for="foodImage"  class="file-label">음식 사진:</label>
 							    </td>
 							    <td>
-							        <input type="file" id="foodImage" name="foodImage" accept="image/*">
+							        <input type="file" id="foodImage" name="image" accept="image/*">
 							    </td>
 				    
 				</tr>
@@ -53,7 +55,7 @@
                 <tr>
                     <td colspan="2" class="button-row">
                         <button type="submit">수정</button>
-                        <button type="button" >삭제</button>
+                        <button type="button" id="deleteBtn">삭제</button>
                     </td>
                 </tr>
                 
