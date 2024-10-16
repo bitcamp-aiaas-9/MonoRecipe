@@ -35,7 +35,7 @@
 </insert>
 <!-- 업데이트 하기전 정보 불러오기 -->
 <select id="getDishDTO" parameterType="String">
-	select * from dish_tb where dcode=#{seq}
+	select * from dish_tb where dcode=#{dcode}
 </select>
 <!-- 업데이트전 이미지 파일만 불러오기 -->
 <select id="getImageFileName" parameterType="int" resultType="String">

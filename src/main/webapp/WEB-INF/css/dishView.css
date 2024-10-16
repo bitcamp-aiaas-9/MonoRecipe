@@ -76,14 +76,24 @@ button:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
 }
 
-.star {
-    font-size: 24px; /* 별 크기 */
-    color: #ffd700; /* 별 색상 */
-    cursor: pointer; /* 커서 포인터 */
+.rating-container input[type="radio"] {
+    display: none; /* 라디오 버튼 숨기기 */
 }
 
-.hidden {
-    display: none; /* 숨기기 */
+
+
+.rating-container input[type="radio"]:checked + label {
+    color: gold; /* 선택된 별 색상 */
+}
+.rating-container {
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+fieldset {
+    display: flex;
+    gap: 10px; /* 별 사이의 간격 */
+    margin: 0; /* 필드셋 기본 여백 제거 */
 }
 
 /* 리뷰 목록 스타일 */
@@ -100,52 +110,31 @@ button:hover {
     white-space: normal; /* 공백 처리 */
 }
 
-/* 첫 번째 tr의 th 및 td 테두리 제거 */
-#reviewTable tr:first-child th,
-#reviewTable tr:first-child td,
-#reviewTable tr:nth-child(2) th,
-#reviewTable tr:nth-child(2) td {
-    border: none; /* 테두리 제거 */
-}
-
-/* 세 번째 tr부터 테두리 추가 */
-#reviewTable tr:nth-child(n+3) {
-    border: 1px solid #ddd; /* 세 번째 tr부터 테두리 추가 */
-	border-bottom: none; 
-}
-
-#reviewTable tr:nth-child(n+3) td {
-    border-bottom: 1px solid #ddd; /* 세 번째 tr부터 td의 하단 테두리 추가 */
-}
-
 #reviewTable th {
     background-color: #f0f0f0; /* 헤더 배경색 */
     font-weight: bold; /* 굵게 표시 */
     color: #333; /* 헤더 글자색 */
 }
 
-#reviewTable td.right-align {
-    text-align: right; /* 오른쪽 정렬 */
+.review-button-row {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    gap: 10px; /* 버튼 간격 */
 }
 
-#reviewTable td {
-    line-height: 1.5; /* 줄 간격 */
-    color: #555; /* 글자색 */
+@media (max-width: 768px) {
+    .review-button-row {
+        flex-direction: column; /* 세로로 나열 */
+        align-items: flex-end; /* 오른쪽 정렬 */
+    }
+
+    .review-button-row button {
+        width: 100%; /* 버튼 너비를 100%로 */
+        margin-bottom: 10px; /* 버튼 간격 */
+    }
 }
 
 /* 평점 라인 스타일링 */
-.rating-container {
-    display: flex;
-    align-items: center; /* 수직 가운데 정렬 */
-}
-
-fieldset {
-    display: flex;
-    gap: 10px; /* 별 사이의 간격 */
-    margin: 0; /* 필드셋 기본 여백 제거 */
-}
-
-/* 별 스타일 */
 .star {
     font-size: 30px; /* 별 크기 */
     color: #ccc; /* 기본 별 색상 */
@@ -167,9 +156,9 @@ input[type="radio"]:checked + .star {
 #reviewForm button {
     padding: 12px 24px;
     font-size: 16px;
-    background-color: #000;
-    color: white;
-    border: none;
+    background-color: #000; /* 버튼 배경색 */
+    color: white; /* 버튼 글자색 */
+    border: none; /* 테두리 제거 */
     cursor: pointer;
     width: 200px;
     margin: 0 auto;
@@ -178,7 +167,7 @@ input[type="radio"]:checked + .star {
 }
 
 #reviewForm button:hover {
-    background-color: #444;
+    background-color: #444; /* 호버 색상 */
 }
 
 .input-container {
@@ -187,27 +176,17 @@ input[type="radio"]:checked + .star {
     gap: 10px; /* 입력 필드와 버튼 사이의 간격 */
     margin-top: 10px; /* 상단 여백 */
 }
-
-#btn-write {
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #000;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
-}
-
-#btn-write:hover {
-    background-color: #444;
-}
-
-#reviewTable button {
-    font-size: 14px; /* 버튼 텍스트 크기 */
-    padding: 6px 12px; /* 패딩 조정 */
-    margin: 0 5px; /* 버튼 간격 */
-    color: white; /* 버튼 글자색 */
-    border: none; /* 테두리 제거 */
-    cursor: pointer; /* 커서 포인터 */
+.btn-black {
+            background-color: #000; /* 검은색 배경 */
+            color: white; /* 글자색 흰색 */
+        }
+        .btn-black:hover {
+            background-color: #333; /* 호버 시 색상 변경 */
+        }
+        .input-container {
+    display: flex;
+    flex-direction: column; /* 세로로 나열 */
+    align-items: center; /* 수평 가운데 정렬 */
+    gap: 10px; /* 입력 필드와 버튼 사이의 간격 */
+    margin-top: 10px; /* 상단 여백 */
 }
