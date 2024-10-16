@@ -1,5 +1,9 @@
 package dish.service;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import dish.bean.DishDTO;
+
 public interface DishService {
 	
 	
@@ -24,9 +28,18 @@ public interface DishService {
 	
 	
 	
-	/** 민선 */
+	/** 민선 
+	 * @param img */
 	
 	
+	
+	public void dishWrite(DishDTO dishDTO, MultipartFile img);
+
+	public DishDTO getDishDTO(String seq);
+
+	public void dishupdate(DishDTO dishDTO, MultipartFile img);
+
+	public void dishDelete(String seq);
 	
 	
 }
