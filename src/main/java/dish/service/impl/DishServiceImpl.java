@@ -3,7 +3,9 @@ package dish.service.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -38,14 +40,41 @@ public class DishServiceImpl implements DishService {
 	
 	
 	/** 채연 */
-	
+	// MonoRecipe/src/main/java/dish/service/impl/DishServiceImpl.java
 	@Override
 	public List<DishDTO> getDishIndexList() {
 	    List<DishDTO> dishList = dishDAO.getDishIndexList();
 	    return dishList;
 	}
 	
-	
+	@Override
+	public Map<String, Object> getDishList(String pg) {
+		// 한페이지 당 5개씩
+		int endNum = 16;
+		int startNum = (Integer.parseInt(pg)) * endNum - endNum;
+		
+		Map<String, Integer> map = new HashMap<>();
+		map.put("startNum", startNum);
+		map.put("endNum", endNum);		
+		
+		// 2. DB
+		List<DishDTO> list = dishDAO.getDishList(map);	
+		
+		// 3. 페이징 처리
+				int totalA = dishDAO.getTotalA();
+				
+		        dishPaging.setCurrentPage(Integer.parseInt(pg));
+		        dishPaging.setPageBlock(3);
+		        dishPaging.setPageSize(16);
+		        dishPaging.setTotalA(totalA);
+		        dishPaging.makePagingHTML();	
+				
+		        Map<String, Object> dishPageMap = new HashMap<>();
+		        dishPageMap.put("list", list);
+		        dishPageMap.put("dishPaging", dishPaging);
+		        
+				return dishPageMap;
+	}
 	
 	
 	
@@ -115,7 +144,7 @@ public class DishServiceImpl implements DishService {
 		String orginimageFileName=dishDAO.getImageFileName(dishDTO.getDcode()); 
 		System.out.println("imageFileName=" + orginimageFileName);
 		//object Storage(NCP)는 이미지를 어어쓰지않은다
-		//db에서 seq에 해당하는 이미지 파일이름을 꺼내와 삭제하고 집어넣어 새로운 이미지로 수정
+		//db에서 dcode에 해당하는 이미지 파일이름을 꺼내와 삭제하고 집어넣어 새로운 이미지로 수정
 		if (img != null && !img.isEmpty()) {
 	        // 기존 이미지 삭제
 	        objectStorageService.deleteFile(bucketName, "storage/", orginimageFileName);

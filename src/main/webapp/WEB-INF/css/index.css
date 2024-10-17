@@ -51,6 +51,7 @@
     align-items: center;
     background-color: white;
     width: 40%;
+    max-height: 50px;
     padding: 10px;
     border-radius: 5px;
 }
@@ -70,59 +71,13 @@
     cursor: pointer;
 }
 
-/* 모바일 환경에서의 카루셀 스타일 */
-@media (max-width: 600px) {
-    .carouselContainer {
-    	padding-top: 80px;
-        max-height: 300px; 
-    }
-    
-    .carouselImg {
-        width: 100%;
-        height: auto; 
-    }
-
-    .carouselOverlay {
-    	display: flex;
-    	flex-direction: column;
-    	justify-content: flex-end;
-        background: rgba(0, 0, 0, 0.5); 
-        font-size: 1.2rem; 
-        padding: 10px; 
-        padding-bottom:40px;
-    }
-    
-    .carouselText {
-        font-size: 1.5rem; 
-        margin: 10px 0;
-        padding-top: 10px; 
-    }
-    
-    .searchBox {
-        width: 80%;
-        height: 20%;
-        padding: 8px;
-    }
-
-    .searchBox input {
-        padding: 8px; 
-        height: 18%;
-        font-size: 0.9rem; 
-    }
-
-    .searchIcon {
-        width: 20px; 
-        height: 20px;
-        margin: 0 8px;
-    }
-}
-
 
 
 
 /** <section> */        
 main {
 	padding: 0 !important;
+	margin-bottom: 50px !important;
 }
 
 .dishSection {
@@ -168,11 +123,32 @@ main {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
     padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.dishItem:hover {
+    transform: scale(1.05); /* 5% 확대 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;	
+}
+
+
+
+.dishImgDiv {
+	width: 100%;
+	max-widh: 220px;
+	aspect-ratio: 1; /* 정사각형 유지 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
 
 .dishImg {
     width: 100%;
     height: auto;
+    object-fit: contain;
 }
 
 .dishInfo {
@@ -194,8 +170,58 @@ main {
     color: #888;
 }
 
-/* 600px 이하일 때 적용될 스타일 */
+
+
+/** 600px 이하일 때 적용될 스타일 */
 @media (max-width: 600px) {
+    
+	/* <div class="carouselContainer"> */
+    .carouselContainer {
+    	padding-top: 80px;
+        max-height: 300px; 
+    }
+    
+    .carouselImg {
+        width: 100%;
+        height: auto; 
+    }
+
+    .carouselOverlay {
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: flex-end;
+        background: rgba(0, 0, 0, 0.5); 
+        font-size: 1.2rem; 
+        padding: 10px; 
+        padding-bottom:40px;
+    }
+    
+    .carouselText {
+        font-size: 1.5rem; 
+        margin: 10px 0;
+        padding-top: 10px; 
+    }
+    
+    .searchBox {
+        width: 80%;
+        height: 20%;
+        padding: 8px;
+    }
+
+    .searchBox input {
+        padding: 8px; 
+        height: 18%;
+        font-size: 0.9rem; 
+    }
+
+    .searchIcon {
+        width: 20px; 
+        height: 20px;
+        margin: 0 8px;
+    }
+	
+    
+    /* <section class="dishSection"> */
     .dishItem {
         width: 46%;
     }
