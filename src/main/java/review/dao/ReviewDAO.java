@@ -15,4 +15,9 @@ public interface ReviewDAO {
 
 	List<ReviewDTO> getReviewList(int rdishcode);
 
+
+	void reviewUpdate(ReviewDTO reviewDTO);
+
+	void reviewDelete(String rcode);
+
 }
