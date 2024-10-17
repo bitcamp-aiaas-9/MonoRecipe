@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                <td class="input" colspan="2" style="text-align: center;">
-                        <button type="submit" id="adminLoginBtn" style="width: 88%;  margin-left: 5%;">관리자 로그인</button>
+                        <button type="submit" id="adminLoginBtn" >관리자 로그인</button>
                     </td>
                 </tr>
             </table>

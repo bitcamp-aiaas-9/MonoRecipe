@@ -57,7 +57,7 @@
 <tr>
  <th class="label"></th>
     <td class="input">
-         <button type="button"  id="emailAuth"  style="width: 94%;">인증번호 발송</button>
+         <button type="button"  id="emailAuth" >인증번호 발송</button>
     </td>  				       
 </tr>
 
@@ -70,9 +70,9 @@
 								
 			<tr>
  <th class="label"></th>
-    <td class="input">
-            <button type="button" id="writeBtn"  style="width: 44%;">회원가입</button>
-            <button type="reset" id="resetBtn"  style="width: 44%; margin-left:5%;">초기화</button>
+    <td class="input" colspan="2">
+            <button type="button" id="writeBtn"  >회원가입</button>
+            <button type="reset" id="resetBtn" >초기화</button>
     </td>  				       
 </tr>					
 										         
