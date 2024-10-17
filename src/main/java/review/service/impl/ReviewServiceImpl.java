@@ -30,4 +30,20 @@ public class ReviewServiceImpl implements ReviewService {
 		return list;
 	}
 
+
+
+	@Override
+	public void reviewUpdate(ReviewDTO reviewDTO) {
+		System.out.println(reviewDTO.getRcode());
+		reviewDAO.reviewUpdate(reviewDTO);
+		
+	}
+
+
+	@Override
+	public void reviewDelete(String rcode) {
+		reviewDAO.reviewDelete(rcode);
+		
+	}
+
 }

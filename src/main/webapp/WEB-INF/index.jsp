@@ -17,15 +17,15 @@
 <body>
 <jsp:include page="/WEB-INF/common/header.jsp" />
 <div class="carouselContainer">
-    <img src="image/carouselImg1.png" class="carouselImg active" alt="Image 1">
-    <img src="image/carouselImg2.png" class="carouselImg" alt="Image 2">
-    <img src="image/carouselImg3.png" class="carouselImg" alt="Image 3">
+    <img src="${pageContext.request.contextPath}/image/carouselImg1.png" class="carouselImg active" alt="Image 1">
+    <img src="${pageContext.request.contextPath}/image/carouselImg2.png" class="carouselImg" alt="Image 2">
+    <img src="${pageContext.request.contextPath}/image/carouselImg3.png" class="carouselImg" alt="Image 3">
 
     <div class="carouselOverlay">
         <div class="carouselText">프로를 위한 프리미엄 레시피</div>
         <div class="searchBox">
             <input type="text" placeholder="음식, 레시피 검색">
-            <img class="searchIcon" id="searchIconBlack" src="image/search_icon_black.png" alt="Search Icon">
+            <img class="searchIcon" id="searchIconBlack" src="${pageContext.request.contextPath}/image/search_icon_black.png" alt="Search Icon">
         </div>
     </div>
 </div>

@@ -1,9 +1,11 @@
 package com.controller.MonoRecipe;
 
 
+import java.util.List;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import dish.bean.DishDTO;
+import dish.service.DishService;
 import user.bean.UserDTO;
 import user.service.UserService;
 
@@ -30,6 +34,9 @@ public class UserController {
 	
 	@Autowired
 	UserDTO userDTO;
+	
+	@Autowired
+	private DishService dishService;
 	
 	@RequestMapping(value="/user/signUp", method = RequestMethod.GET)
 	public String userSignUp() {
@@ -52,8 +59,9 @@ public class UserController {
 	
 	@RequestMapping(value="/user/update", method = RequestMethod.POST)
 	@ResponseBody
-	public void userUpdate(@ModelAttribute UserDTO userDTO)  {
+	public void userUpdate(@ModelAttribute UserDTO userDTO,HttpSession session)  {
 		userService.update(userDTO);
+		session.removeAttribute("userDTO");
 	}
 	
 	@RequestMapping(value="/user/getExistId", method = RequestMethod.POST)
@@ -70,7 +78,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/user/login")
-	public String login(@ModelAttribute UserDTO userDTO, Model model) {
+	public String login(@ModelAttribute UserDTO userDTO, Model model,HttpSession session) {
+		
+	    List<DishDTO> dishList = dishService.getDishIndexList();
+	    model.addAttribute("dishList", dishList != null ? dishList : List.of());
+		
+		
 	    userDTO = userService.login(userDTO);
 	    
 	    if (userDTO == null) {
@@ -78,8 +91,16 @@ public class UserController {
 	        return "/user/userSignIn"; 
 	    }
 	    model.addAttribute("userDTO", userDTO);
+	    session.setAttribute("userDTO", userDTO);
 
 	    return "/index"; // /WEB-INF/index.jsp
+	}
+	
+	@RequestMapping(value="/user/userLogout", method = RequestMethod.GET)
+	public String userLogout(@RequestParam("uemail") String uemail,HttpSession session)  {
+		
+		session.removeAttribute("userDTO");	
+		return "redirect:/";
 	}
 	
 	//이메일 인증
