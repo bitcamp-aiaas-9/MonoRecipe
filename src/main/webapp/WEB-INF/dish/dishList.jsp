@@ -52,10 +52,14 @@
  -->
 
 <section class="adminSection">
-	<input type="checkbox" id="all-check" />
-	<button type="button" id="writePageBtn" class="adminBtn" onclick="location.href='/MonoRecipe/dish/dishWrite'" >음식 등록</button>
+    <div class="checkboxContainer">
+        <input type="checkbox" id="all-check" />
+    </div>
 	<button type="button" id="deleteBtn" class="adminBtn">선택 삭제</button>
+	<button type="button" id="writePageBtn" class="adminBtn" onclick="location.href='/MonoRecipe/dish/dishWrite'" >음식 등록</button>
 </section> 
+
+
 
 <section class=dishSection>
     <div class="dishGrid">

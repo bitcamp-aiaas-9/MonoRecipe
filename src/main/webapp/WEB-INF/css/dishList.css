@@ -81,19 +81,26 @@ section {
 }
 
 
-#all-check {
-    transform: scale(2.0);
-    accent-color: black;
-    cursor: pointer;
-    margin-right: 15px;
-}
-
  /* 
 button {
 	border: none;
 	background: transparent;
 }
   */
+
+.checkboxContainer {
+    position: relative;
+}
+
+#all-check {
+    position: absolute;
+    top: -8px;  /* deleteBtn 위로 올리기 */
+    left:12px;	
+    transform: scale(2.0);
+    accent-color: black;
+    cursor: pointer;
+    margin-right: 15px;
+}
 
 .adminBtn {
 	padding: 0;
@@ -110,16 +117,16 @@ button {
     background: white;
 }
 
-#writePageBtn {
-	border-radius: 5px 0 0 5px;
+#deleteBtn {
 	border-right: none;
+	border-radius: 5px 0 0 5px;
 }
 
-#deleteBtn {
+#writePageBtn {
 	border-radius: 0 5px 5px 0;	
 }
 
-#writePageBtn:hover, #deleteBtnhover {
+#writePageBtn:hover, #deleteBtn:hover {
     transition: background-color 0.3s ease; 
 	background-color: #3d3d3d;
 	color: #FFFFFF;
@@ -317,6 +324,13 @@ span:hover {
     
     
     /** <section class="adminSection"> */
+    
+	#all-check {
+	    top: -7px;  
+	    left :12px;	
+	    transform: scale(1.8);
+	}	 
+	   
     .adminBtn {
     	width: 40%;
     	max-height: 40px;
@@ -324,15 +338,15 @@ span:hover {
     }
     
     
-	#all-check, .board-list-check {
+    
+    
+    
+    
+    
+	.board-list-check {
 		transform: scale(1.4);
 		cursor: pointer;
 	}    
-    
-    
-    
-    
-    
     
     .dishItem {
         width: 46%;
