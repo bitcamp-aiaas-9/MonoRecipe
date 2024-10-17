@@ -3,7 +3,6 @@ package com.controller.MonoRecipe;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import admin.bean.AdminDTO;
 import dish.bean.DishDTO;
 import dish.service.DishService;
 import user.bean.UserDTO;
@@ -34,7 +34,7 @@ public class UserController {
 	JavaMailSender mailSender;
 	
 	@Autowired
-	UserDTO userDTO;
+	private UserDTO userDTO;
 	
 	@Autowired
 	private DishService dishService;
@@ -154,7 +154,22 @@ public class UserController {
 		        return checkNum; // 인증 코드 반환
 			}
 
-
-	
+	  
+//	// MonoRecipe/src/main/java/com/controller/MonoRecipe/UserController.java
+	  @RequestMapping(value="/user/userMyPage") 
+	  public String userMyPage( Model model, HttpSession session) {
+		  UserDTO userDTO = (UserDTO) session.getAttribute("userDTO");
+//		  session.setAttribute("adminDTO", userDTO);
+//		  System.out.println("로그인 사용자 아이디 : " + userDTO.getUid());
+//		  
+//		  
+//		  List<DishDTO> favoriteList = dishService.getFavoriteList();
+//		  
+//		  model.addAttribute("favoriteList", favoriteList);
+		  
+		  session.setAttribute("userDTO", userDTO);
+		  return "/user/userMyPage"; 
+	  }
+	  
 
 }
