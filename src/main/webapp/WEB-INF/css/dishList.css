@@ -95,11 +95,10 @@ button {
 #all-check {
     position: absolute;
     top: -8px;  /* deleteBtn 위로 올리기 */
-    left:12px;	
+    left: 14px;	
     transform: scale(2.0);
     accent-color: black;
     cursor: pointer;
-    margin-right: 15px;
 }
 
 .adminBtn {
@@ -179,6 +178,7 @@ button {
 }
 
 .board-list-check {
+    cursor: pointer;	
     position: absolute;
     top: 10px;
     left: 10px;
