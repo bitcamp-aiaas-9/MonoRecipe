@@ -20,14 +20,23 @@
 	<jsp:include page="/WEB-INF/common/header.jsp" />
 	<main>
 		<div class="container mt-4">
-		<div class="d-flex align-items-center mb-3">
+		
+<!-- 		<div class="d-flex align-items-center mb-3">
             <div class="back-button me-2" style="cursor: pointer;">
     <span id="backButton" style="color: black; font-size: 24px; font-weight: bold;">&lt;</span>
 </div>
+
+
             
             <h1 class="text-center flex-grow-1">레시피 수정</h1>
-        </div>
-		
+        </div> -->
+			<div class="d-flex align-items-center mb-3">
+	            <div class="dishTop" >
+					<span id="backButton">&lt;</span>
+		            <h1 class="text-center flex-grow-1">레시피 수정</h1>
+					<span style="visibility: hidden;">&gt;</span>
+	            </div>
+        	</div>		
 		
 			
 			<form id="dishUpdateUpload">

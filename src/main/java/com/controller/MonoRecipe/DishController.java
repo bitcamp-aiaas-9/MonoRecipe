@@ -3,6 +3,8 @@ package com.controller.MonoRecipe;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import admin.bean.AdminDTO;
 import dish.bean.DishDTO;
 import dish.service.DishService;
 
@@ -28,18 +31,21 @@ public class DishController {
 	@Autowired
 	private DishService dishService;
 	
+	//@Autowired
+	//private AdminDTO adminDTO;
+	
 	/** ObjectStorageService 작업은 DishServiceImpl.java 에서 수행 */
 	
 	
 	
 	
-	/** 채연 */
-	@RequestMapping(value="/dishList")
+	/** 채연 */ 
+	@RequestMapping(value="/dishList") // , HttpSession session
 	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg, Model model) {
 		Map<String, Object> dishPageMap = dishService.getDishList(pg);
 		dishPageMap.put("pg", pg);
 		model.addAttribute("dishPageMap", dishPageMap);
-		System.out.println(dishPageMap); // 디버깅용
+		// session.setAttribute("adminDTO", adminDTO);
 
 		return "/dish/dishList"; 
 	}

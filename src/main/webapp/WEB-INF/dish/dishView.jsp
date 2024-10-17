@@ -28,12 +28,13 @@
 		<p id="sessionScope" style="display: none;">${sessionScope.userDTO.uid}</p>
 		<div class="container mt-4">
 			<div class="d-flex align-items-center mb-3">
-             <div class="back-button me-2" style="cursor: pointer;">
-    <span id="backButton" style="color: black; font-size: 24px; font-weight: bold;">&lt;</span>
-</div>
-            
-            <h1 class="text-center flex-grow-1">${dishDTO.dname}</h1>
-        </div>
+	            <div class="dishTop" >
+					<span id="backButton">&lt;</span>
+		            <h1 class="text-center flex-grow-1">${dishDTO.dname}</h1>
+					<span style="visibility: hidden;">&gt;</span>
+	            </div>
+        	</div>
+        	
 			<table class="table">
 				<tbody>
 					<tr>
