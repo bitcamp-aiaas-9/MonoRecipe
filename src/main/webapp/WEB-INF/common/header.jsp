@@ -15,8 +15,6 @@
         </div>
         
         <div id="mobileMenu">
-        	<!-- <i class="fa-solid fa-magnifying-glass"></i> -->
-        	<!-- <i class="fa-solid fa-bars"></i> -->
             <img id="searchIcon" class="searchIcon" src="${pageContext.request.contextPath}/image/search_icon.png" alt="search">
             <img id="menuIcon" class="menuIcon" src="${pageContext.request.contextPath}/image/menu_icon.png" alt="menu">
             <img id="closeIcon" class="closeIcon" src="${pageContext.request.contextPath}/image/close_icon.png" alt="close" style="display: none;">
@@ -47,9 +45,24 @@
 </header>
 <div id="mobileMenuList" style="display: none;">
     <ul>
-        <li><a href="${pageContext.request.contextPath}/user/userSignIn">로그인/회원가입</a></li>
-        <li><a href="https://www.youtube.com/playlist?list=PLL1qZqiuec_Qctidjh4_euZOpPQA_bp_W" target="_blank">모노레시피 YouTube</a></li>
-        <li><a href="https://github.com/bitcamp-aiaas-9/MonoRecipe">모노레시피 Lab</a></li>
+		<c:choose>
+			<c:when test="${not empty sessionScope.adminDTO}">
+				<li><a href="${pageContext.request.contextPath}/user/userList">Admin</a></li>
+		        <li><a href="https://www.youtube.com/playlist?list=PLL1qZqiuec_Qctidjh4_euZOpPQA_bp_W" target="_blank">모노레시피 YouTube</a></li>
+		        <li><a href="https://github.com/bitcamp-aiaas-9/MonoRecipe">모노레시피 Lab</a></li>
+			</c:when>        
+			<c:when test="${not empty sessionScope.userDTO}">
+				<li><a href="${pageContext.request.contextPath}/user/userMyPage">마이페이지</a></li>
+				<li><a href="${pageContext.request.contextPath}/user/userLogout">로그아웃</a></li>
+		        <li><a href="https://www.youtube.com/playlist?list=PLL1qZqiuec_Qctidjh4_euZOpPQA_bp_W" target="_blank">모노레시피 YouTube</a></li>
+		        <li><a href="https://github.com/bitcamp-aiaas-9/MonoRecipe">모노레시피 Lab</a></li>
+			</c:when>
+			<c:otherwise>
+				<li><a href="${pageContext.request.contextPath}/user/signIn">로그인/회원가입</a></li>
+		        <li><a href="https://www.youtube.com/playlist?list=PLL1qZqiuec_Qctidjh4_euZOpPQA_bp_W" target="_blank">모노레시피 YouTube</a></li>
+		        <li><a href="https://github.com/bitcamp-aiaas-9/MonoRecipe">모노레시피 Lab</a></li>
+			</c:otherwise>
+		</c:choose>
     </ul>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
