@@ -82,16 +82,18 @@ section {
 
 
 #all-check {
-    transform: scale(1.7);
+    transform: scale(2.0);
     accent-color: black;
     cursor: pointer;
     margin-right: 15px;
 }
 
+ /* 
 button {
 	border: none;
 	background: transparent;
 }
+  */
 
 .adminBtn {
 	padding: 0;
@@ -113,6 +115,19 @@ button {
 	border-right: none;
 }
 
+#deleteBtn {
+	border-radius: 0 5px 5px 0;	
+}
+
+#writePageBtn:hover, #deleteBtnhover {
+    transition: background-color 0.3s ease; 
+	background-color: #3d3d3d;
+	color: #FFFFFF;
+	border: 1px solid #3d3d3d;	
+	cursor: pointer;
+}
+
+/*  
 #deleteWrap {
 	border-radius: 0 5px 5px 0;	
 }
@@ -124,12 +139,16 @@ button {
 	border: 1px solid #3d3d3d;	
 	cursor: pointer;
 }
-
-#deleteWrap:hover #deleteBtn {
-    color: #FFFFFF; /* 마우스 올릴 때 글씨 색상 흰색 */
+#deleteBtn {
+	width: 80%;	
+	height: 80%;
 }
 
-
+#deleteWrap:hover #deleteBtn {
+    color: #FFFFFF;
+}
+ 
+ */
 
 
 
