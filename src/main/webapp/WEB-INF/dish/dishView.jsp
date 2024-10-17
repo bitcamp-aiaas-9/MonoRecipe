@@ -25,6 +25,7 @@
 	
 	
 		<p id="dcode" class="d-none">${dishDTO.dcode}</p>
+		<p id="sessionScope" style="display: none;">${sessionScope.userDTO.uid}</p>
 		<div class="container mt-4">
 			<div class="d-flex align-items-center mb-3">
              <div class="back-button me-2" style="cursor: pointer;">
@@ -92,8 +93,8 @@
 			<table id="reviewTable" class="table">
 				<thead>
 					<tr>
-						<th width="90">총 별점: ${dishDTO.dscore}</th>
-						<td colspan="2"></td>
+						<th width="90" colspan="2">총 별점: ${dishDTO.dscore}</th>
+						
 					</tr>
 
 
@@ -103,19 +104,7 @@
 				</thead>
 				<tbody id="reviewlist">
 
-					<tr class="review-item" >
-    <td align="left" width="200" height="20">작성자</td>
-    <td align="left">별점</td>
-    <td class="text-end" >작성날짜</td>
-</tr>
-<tr class="review-item">
-    <td colspan="2" width="650">내용</td>
-    <td class="text-end review-button-row">
-        <button type="button" class="btn btn-dark btn-small" id="updateBtn">수정</button>
-        <button type="button" class="btn btn-dark btn-small" id="deleteBtn">삭제</button>
-    </td>
-</tr>
-
+					
 				</tbody>
 			</table>
 		</div>

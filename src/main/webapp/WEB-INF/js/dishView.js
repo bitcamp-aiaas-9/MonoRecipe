@@ -38,10 +38,9 @@ const pg = urlParams.get('pg');
     // 리뷰 작성 버튼 클릭 시 처리
     $('#btn-write').click(function(e) {
         e.preventDefault(); // 기본 제출 동작 방지
-        
         let isValid = true;
         $('.error-message').remove(); // 기존 오류 메시지 제거
-
+const sessionUserId = document.getElementById('sessionScope').innerText;
         // 평점 검사
         const rating = $('input[name="rating"]:checked').val();
         if (!rating) {
@@ -57,9 +56,10 @@ const pg = urlParams.get('pg');
         }
 
         if (isValid) {
+       
             const formData = {
                 rdishcode: $('#dcode').text(),
-                ruserid: '1214', // 사용자 ID (적절하게 수정)
+                ruserid: sessionUserId, // 사용자 ID (적절하게 수정)
                 rscore: rating,
                 rcontent: content
             };
@@ -80,8 +80,8 @@ const pg = urlParams.get('pg');
         }
     });
 
-    
-
+    //유저에게 보기 
+const sessionUserId = document.getElementById('sessionScope').innerText;
     // 리뷰 목록 불러오기
     const dcode = $('#dcode').text();
     $.ajax({
@@ -95,32 +95,39 @@ const pg = urlParams.get('pg');
                 for (let i = 1; i <= 5; i++) {
                     stars += (i <= review.rscore) ? '<span class="gold">★</span>' : '☆';
                 }
-
-                const reviewItemHTML = `
-<tr class="review-item">
-    <td align="left" width="200" height="20">${review.ruserid}</td>
-    <td align="left">${stars}</td>
-    <td class="text-end">${new Date(review.rdate).toLocaleString()}</td>
-</tr>
-<tr class="review-item">
-    <td colspan="2" width="650">${review.rcontent}</td>
-    <td class="text-end review-button-row">
-        <button type="button" class="btn btn-dark btn-small edit-review" 
-            data-reviewid="${review.ruserid}" 
-            data-content="${review.rcontent}" 
-            data-rating="${review.rscore}" 
-            data-rcode="${review.rcode}">수정</button>
-        <button type="button" class="btn btn-dark btn-small delete-review" 
-            data-rcode="${review.rcode}" data-reviewid="${review.ruserid}">삭제</button>
-    </td>
-</tr>`;
-                $('#reviewlist').append(reviewItemHTML);
+const isSameUser = (review.ruserid === sessionUserId);
+               const reviewItemHTML = `
+ <tr class="review-item">
+        <td class="text-start align-middle" width="50%" height="20">${review.ruserid} ${stars}</td>
+        <td class="text-end align-middle" width="50%">${new Date(review.rdate).toLocaleString()}</td>
+     </tr>
+    <tr class="review-item">
+       
+        ${isSameUser ? `
+         <td colspan="1" class="text-start " width="70%" height="100">${review.rcontent}</td>
+        
+        <td class="text-end align-middle">
+            <button type="button" class="btn btn-dark btn-sm edit-review" 
+                data-reviewid="${review.ruserid}" 
+                data-content="${review.rcontent}" 
+                data-rating="${review.rscore}" 
+                data-rcode="${review.rcode}">수정</button>
+            <button type="button" class="btn btn-dark btn-sm delete-review" 
+                data-rcode="${review.rcode}" 
+                data-reviewid="${review.ruserid}">삭제</button>
+        </td>` : ` <td colspan="2" class="text-start " width="70%" height="100">${review.rcontent}</td>
+        `}
+    </tr>`;
+        $('#reviewlist').append(reviewItemHTML);
             });
         },
         error: function(error) {
             console.error("리뷰 목록을 가져오는 데 실패했습니다:", error);
         }
     });
+    
+    
+    
 
     // 수정 버튼 클릭 시 팝업 표시
     $(document).on('click', '.edit-review', function() {
