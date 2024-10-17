@@ -16,7 +16,14 @@ $(document).ready(function() {
             $(this).next('.error-message').remove(); // 포커스된 필드의 오류 메시지 제거
         });
 
-        
+         // 현재 URL에서 쿼리 매개변수 가져오기
+   	 const urlParams = new URLSearchParams(window.location.search);
+   	 const pg = urlParams.get('pg');
+ 		const dcode =urlParams.get('dcode');
+    // 뒤로 가기 버튼 클릭 시 이동
+    document.getElementById('backButton').onclick = function() {
+        window.location.href = `/MonoRecipe/dish/dishView?dcode=${dcode}&pg=${pg}`; // pg 값이 없으면 기본값 1
+    };
 
 
  $('#image').change(function() {

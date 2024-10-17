@@ -58,7 +58,7 @@ $(document).ready(function() {
                 data: formData,
                 success: function(data) {
                     alert("저장 완료");
-                    location.reload(); // 페이지 새로 고침
+                   window.location.href = '/MonoRecipe/dish/dishList';
                 },
                 error: function(e) {
                     console.log(e);

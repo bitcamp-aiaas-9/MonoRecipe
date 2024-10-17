@@ -22,8 +22,8 @@
 		<div class="container mt-4">
 		<div class="d-flex align-items-center mb-3">
             <div class="back-button me-2" style="cursor: pointer;">
-                <span onclick="window.location.href='/MonoRecipe/dish/dishList';" style="color: black; font-size: 24px; font-weight: bold;">&lt;</span>
-            </div>
+    <span id="backButton" style="color: black; font-size: 24px; font-weight: bold;">&lt;</span>
+</div>
             
             <h1 class="text-center flex-grow-1">레시피 수정</h1>
         </div>
