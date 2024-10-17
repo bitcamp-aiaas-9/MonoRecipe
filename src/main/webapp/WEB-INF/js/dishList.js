@@ -74,7 +74,7 @@ $('#deleteBtn').click(function() {
 //////
 
 
-    // 검색 아이콘 클릭 시 처리
+ // 검색 아이콘 클릭 시 처리
     $('#searchIconBlack').on('click', function() {
         performSearch(1, $('#searchInput').val().trim());
     });
@@ -96,24 +96,22 @@ $('#deleteBtn').click(function() {
 // performSearch 함수
 function performSearch(pg, searchKey) {
     console.log(searchKey, pg);
-    if (searchKey) {
-    $('#searchInputval').text(searchKey);
-    
-        $.ajax({
-            url: '/MonoRecipe/dish/dishListSearch',
-            type: 'GET',
-            data: {
-                pg: pg,
-                SearhKey: searchKey
-            },
-            success: function(response) {
-                updateDishList(response);
-            },
-            error: function(xhr, status, error) {
-                console.error("AJAX 요청 실패:", status, error);
-            }
-        });
-    }
+    $('#searchInputval').text(searchKey); // 검색어를 searchInputval에 저장
+
+    $.ajax({
+        url: '/MonoRecipe/dish/dishListSearch',
+        type: 'GET',
+        data: {
+            pg: pg,
+            SearhKey: searchKey
+        },
+        success: function(response) {
+            updateDishList(response);
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX 요청 실패:", status, error);
+        }
+    });
 }
 
 // updateDishList 함수
@@ -124,20 +122,27 @@ function updateDishList(dishPageMap) {
     if (dishPageMap.list && dishPageMap.list.length > 0) {
         $.each(dishPageMap.list, function(index, dishDTO) {
             const dishItem = `
-                <div class="dishItem">
+                 <div class="dishItem">
                     <div class="dishImgDiv">
                         <img class="dishImg"
                              src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
                              alt="${dishDTO.dname}" />
                     </div>
                     <div class="dishInfo">
+                        <input type="hidden" id="dcode" name="dcode" value="${dishDTO.dcode}" />
                         <div class="dname">${dishDTO.dname}</div>
                         <div class="scoreDiv">평점 : ${dishDTO.dscore.toFixed(2)}</div>
                     </div>
                 </div>
             `;
             dishGrid.append(dishItem);
-        });
+        }); // 빈 아이템을 채워서 4열 정렬 유지
+        const listSize = dishPageMap.list.length;
+        const emptyItemsCount = (4 - (listSize % 4)) % 4; // 0에서 3까지의 값
+
+        for (let i = 0; i < emptyItemsCount; i++) {
+            dishGrid.append('<div class="dishItem placeholder"></div>');
+        }
     } else {
         dishGrid.append('<div>등록된 레시피가 없습니다.</div>');
     }
@@ -145,8 +150,4 @@ function updateDishList(dishPageMap) {
     // 페이징 정보 업데이트
     $('#page-block').html(dishPageMap.dishPaging.pagingHTML);
 }
-
-
-
-
 
