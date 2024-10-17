@@ -13,4 +13,24 @@
   <select id="getReviewList" parameterType="int" resultType="review.bean.ReviewDTO">
    SELECT * FROM review_tb WHERE rdishcode = #{rdishcode}
   </select>
+  
+  <select id="getReviewDTO" parameterType="int" resultType="review.bean.ReviewDTO">
+   SELECT * FROM review_tb WHERE rdishcode = #{rdishcode}
+  </select>
+  
+  <update id="reviewUpdate" parameterType="review.bean.ReviewDTO">
+ UPDATE review_tb
+    SET 
+        rscore = #{rscore},
+        rcontent = #{rcontent},
+        rdate =NOW()
+        
+    WHERE rcode = #{rcode};
+ </update> 
+ 
+ 
+  <delete id="reviewDelete" parameterType="String">
+  DELETE FROM review_tb
+    WHERE rcode = #{rcode};
+ </delete>
 </mapper>

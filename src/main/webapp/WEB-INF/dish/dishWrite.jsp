@@ -11,10 +11,18 @@
 <title> 레시피 등록 </title>
 </head>
 <body>
-<c:import url="/common/header" />
+
+<jsp:include page="/WEB-INF/common/header.jsp" />
 <main>
-    <div class="container mt-4 mb-4">
-        <h1 class="text-center">레시피 작성</h1>
+     <div class="container mt-4 mb-4">
+     <div class="d-flex align-items-center mb-3">
+            <div class="back-button me-2" style="cursor: pointer;">
+                <span onclick="window.location.href='/MonoRecipe/dish/dishList';" style="color: black; font-size: 24px; font-weight: bold;">&lt;</span>
+            </div>
+            <h1 class="text-center flex-grow-1">레시피 작성</h1>
+        </div>
+        
+        
         <form id="dishWriteUpload">
             <table class="table">
                 <tr>
@@ -37,14 +45,15 @@
                 <tr>
                     <td colspan="2" class="text-center">
                         <button type="button" class="btn btn-black" id="writeBtn">등록</button>
-                        <button type="button" class="btn btn-black">취소</button>
+                        <button type="button" class="btn btn-black" id="cancelBtn">취소</button>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
 </main>
-<c:import url="/common/footer" />
+<jsp:include page="/WEB-INF/common/footer.jsp" />
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/dishWrite.js"></script>

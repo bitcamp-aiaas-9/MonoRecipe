@@ -10,6 +10,20 @@ $(document).ready(function() {
         $(this).on('input', autoResizeTextarea);
         autoResizeTextarea.call(this); // 페이지 로드 시 초기 높이 설정
     });
+    
+    // 유효성 검사 메시지 입력 필드 포커스 시 제거
+        $('#dishUpdateUpload input, #dishUpdateUpload textarea').focus(function() {
+            $(this).next('.error-message').remove(); // 포커스된 필드의 오류 메시지 제거
+        });
+
+         // 현재 URL에서 쿼리 매개변수 가져오기
+   	 const urlParams = new URLSearchParams(window.location.search);
+   	 const pg = urlParams.get('pg');
+ 		const dcode =urlParams.get('dcode');
+    // 뒤로 가기 버튼 클릭 시 이동
+    document.getElementById('backButton').onclick = function() {
+        window.location.href = `/MonoRecipe/dish/dishView?dcode=${dcode}&pg=${pg}`; // pg 값이 없으면 기본값 1
+    };
 
 
  $('#image').change(function() {
@@ -88,7 +102,26 @@ $(document).ready(function() {
 
     
  
-		
+	$(document).ready(function() {
+	const initialImage = $('#showImageList img.img-fluid'); // 비우기 전에 초기 이미지 가져오기
+    const initialImageUUID = initialImage.data('uuid'); // data-uuid로 수정
+    console.log(initialImageUUID); // 초기 이미지 UUID 출력
+    console.log($('#showImageList').html()); // 초기 내용 출력
+	
+    // 이곳에서 $('#showImageList').html() 실행
+    console.log($('#showImageList').html()); // 확인용
+    // 취소 버튼 클릭 시 초기화
+        $('#cancelBtn').click(function() {
+            
+    $('#dishUpdateUpload')[0].reset(); // 폼 초기화
+    $('#showImageList').empty(); // 이미지 미리보기 초기화
+    $('.error-message').remove(); // 모든 오류 메시지 제거
+
+    // 초기 이미지를 다시 추가
+    $('#showImageList').append('<img src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/' + initialImageUUID + '" alt="수정 전 이미지" class="img-fluid" style="cursor: pointer;">');
+});
+    
+});	
 		
     
 });

@@ -39,5 +39,23 @@ public class ReviewController {
 	    return reviewService.getReviewList(dcode);
 		   
 	}
+	@RequestMapping(value="/reviewUpdate", method = RequestMethod.POST)
+	@ResponseBody
+	public String reviewUpdate(@RequestBody ReviewDTO reviewDTO) {
+		System.out.println(reviewDTO.getRcode());
+		//내용 별점 날짜만 변경해야함
+		reviewService.reviewUpdate(reviewDTO);
+		return "업뎃 완료"; 
+	}
+	
+	@RequestMapping(value="/reviewDelete", method = RequestMethod.POST)
+	@ResponseBody
+	public String reviewDelete(@RequestParam String rcode) {
+	    System.out.println(rcode);
+	    // 내용 별점 날짜만 변경해야함
+	    reviewService.reviewDelete(rcode);
+	    return "삭제 완료"; 
+	}
+	
 	
 }
