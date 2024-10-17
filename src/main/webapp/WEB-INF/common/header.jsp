@@ -1,6 +1,7 @@
 <%-- MonoRecipe/src/main/webapp/WEB-INF/common/header.jsp --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 
@@ -21,13 +22,23 @@
             <img id="closeIcon" class="closeIcon" src="${pageContext.request.contextPath}/image/close_icon.png" alt="close" style="display: none;">
         </div>
 
-        <div id="headerContent">
-            <ul>
-                <li><a class="headerList" href="https://www.youtube.com/playlist?list=PLL1qZqiuec_Qctidjh4_euZOpPQA_bp_W" target="_blank">YouTube</a></li>
+<div id="headerContent">
+    <ul>
+        <li><a class="headerList" href="https://www.youtube.com/playlist?list=PLL1qZqiuec_Qctidjh4_euZOpPQA_bp_W" target="_blank">YouTube</a></li>
+        
+        <c:choose>
+            <c:when test="${not empty sessionScope.userDTO}">
+                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userUpdate?uemail=${sessionScope.userDTO.uemail}">회원정보 수정</a></li>
+                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userLogout?uemail=${sessionScope.userDTO.uemail}">로그아웃</a></li>
+            </c:when>
+            <c:otherwise>
                 <li><a class="headerList" href="${pageContext.request.contextPath}/user/signUp">Sign Up</a></li>
                 <li><a class="headerList" href="${pageContext.request.contextPath}/user/signIn">Sign In</a></li>
-            </ul>
-        </div>
+            </c:otherwise>
+        </c:choose>
+    </ul>
+</div>
+        
     </div>
 </header>
 <div id="mobileMenuList" style="display: none;">

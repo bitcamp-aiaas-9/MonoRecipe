@@ -50,4 +50,19 @@ public class UserServiceImpl implements UserService {
 
 
 
+	@Override
+	public UserDTO getMember(String uemail) {
+		return userDAO.getMember(uemail);
+	}
+
+
+
+	@Override
+	public void update(UserDTO userDTO) {
+		userDAO.update(userDTO);
+		
+	}
+
+
+
 }

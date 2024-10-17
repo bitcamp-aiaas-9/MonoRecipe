@@ -13,4 +13,8 @@ public interface UserDAO {
 
 	UserDTO login(UserDTO userDTO);
 
+	UserDTO getMember(String uemail);
+
+	void update(UserDTO userDTO);
+
 }

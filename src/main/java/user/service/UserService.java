@@ -10,6 +10,10 @@ public interface UserService {
 
 	UserDTO login(UserDTO userDTO);
 
+	UserDTO getMember(String uemail);
+
+	void update(UserDTO userDTO);
+
 
 
 }

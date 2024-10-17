@@ -2,6 +2,7 @@
 package dish.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,7 +16,7 @@ public interface DishService {
 	
 	public List<DishDTO> getDishIndexList();
 	
-	
+	public Map<String, Object> getDishList(String pg);
 	
 	
 	

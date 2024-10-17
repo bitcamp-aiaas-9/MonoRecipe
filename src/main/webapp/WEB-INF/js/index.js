@@ -10,4 +10,11 @@ $(document).ready(function () {
     }
 
     setInterval(showNextImage, 5000); // 5초마다 이미지 전환
+
+    $('.dishItem').on('click', function () {
+        let dcode = $('#dcode').val().trim();
+        let pg = $("#pg").val().trim();
+        const url = context + `/dish/dishView?dcode=${dcode}&pg=${pg}`; // 이동할 URL
+        location.href = url; // 페이지 이동
+    });
 });

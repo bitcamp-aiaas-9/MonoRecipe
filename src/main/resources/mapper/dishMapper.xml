@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MonoRecipe/src/main/java/mapper/recipeMapper.xml -->
+<!-- MonoRecipe/src/main/java/mapper/dishMapper.xml -->
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -13,13 +13,13 @@
 	SELECT * FROM dish_tb ORDER BY dcode DESC limit 4;
 </select>
 
-
-
-
-
-
-
-
+<select id="getDishList" resultType="dish.bean.DishDTO">
+	SELECT * FROM dish_tb LIMIT #{startNum}, #{endNum}
+</select>
+   
+<select id="getTotalA" resultType="int">
+	SELECT COUNT(*) FROM dish_tb
+</select> 
 
 
 
