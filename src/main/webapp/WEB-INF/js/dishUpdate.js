@@ -15,7 +15,7 @@ $(document).ready(function() {
         $('#dishUpdateUpload input, #dishUpdateUpload textarea').focus(function() {
             $(this).next('.error-message').remove(); // 포커스된 필드의 오류 메시지 제거
         });
-
+		
          // 현재 URL에서 쿼리 매개변수 가져오기
    	 const urlParams = new URLSearchParams(window.location.search);
    	 const pg = urlParams.get('pg');
