@@ -34,7 +34,6 @@ public class DishController {
 	
 	
 	/** 채연 */
-	// MonoRecipe/src/main/java/com/controller/MonoRecipe/DishController.java
 	@RequestMapping(value="/dishList")
 	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg, Model model) {
 		Map<String, Object> dishPageMap = dishService.getDishList(pg);
@@ -45,13 +44,13 @@ public class DishController {
 		return "/dish/dishList"; 
 	}
 	
+	// MonoRecipe/src/main/java/com/controller/MonoRecipe/DishController.java
 	@ResponseBody
-	@RequestMapping(value = "/dishDelete", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
-	public void uploadDelete(@RequestParam String[] check) {
+	@RequestMapping(value = "/dishListDelete", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
+	public void uploadDelete(@RequestParam("check") String[] check) {
 		for (String dcode: check) {
-			System.out.println("삭제할 음식 번호: " + dcode);
 		}
-		dishService.dishDelete(check);
+		dishService.dishListDelete(check);
 	}		
 	
 	

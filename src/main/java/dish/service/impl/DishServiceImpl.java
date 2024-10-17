@@ -79,7 +79,7 @@ public class DishServiceImpl implements DishService {
 	
 	
 	@Override
-	public void dishDelete(String[] check) {
+	public void dishListDelete(String[] check) {
 		// dishMapper.xml 에서 forEach 사용하려면 데이터를 List 에 담아야 함
 		List<String> list = new ArrayList<>();
 		

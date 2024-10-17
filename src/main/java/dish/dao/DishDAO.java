@@ -12,13 +12,13 @@ import dish.bean.DishDTO;
 public interface DishDAO {
 	
 	/** 채연 */
-	// MonoRecipe/src/main/java/dish/dao/DishDAO.java
 	public List<DishDTO> getDishIndexList();
 	
 	public List<DishDTO> getDishList(Map<String, Integer> map);
 	
 	public int getTotalA();
 	
+	// MonoRecipe/src/main/java/dish/dao/DishDAO.java
 	public String getDimageUUID(int dcode);
 
 	public void dishListDelete(List<String> list);

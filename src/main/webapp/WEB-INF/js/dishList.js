@@ -18,15 +18,15 @@ $(document).ready(function () {
 	// 전체 선택 / 전체 해제 이벤트를 동적으로 바인딩
 	$('#all-check').click(function() {
 		if ($(this).prop('checked'))
-			$('input[name="board-list-check"]').prop('checked', true);
+			$('input[name="check"]').prop('checked', true);
 		else
-			$('input[name="board-list-check"]').prop('checked', false);
+			$('input[name="check"]').prop('checked', false);
 	});
 	
 	// 개별 체크박스 상태에 따른 전체 선택 체크박스 상태 업데이트
 	$('input[name="check"]').click(function(){
-	    let checkNum = $('input[name="board-list-check"]').length; // 전체 체크박스 개수
-	    let checkedNum = $('input[name="board-list-check"]:checked').length; // 체크된 체크박스 개수
+	    let checkNum = $('input[name="check"]').length; // 전체 체크박스 개수
+	    let checkedNum = $('input[name="check"]:checked').length; // 체크된 체크박스 개수
 	    
 	    $('#all-check').prop('checked', checkNum == checkedNum);
 	});    
@@ -39,18 +39,18 @@ $(document).ready(function () {
     });
 
 $('#deleteBtn').click(function() {
-    if ($("input[name='board-list-check']:checked").length === 0) {
+    if ($("input[name='check']:checked").length === 0) {
         alert('삭제할 파일을 선택해 주세요.');
         return;
     }
 
     $.ajax({
         type: 'POST',
-        url: context + '/dish/dishDelete',
+        url: context + '/dish/dishListDelete',
         data: $('#dishListForm').serialize(), // 폼 데이터 직렬화하여 전송
         success: function() {
             alert('음식 삭제 완료');
-            location.href = context + `/dish/dishlist?pg=1`;
+            location.href = context + `/dish/dishList?pg=1`;
         },
         error: function(xhr, status, error) {
             alert('음식 삭제에 실패했습니다.');

@@ -62,8 +62,10 @@
 	    <c:forEach var="dishDTO" items="${dishPageMap.list}">
 	        <div class="dishItem">
 					<div class="checkDiv">
-						<input type="checkbox" class="board-list-check" name="board-list-check" value="${dishDTO.dcode}" /> ${dishDTO.dcode}            
-					</div>					
+						<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" /> ${dishDTO.dcode}            
+					</div>
+					
+				<!-- 아직 admin session 구현 안됨; 되면 .adminSection 감싸기 -->						
 		        <c:if test="${sessionScope.adminDTO.aid == 'admin'}">
 		        </c:if>	        
 	        	<div class="dishImgDiv">

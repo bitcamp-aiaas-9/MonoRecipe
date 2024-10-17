@@ -7,7 +7,6 @@
 <mapper namespace="dish.dao.DishDAO">
 
 <!-- 채연; dishView.jsp -->
-<!-- MonoRecipe/src/main/java/mapper/recipeMapper.xml -->
 <!-- index.jsp 음식 목록 -->
 <select id="getDishIndexList" resultType="dish.bean.DishDTO">
 	SELECT * FROM dish_tb ORDER BY dcode DESC limit 4;
@@ -21,6 +20,7 @@
 	SELECT COUNT(*) FROM dish_tb
 </select> 
 
+<!-- MonoRecipe/src/main/java/mapper/recipeMapper.xml -->
 <select id="getDimageUUID" parameterType="int" resultType="String">
 select dimageUUID from dish_tb where dcode=#{dcode}
 </select>
