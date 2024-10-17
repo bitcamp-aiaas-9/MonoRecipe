@@ -69,4 +69,16 @@ select dimage from dish_tb where dcode=#{dcode}
     WHERE dcode = #{seq};
  </delete>
  
+<select id="getdishListSearch" resultType="dish.bean.DishDTO">
+    SELECT * 
+    FROM dish_tb 
+    WHERE dname LIKE CONCAT('%', #{searchKey}, '%') 
+    ORDER BY dcode DESC 
+    LIMIT #{startNum}, #{endNum}
+</select>
+<select id="getTotalASearch" resultType="int">
+    SELECT COUNT(*) 
+    FROM dish_tb 
+    WHERE dname LIKE CONCAT('%', #{searchKey}, '%')
+</select>
 </mapper>

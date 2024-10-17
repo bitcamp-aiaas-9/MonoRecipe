@@ -46,6 +46,8 @@ public interface DishService {
 	public void dishupdate(DishDTO dishDTO, MultipartFile img);
 
 	public void dishDelete(String seq);
+
+	public Map<String, Object> getdishListSearch(String pg, String searhKey);
 	
 	
 }

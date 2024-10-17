@@ -41,6 +41,10 @@ public interface DishDAO {
 	void dishDelete(String seq);
 
 	String getimageOriginalFileName(int dcode);
+
+	public List<DishDTO> getdishListSearch(Map<String, Object> map);
+
+	public int getTotalASearch(String searchKey);
 	
 	
 	

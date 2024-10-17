@@ -1,9 +1,17 @@
 // MonoRecipe/src/main/webapp/WEB-INF/js/dishList.js
+	function handlePaging(pg) {
+    const searchKey = $('#searchInputval').text().trim();
+
+    if (searchKey) {
+        performSearch(pg, searchKey);
+    } else {
+        dishPaging(pg);
+    }
+}
 function dishPaging(pg){
 	const url = context + "/dish/dishList?pg=" + pg;
     location.href = url;
 }
-	
 $(document).ready(function () {
     // .checkDiv 클릭 시 내부의 체크박스 상태를 토글
     $(document).on('click', '.checkDiv', function (e) {
@@ -61,4 +69,84 @@ $('#deleteBtn').click(function() {
     });
 });    
     
+
+
+//////
+
+
+    // 검색 아이콘 클릭 시 처리
+    $('#searchIconBlack').on('click', function() {
+        performSearch(1, $('#searchInput').val().trim());
+    });
+
+    $('#searchInput').on('keypress', function(e) {
+        if (e.which === 13) {
+            performSearch(1, $(this).val().trim());
+        }
+    });
+
+    // 페이징 링크 클릭 시 AJAX 요청
+    $(document).on('click', '.paging-link', function(e) {
+        e.preventDefault();
+        const pg = $(this).data('pg');
+        handlePaging(pg);
+    });
 });
+
+// performSearch 함수
+function performSearch(pg, searchKey) {
+    console.log(searchKey, pg);
+    if (searchKey) {
+    $('#searchInputval').text(searchKey);
+    
+        $.ajax({
+            url: '/MonoRecipe/dish/dishListSearch',
+            type: 'GET',
+            data: {
+                pg: pg,
+                SearhKey: searchKey
+            },
+            success: function(response) {
+                updateDishList(response);
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX 요청 실패:", status, error);
+            }
+        });
+    }
+}
+
+// updateDishList 함수
+function updateDishList(dishPageMap) {
+    const dishGrid = $('.dishGrid');
+    dishGrid.empty();
+
+    if (dishPageMap.list && dishPageMap.list.length > 0) {
+        $.each(dishPageMap.list, function(index, dishDTO) {
+            const dishItem = `
+                <div class="dishItem">
+                    <div class="dishImgDiv">
+                        <img class="dishImg"
+                             src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
+                             alt="${dishDTO.dname}" />
+                    </div>
+                    <div class="dishInfo">
+                        <div class="dname">${dishDTO.dname}</div>
+                        <div class="scoreDiv">평점 : ${dishDTO.dscore.toFixed(2)}</div>
+                    </div>
+                </div>
+            `;
+            dishGrid.append(dishItem);
+        });
+    } else {
+        dishGrid.append('<div>등록된 레시피가 없습니다.</div>');
+    }
+
+    // 페이징 정보 업데이트
+    $('#page-block').html(dishPageMap.dishPaging.pagingHTML);
+}
+
+
+
+
+
