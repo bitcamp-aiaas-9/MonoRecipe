@@ -57,9 +57,11 @@
 				</tbody>
 			</table>
 			<hr />
-			<div class="text-end">
-				<button type="button" class="btn btn-black" id="dishUpdateBtn">수정 & 삭제</button>
-			</div>
+			<c:if test="${sessionScope.adminDTO.aid == 'admin'}">
+            <div class="text-end">
+                <button type="button" class="btn btn-black" id="dishUpdateBtn">수정 & 삭제</button>
+            </div>
+        </c:if>
 		</div>
 
 		<!-- 리뷰 작성 및 댓글 리스트 컨테이너 -->
