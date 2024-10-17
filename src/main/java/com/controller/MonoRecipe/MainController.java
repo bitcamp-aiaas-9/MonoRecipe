@@ -26,15 +26,6 @@ public class MainController {
 	    return "/index"; // /WEB-INF/index.jsp
 	}
 	
-	@RequestMapping(value="/index2")
-	public String index2(Model model) {
-		System.out.println("index.jsp 호출");
-	    List<DishDTO> dishList = dishService.getDishIndexList();
-	    model.addAttribute("dishList", dishList != null ? dishList : List.of());
-
-	    return "/index2"; // /WEB-INF/index2.jsp
-	}
-
    
 	@RequestMapping(value = "/common/header", method = RequestMethod.GET)
 	public String header() {
