@@ -99,6 +99,36 @@ public class DishServiceImpl implements DishService {
 	
 	
 	/** 민선 */
+	//래시피 검색
+	@Override
+	public Map<String, Object> getdishListSearch(String pg, String searchKey) {
+		int endNum = 12;
+		int startNum = (Integer.parseInt(pg)) * endNum - endNum;
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("startNum", startNum);
+		map.put("endNum", endNum);
+		map.put("searchKey", searchKey);
+		System.out.println(searchKey);
+		// 2. DB
+				List<DishDTO> list = dishDAO.getdishListSearch(map);	
+		// 3. 페이징 처리
+				int totalA = dishDAO.getTotalASearch(searchKey);
+				System.out.println(totalA);
+		        dishPaging.setCurrentPage(Integer.parseInt(pg));
+		        dishPaging.setPageBlock(3);
+		        dishPaging.setPageSize(12);
+		        dishPaging.setTotalA(totalA);
+		        dishPaging.makePagingHTML();	
+				
+		        Map<String, Object> dishPageMap = new HashMap<>();
+		        dishPageMap.put("list", list);
+		        dishPageMap.put("dishPaging", dishPaging);
+		        
+				return dishPageMap;
+	}
+	
+	
 	// 음식 레시피 저장
 	@Override
 	public void dishWrite(DishDTO dishDTO, MultipartFile img) {
@@ -208,6 +238,8 @@ public class DishServiceImpl implements DishService {
 	    //db
 	    dishDAO.dishDelete(dcode);
 	}
+
+	
 	
 	
 		

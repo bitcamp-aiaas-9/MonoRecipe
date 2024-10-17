@@ -32,10 +32,11 @@
 
 
 <section class="searchSection">
-	<div class="searchBox">
-	    <input type="text" placeholder="음식, 레시피 검색">
-	    <img class="searchIcon" id="searchIconBlack" src="${pageContext.request.contextPath}/image/search_icon_black.png" alt="Search Icon">
-	</div>
+    <div class="searchBox">
+        <input type="text" id="searchInput" placeholder="음식, 레시피 검색">
+        <img class="searchIcon" id="searchIconBlack" src="${pageContext.request.contextPath}/image/search_icon_black.png" alt="Search Icon">
+    	<p id="searchInputval" style="visibility: hidden;"></p>
+    </div>
 </section>
 
 <c:if test="${sessionScope.adminDTO.aid == 'admin'}">
