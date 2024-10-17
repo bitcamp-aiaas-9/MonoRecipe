@@ -27,9 +27,9 @@
 		<p id="dcode" class="d-none">${dishDTO.dcode}</p>
 		<div class="container mt-4">
 			<div class="d-flex align-items-center mb-3">
-            <div class="back-button me-2" style="cursor: pointer;">
-                <span onclick="window.location.href='/MonoRecipe/dish/dishList';" style="color: black; font-size: 24px; font-weight: bold;">&lt;</span>
-            </div>
+             <div class="back-button me-2" style="cursor: pointer;">
+    <span id="backButton" style="color: black; font-size: 24px; font-weight: bold;">&lt;</span>
+</div>
             
             <h1 class="text-center flex-grow-1">${dishDTO.dname}</h1>
         </div>
@@ -56,7 +56,7 @@
 			</table>
 			<hr />
 			<div class="text-end">
-				<button type="button" class="btn btn-black" id="dishUpdateBtn">수정하기</button>
+				<button type="button" class="btn btn-black" id="dishUpdateBtn">수정&삭제</button>
 			</div>
 		</div>
 

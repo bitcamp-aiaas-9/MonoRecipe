@@ -21,9 +21,19 @@ $(document).ready(function() {
     
     // 업데이트 버튼 클릭 시 이동
     $('#dishUpdateBtn').click(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+const pg = urlParams.get('pg');
         const dcode = $('#dcode').text();
-        window.location.href = `http://localhost:8080/MonoRecipe/dish/dishUpdate?dcode=${dcode}`;
+        window.location.href = `http://localhost:8080/MonoRecipe/dish/dishUpdate?dcode=${dcode}&pg=${pg}`;
     });
+    
+     // 현재 URL에서 쿼리 매개변수 가져오기
+   	 const urlParams = new URLSearchParams(window.location.search);
+   	 const pg = urlParams.get('pg');
+    // 뒤로 가기 버튼 클릭 시 이동
+    document.getElementById('backButton').onclick = function() {
+        window.location.href = `/MonoRecipe/dish/dishList?pg=${pg}`; // pg 값이 없으면 기본값 1
+    };
 
     // 리뷰 작성 버튼 클릭 시 처리
     $('#btn-write').click(function(e) {
