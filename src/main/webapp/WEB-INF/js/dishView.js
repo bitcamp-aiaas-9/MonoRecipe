@@ -137,7 +137,7 @@ $(document).ready(function() {
         if (reviewRating) {
             $(`input[name="editRating"][value="${reviewRating}"]`).prop('checked', true);
             $('.star').css('color', '#ccc'); // 모든 별 초기화
-            $(`input[name="editRating"][value="${reviewRating}"]`).prevAll('.star').css('color', 'gold'); // 이전 별 색상 변경
+            $(`input[name="editRating"][value="${reviewRating+1}"]`).prevAll('.star').css('color', 'gold'); // 이전 별 색상 변경
             $(`input[name="editRating"][value="${reviewRating}"]`).css('color', 'gold'); // 선택된 별 색상 변경
         }
         $('#btn-edit-write').data('reviewid', $(this).data('reviewid'));
