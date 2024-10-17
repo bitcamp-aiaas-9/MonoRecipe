@@ -18,6 +18,8 @@ public interface DishService {
 	
 	public Map<String, Object> getDishList(String pg);
 	
+	public void dishListDelete(String[] check);
+	// ...
 	
 	
 	

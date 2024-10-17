@@ -49,7 +49,7 @@ section {
     justify-content: center;
     align-items: center;
     background-color: white;
-    width: 40%;
+    width: 400px;
     max-height: 50px;
     padding: 10px;
     border-radius: 5px;
@@ -80,12 +80,26 @@ section {
 	align-items: center;
 }
 
+
+.checkboxContainer {
+    position: relative;
+}
+
+#all-check {
+    position: absolute;
+    top: -8px;  /* deleteBtn 위로 올리기 */
+    left: 14px;	
+    transform: scale(2.0);
+    accent-color: black;
+    cursor: pointer;
+}
+
 .adminBtn {
 	padding: 0;
 	display: flex;
     align-items: center;
     justify-content: center;
-	width: 20%;
+	width: 200px;
     height: 45px;
     font-style: normal;
     font-weight: 400;
@@ -95,21 +109,14 @@ section {
     background: white;
 }
 
-#writePageBtn {
-/* 	background: #457ABF;
-	color: white;
-	border: 1px solid #457ABF; */
-	border-radius: 5px 0 0 5px;
+#deleteBtn {
 	border-right: none;
+	border-radius: 5px 0 0 5px;
 }
 
-#deleteBtn {
-/*     background: #77B3D9;
-	color: white;
-	border: 1px solid #77B3D9; */
+#writePageBtn {
 	border-radius: 0 5px 5px 0;	
 }
-
 
 #writePageBtn:hover, #deleteBtn:hover {
     transition: background-color 0.3s ease; 
@@ -136,8 +143,21 @@ section {
     gap: 20px;
 }
  
+.checkDiv {
+    cursor: pointer;	
+}
+
+.board-list-check {
+    cursor: pointer;	
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transform: scale(1.7);
+    accent-color: black;    
+}
 
 .dishItem {
+	position: relative;
     width: 22%;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -274,6 +294,13 @@ span:hover {
     
     
     /** <section class="adminSection"> */
+    
+	#all-check {
+	    top: -6px;  
+	    left :13px;	
+	    transform: scale(1.7);
+	}	 
+	   
     .adminBtn {
     	width: 40%;
     	max-height: 40px;
@@ -282,11 +309,10 @@ span:hover {
     
     
     
-    
-    
-    
-    
-    
+	.board-list-check {
+		transform: scale(1.4);
+		cursor: pointer;
+	}    
     
     .dishItem {
         width: 46%;

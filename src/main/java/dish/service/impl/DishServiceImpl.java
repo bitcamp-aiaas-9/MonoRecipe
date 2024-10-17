@@ -3,6 +3,7 @@ package dish.service.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,8 +50,8 @@ public class DishServiceImpl implements DishService {
 	
 	@Override
 	public Map<String, Object> getDishList(String pg) {
-		// 한페이지 당 5개씩
-		int endNum = 16;
+		// 한페이지 당 12개씩
+		int endNum = 12;
 		int startNum = (Integer.parseInt(pg)) * endNum - endNum;
 		
 		Map<String, Integer> map = new HashMap<>();
@@ -65,7 +66,7 @@ public class DishServiceImpl implements DishService {
 				
 		        dishPaging.setCurrentPage(Integer.parseInt(pg));
 		        dishPaging.setPageBlock(3);
-		        dishPaging.setPageSize(16);
+		        dishPaging.setPageSize(12);
 		        dishPaging.setTotalA(totalA);
 		        dishPaging.makePagingHTML();	
 				
@@ -77,8 +78,23 @@ public class DishServiceImpl implements DishService {
 	}
 	
 	
-	
-	
+	@Override
+	public void dishListDelete(String[] check) {
+		// dishMapper.xml 에서 forEach 사용하려면 데이터를 List 에 담아야 함
+		List<String> list = new ArrayList<>();
+		
+		
+		// Object Storage 에 있는 이미지도 삭제해야함 >> dimageUUID 을 list 에 담기
+		for (String dcode : check) {
+			String dimageUUID = dishDAO.getDimageUUID(Integer.parseInt(dcode));
+			list.add(dimageUUID);
+		}
+		objectStorageService.deleteFile(bucketName, "storage/", list);
+		
+		
+		// DB 삭제
+		dishDAO.dishListDelete(list);
+	}	
 	
 	
 	
