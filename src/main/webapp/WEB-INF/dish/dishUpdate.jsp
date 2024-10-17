@@ -17,7 +17,7 @@
 <title>레시피 수정</title>
 </head>
 <body>
-	<c:import url="/common/header" />
+	<jsp:include page="/WEB-INF/common/header.jsp" />
 	<main>
 		<div class="container mt-4">
 		<div class="d-flex align-items-center mb-3">
@@ -76,7 +76,7 @@
 			</form>
 		</div>
 	</main>
-	<c:import url="/common/footer" />
+<jsp:include page="/WEB-INF/common/footer.jsp" />
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../js/dishUpdate.js"></script>
