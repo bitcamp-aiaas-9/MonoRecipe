@@ -16,45 +16,42 @@
 <c:import url="/common/header" />
 <main>
     <div id="container">
-        <div id="edit-header">로그인</div>
+        <div id="edit-header">관리자 로그인</div>
         
             <c:if test="${not empty error}">
         <div style="color: red; text-align:center; margin-left:20px;">${error}</div>
    			 </c:if>
-        <form name="loginForm" id="loginForm" action="/MonoRecipe/user/login" >
+        <form name=" adminLoginForm" id="adminLoginForm" action="/MonoRecipe/admin/adminLogin" >
             <table>
                 <tr>
-                    <th class="label">이메일</th>
+                    <th class="label">아이디</th>
                     <td class="input">
-                        <input type="text" name="uemail" id="uemail" placeholder="이메일 입력" required />
-                        <div id="uemailDiv"></div>
+                        <input type="text" name="aid" id="aid" placeholder="아이디 입력" required />
+                        <div id="aidDiv"></div>
                     </td>
                 </tr>
                 <tr>
                     <th class="label">비밀번호</th>
                     <td class="input">
-                        <input type="password" name="upwd" id="upwd" placeholder="비밀번호 입력" required />
-                        <div id="upwdDiv"></div>
+                        <input type="password" name="apwd" id=apwd" placeholder="비밀번호 입력" required />
+                        <div id="apwdDiv"></div>
                     </td>
                 </tr>
                 <tr>
                <td class="input" colspan="2" style="text-align: center;">
-                        <button type="submit" id="loginBtn" style="width: 88%;  margin-left: 5%;">로그인</button>
+                        <button type="submit" id="adminLoginBtn" style="width: 88%;  margin-left: 5%;">관리자 로그인</button>
                     </td>
                 </tr>
             </table>
         </form>
 <div style="margin-top: 5px; margin-right:27px;  margin-bottom: 30px; ">
-    <a href="/MonoRecipe/admin/adminSignIn" style="font-size: 1em; float: right;  ">관리자 로그인</a>
-    <a href="/MonoRecipe/user/signUp" style="font-size: 1em; float: right; margin-right:15px;">회원가입</a>  
-
+    <a href="/MonoRecipe/user/signIn" style="font-size: 1em; float: right;  ">회원 로그인</a>  
 </div>
     </div>
 </main>
 <c:import url="/common/footer" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../js/userSignIn.js"></script>
 
 </body>
 </html>
