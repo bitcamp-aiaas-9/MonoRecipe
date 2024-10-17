@@ -38,16 +38,15 @@
                     </td>
                 </tr>
                 <tr>
-                    <th class="label"></th>
-                    <td class="input">
-                        <button type="submit" id="loginBtn" style="width: 95%;">로그인</button>
+               <td class="input" colspan="2" style="text-align: center;">
+                        <button type="submit" id="loginBtn" style="width: 88%;  margin-left: 5%;">로그인</button>
                     </td>
                 </tr>
             </table>
         </form>
-<div style="margin-top: 10px; margin-right:27px;  margin-bottom: 20px; ">
+<div style="margin-top: 5px; margin-right:27px;  margin-bottom: 30px; ">
     <a href="/admin/dashboard.jsp" style="font-size: 1em; float: right;  ">관리자 페이지</a>
-    <a href="/userSignUp.jsp" style="font-size: 1em; float: right; margin-right:15px;">회원가입</a>  
+    <a href="/MonoRecipe/user/signUp" style="font-size: 1em; float: right; margin-right:15px;">회원가입</a>  
 
 </div>
     </div>

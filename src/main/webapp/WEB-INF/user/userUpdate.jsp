@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,7 @@
     <title>회원정보 수정</title>
 </head>
 <body>
-<c:import url="/common/header" />
+<jsp:include page="../common/header.jsp" />
 <main>
     <div id="container">
         <div id="edit-header">회원정보 수정</div>
@@ -22,36 +24,36 @@
                 <tr>
                     <th class="label">이름</th>
                     <td class="input">
-                        <input type="text" name="uname" id="uname" value="${userDTO.uname}" />
+                        <input type="text" name="uname" id="uname" value="${sessionScope.userDTO.uname}" />
                         <div id="unameDiv"></div>
                     </td>
                 </tr>
                 <tr>
                     <th class="label">아이디</th>
                     <td class="input">
-                        <input type="text" name="uid" id="uid" value="${userDTO.uid}" readonly />
+                        <input type="text" name="uid" id="uid" value="${sessionScope.userDTO.uid}" readonly />
                         <div id="uidDiv"></div>
                     </td>
                 </tr>
                 <tr>
                     <th class="label">비밀번호</th>
                     <td class="input">
-                        <input type="password" name="upwd" id="upwd" value="${userDTO.upwd}" />
+                        <input type="password" name="upwd" id="upwd" value="${sessionScope.userDTO.upwd}" />
                         <div id="upwdDiv"></div>
                     </td>
                 </tr>
                 <tr>
                     <th class="label">이메일</th>
                     <td class="input">
-                        <input type="text" name="uemail" id="uemail" value="${userDTO.uemail}" />
-                        <input type="hidden" name="uemailH" id="uemailH" value="${userDTO.uemail}" />
+                        <input type="text" name="uemail" id="uemail" value="${sessionScope.userDTO.uemail}" />
+                        <input type="hidden" name="uemailH" id="uemailH" value="${sessionScope.userDTO.uemail}" />
                         <div id="uemailDiv"></div>
                     </td>
                 </tr>
                 <tr id="authRow" style="display: none;">
                     <th class="label"></th>
                     <td class="input">
-                        <button type="button" id="emailAuth" style="width: 40%;">인증번호 발송</button>
+                        <button type="button" id="emailAuth" style="width: 94%;">인증번호 발송</button>
                     </td>
                 </tr>
                 <tr id="inputCodeRow" style="display: none;">
@@ -64,28 +66,40 @@
                 <tr>
                     <th class="label"></th>
                     <td class="input">
-                        <button type="button" id="updateBtn" style="width: 40%;">정보수정</button>
+                        <button type="button" id="updateBtn" style="width: 44%;">정보수정</button>
+                        <button type="button" id="deleteBtn"  style="width: 44%; margin-left:5%;" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
 </main>
-<c:import url="/common/footer" />
+<jsp:include page="../common/footer.jsp" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+
+var emailVerified = true; // 이메일 인증 여부
+
 $(function() {
     $('#uidDiv').html('아이디는 수정이 불가능합니다').css('color', 'blue');
 
     let previousEmail = $('#uemail').val(); 
     let hiddenEmail = $('#uemailH').val();
-    let emailVerified = true; // 이메일 인증 여부
+
 
     $('#uemail').on('input', function() {
         const currentEmail = $(this).val();
+        
+        if(currentEmail == hiddenEmail){
+            emailVerified = true; 
+            $('#authRow').fadeOut(1000); 
+            $('#inputCodeRow').hide(); 
+            return;
+        }
+        
         if (currentEmail !== previousEmail) {
-            $('#authRow').show(); // 인증번호 발송 버튼을 보이게 합니다.
+        	$('#authRow').fadeIn(1000);
             $('#inputCodeRow').hide(); // 인증번호 입력 필드를 숨깁니다.
             previousEmail = currentEmail; // 이전 이메일 값을 업데이트합니다.
             emailVerified = false; // 이메일 인증 초기화
@@ -94,26 +108,29 @@ $(function() {
 
     // 등록
     $('#updateBtn').click(function() {
-        $('#unameDiv, #uidDiv, #upwdDiv, #uemailDiv, #inputCodeDiv').empty();
+        
+        if (emailVerified == false){
+        	alert("이메일 인증이 완료되지않았습니다");
+        	return;
+        }
 
         if ($('#uname').val() === '') {
-            $('#unameDiv').html('이름 입력');
+            $('#unameDiv').html('이름을 입력해주세요');
         } else if ($('#uid').val() === '') {
-            $('#uidDiv').html('아이디 입력');
+            $('#uidDiv').html('아이디 입력해주세요');
         } else if ($('#upwd').val() === '') {
-            $('#upwdDiv').html('비밀번호 입력');
+            $('#upwdDiv').html('비밀번호 입력해주세요');
         } else if ($('#uemail').val() === '') {
-            $('#uemailDiv').html('이메일 입력');
-        } else if ($('#inputCode').val() === '' && emailVerified === false) {
-            alert("이메일 인증을 해주세요")
-        } else {
+            $('#uemailDiv').html('이메일을 입력해주세요');
+        }           
+        else {
             $.ajax({
                 type: 'post',
                 url: '/MonoRecipe/user/update',
                 data: $('#userUpdateForm').serialize(),
                 success: function() {
                     alert('회원정보 수정 완료');
-                    location.href = '/MonoRecipe';
+                    location.reload();
                 },
                 error: function(e) {
                     console.log(e);
@@ -130,6 +147,11 @@ $("#emailAuth").click(function() {
     const min = 111111;
     const max = 999999;
     randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    
+    if(uemail==""){
+    	alert("이메일을 입력해주세요");
+    	return;
+    }
 
     $.ajax({
         type: 'POST',
@@ -152,12 +174,34 @@ $('#inputCode').focusout(function() {
         $('#inputCodeDiv').text("인증코드가 일치합니다.").css("color", "blue");
         emailVerified = true; // 인증이 성공하면 플래그를 true로 설정
     } else {
-        alert("불일치합니다. 메일을 다시 확인하세요.");
-        $('#inputCode').val('');
-        $('#inputCodeDiv').text(""); 
+    	 $('#inputCodeDiv').text("인증코드가 불일치합니다.").css("color", "red");
         emailVerified = false; // 인증이 실패하면 플래그를 false로 설정
     }
 });
+
+$('#uname').focusout(function() {
+    $('#unameDiv').empty();
+    uname = $('#uname').val();  
+    if (uname == '') {
+        $('#unameDiv').html("<span style='color: red;'>이름을 입력해주세요</span>");
+    }
+});   
+
+$('#upwd').focusout(function() {
+    $('#upwdDiv').empty();
+    upwd = $('#upwd').val();  
+    if (upwd == '') {
+        $('#upwdDiv').html("<span style='color: red;'>비밀번호를 입력해주세요</span>");
+    }
+});   
+
+$('#uemail').focusout(function() {
+    $('#uemailDiv').empty();
+    uemail = $('#uemail').val();  
+    if (uemail == '') {
+        $('#uemailDiv').html("<span style='color: red;'>이메일을 입력해주세요</span>");
+    }
+});   
 </script>
 
 </body>

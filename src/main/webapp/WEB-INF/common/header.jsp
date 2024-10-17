@@ -28,8 +28,8 @@
         
         <c:choose>
             <c:when test="${not empty sessionScope.userDTO}">
-                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userUpdate?uemail=${sessionScope.userDTO.uemail}">회원정보 수정</a></li>
-                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userLogout?uemail=${sessionScope.userDTO.uemail}">로그아웃</a></li>
+                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userUpdate">회원정보 수정</a></li>
+                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userLogout">로그아웃</a></li>
             </c:when>
             <c:otherwise>
                 <li><a class="headerList" href="${pageContext.request.contextPath}/user/signUp">Sign Up</a></li>

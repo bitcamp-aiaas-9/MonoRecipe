@@ -49,11 +49,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/user/userUpdate", method = RequestMethod.GET)
-	public String userUpdate(@RequestParam("uemail") String uemail, Model model)  {
-		userDTO=userService.getMember(uemail);
-		
-	    model.addAttribute("userDTO", userDTO);
-		
+	public String userUpdate()  {
 		return "/user/userUpdate";
 	}
 	
@@ -62,6 +58,9 @@ public class UserController {
 	public void userUpdate(@ModelAttribute UserDTO userDTO,HttpSession session)  {
 		userService.update(userDTO);
 		session.removeAttribute("userDTO");
+		
+	    userDTO = userService.login(userDTO);
+	    session.setAttribute("userDTO", userDTO);
 	}
 	
 	@RequestMapping(value="/user/getExistId", method = RequestMethod.POST)
@@ -90,18 +89,30 @@ public class UserController {
 	        model.addAttribute("error", "로그인 실패! 이메일 또는 비밀번호가 잘못되었습니다.");
 	        return "/user/userSignIn"; 
 	    }
-	    model.addAttribute("userDTO", userDTO);
 	    session.setAttribute("userDTO", userDTO);
 
-	    return "/index"; // /WEB-INF/index.jsp
+	    return "redirect:/";// /WEB-INF/index.jsp
 	}
 	
 	@RequestMapping(value="/user/userLogout", method = RequestMethod.GET)
-	public String userLogout(@RequestParam("uemail") String uemail,HttpSession session)  {
-		
+	public String userLogout(HttpSession session)  {	
 		session.removeAttribute("userDTO");	
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value="/user/userDelete", method = RequestMethod.GET)
+	public String userDelete()  {
+		return "/user/userDelete";
+	}
+	
+	@RequestMapping(value="/user/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public void delete(@ModelAttribute UserDTO userDTO,HttpSession session) {
+		System.out.println("삭제중");
+		userService.delete(userDTO);
+		session.removeAttribute("userDTO");	
+	}
+	
 	
 	//이메일 인증
 	  @RequestMapping(value = "/user/emailAuth", method = RequestMethod.POST)

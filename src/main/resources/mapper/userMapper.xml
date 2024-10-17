@@ -28,6 +28,10 @@
 	<update id="update" parameterType="user.bean.UserDTO">
 		update user_tb set uname=#{uname}, upwd=#{upwd}, uemail=#{uemail} where uid=#{uid}
 	</update>	
+	
+    <delete id="delete" parameterType="user.bean.UserDTO">
+		delete from user_tb WHERE uemail = #{uemail} AND upwd = #{upwd}
+	</delete>
 
 
 	
@@ -46,8 +50,4 @@
 		select * from usertable where id=#{id}
 	</select>
 	
-	<delete id="delete" parameterType="String">
-		delete from usertable where id=#{id}
-	</delete>
-
 </mapper>
