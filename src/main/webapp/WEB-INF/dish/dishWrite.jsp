@@ -11,6 +11,7 @@
 <title> 레시피 등록 </title>
 </head>
 <body>
+
 <jsp:include page="/WEB-INF/common/header.jsp" />
 <main>
      <div class="container mt-4 mb-4">
