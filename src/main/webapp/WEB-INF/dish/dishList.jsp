@@ -40,9 +40,6 @@
 
 <!-- 아직 admin session 구현 안됨; 되면 .adminSection 감싸기 -->
 <c:if test="${sessionScope.adminDTO.aid == 'admin'}">
-</c:if>
-
-
 <section class="adminSection">
     <div class="checkboxContainer">
         <input type="checkbox" id="all-check" />
@@ -50,6 +47,7 @@
 	<button type="submit" id="deleteBtn" class="adminBtn">선택 삭제</button>
 	<button type="button" id="writePageBtn" class="adminBtn" onclick="location.href='/MonoRecipe/dish/dishWrite'" >음식 등록</button>
 </section> 
+</c:if>
 
 
 
@@ -61,12 +59,12 @@
     <c:if test="${not empty dishPageMap.list}">
 	    <c:forEach var="dishDTO" items="${dishPageMap.list}">
 	        <div class="dishItem">
-					<div class="checkDiv">
-						<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" /> ${dishDTO.dcode}            
-					</div>
 					
 				<!-- 아직 admin session 구현 안됨; 되면 .adminSection 감싸기 -->						
 		        <c:if test="${sessionScope.adminDTO.aid == 'admin'}">
+					<div class="checkDiv">
+						<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" /> ${dishDTO.dcode}            
+					</div>
 		        </c:if>	        
 	        	<div class="dishImgDiv">
 		            <img class="dishImg"
