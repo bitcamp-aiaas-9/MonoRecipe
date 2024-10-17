@@ -152,6 +152,15 @@
 	    <version>1.18.30</version>
 	    <scope>provided</scope>
 	</dependency>
+
+
+<!-- NCP AWS -->
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk-s3</artifactId>
+    <version>1.12.610</version>
+</dependency> 
+
 		
 <!-- ================================================================= -->
 
@@ -231,6 +240,20 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		
+		<!--  https://mvnrepository.com/artifact/javax.mail/mail  -->
+<dependency>
+<groupId>javax.mail</groupId>
+<artifactId>mail</artifactId>
+<version>1.4.7</version>
+</dependency>
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-context-support</artifactId>
+<version>${org.springframework-version}</version>
+</dependency>
+		
+		
 	
 		<!-- Test -->
 		<dependency>
@@ -244,7 +267,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
+                <version>3.9</version>
                 <configuration>
                     <additionalProjectnatures>
                         <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
@@ -259,10 +282,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>

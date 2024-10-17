@@ -1,0 +1,322 @@
+/* MonoRecipe/src/main/webapp/WEB-INF/css/dishList.css */
+@charset "UTF-8";
+@import url("init.css");
+
+section {
+	margin: 10px 0;
+}
+
+
+/** <section class="topSection"> */
+.topSection {
+	padding-top: 80px;
+}
+
+.dishCategory {
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+    margin-bottom: 20px;
+}
+
+.moveIndex {
+    font-size: 2.0rem;
+    font-weight: bold;
+    position: absolute;
+    left: 0; 
+}
+
+.categoryTitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0 auto; 
+    text-align: center;
+    flex-grow: 1; /* 제목이 가운데 정렬되도록 공간 확보 */
+}
+
+
+/** <section class="searchSection"> */
+.searchSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 400px;
+    max-height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.searchBox input {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.searchIcon {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+
+
+/** <section class="adminSection"> */
+.adminSection {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.checkboxContainer {
+    position: relative;
+}
+
+#all-check {
+    position: absolute;
+    top: -8px;  /* deleteBtn 위로 올리기 */
+    left: 14px;	
+    transform: scale(2.0);
+    accent-color: black;
+    cursor: pointer;
+}
+
+.adminBtn {
+	padding: 0;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	width: 200px;
+    height: 45px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid black;
+    background: white;
+}
+
+#deleteBtn {
+	border-right: none;
+	border-radius: 5px 0 0 5px;
+}
+
+#writePageBtn {
+	border-radius: 0 5px 5px 0;	
+}
+
+#writePageBtn:hover, #deleteBtn:hover {
+    transition: background-color 0.3s ease; 
+	background-color: #3d3d3d;
+	color: #FFFFFF;
+	border: 1px solid #3d3d3d;	
+	cursor: pointer;
+}
+
+
+
+/** <section class=dishSection> */
+
+.dishSection {
+	margin-top: 30px;
+}
+
+
+.dishGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr); /* 4열 구성*/
+    gap: 20px;
+}
+ 
+
+.board-list-check {
+    cursor: pointer;	
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    transform: scale(1.7);
+    accent-color: black;    
+}
+
+.dishItem {
+	position: relative;
+    width: 22%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: visible;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dishItem:hover {
+    transform: scale(1.05); /* 5% 확대 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;	
+}
+
+/* 빈 플레이스홀더 아이템 스타일 */
+.dishItem.placeholder {
+    visibility: hidden; /* 보이지 않게 처리 */
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dishImgDiv {
+	width: 100%;
+	max-width: 220px;
+	aspect-ratio: 1; /* 정사각형 유지 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+
+.dishImg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1; /* 정사각형 유지 */
+    object-fit: contain;
+}
+
+.dishInfo {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dname {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.scoreDiv {
+	text-align: right;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+
+
+/** <section class="pageSection"> */
+#page-block {
+   margin: 20px auto;
+   margin-bottom: 30px;
+   font-size: 13pt;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 5px;
+}
+
+#currentPaging {
+   background-color: #e5e7ea;
+   border-radius: 5px;
+   padding: 5px 8px;
+   font-weight: bold;
+}
+
+#paging {
+   border-radius: 5px;
+   padding: 5px 8px;
+}
+
+span:hover {
+   text-decoration: underline;
+   cursor: pointer;
+}
+
+
+
+
+
+
+/** 600px 이하일 때 적용될 스타일 */
+@media (max-width: 600px) {
+	
+	/** <section class="topSection"> */
+	.topSection {
+		padding-top: 60px;
+	}
+	
+	.moveIndex {
+	    font-size: 1.8rem;
+	}
+	
+	.categoryTitle {
+	    font-size: 1.6rem;
+	}	
+	
+    /** <section class="searchSection"> */
+    .searchBox {
+        width: 80%;
+        height: 20%;
+        max-height: 40px;
+        padding: 8px;
+    }
+
+    .searchBox input {
+        padding: 8px; 
+        height: 18%;
+        font-size: 0.9rem; 
+    }
+
+    .searchIcon {
+        width: 20px; 
+        height: 20px;
+        margin: 0 8px;
+    }    
+    
+    
+    
+    /** <section class="adminSection"> */
+    
+	#all-check {
+	    top: -6px;  
+	    left :13px;	
+	    transform: scale(1.7);
+	}	 
+	   
+    .adminBtn {
+    	width: 40%;
+    	max-height: 40px;
+    	font-size: 0.9rem;
+    }
+    
+    
+    
+	.board-list-check {
+		transform: scale(1.4);
+		cursor: pointer;
+	}    
+    
+    .dishItem {
+        width: 46%;
+    }
+
+	.carousel-container {
+		padding-top: 80px;
+	}
+}

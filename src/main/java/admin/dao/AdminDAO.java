@@ -2,7 +2,11 @@ package admin.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import admin.bean.AdminDTO;
+
 @Mapper
-public class AdminDAO {
+public interface AdminDAO {
+
+	AdminDTO login(AdminDTO adminDTO);
 
 }

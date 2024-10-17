@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MonoRecipe/src/main/java/mapper/recipeMapper.xml -->
+<!-- MonoRecipe/src/main/java/mapper/dishMapper.xml -->
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -7,33 +7,66 @@
 <mapper namespace="dish.dao.DishDAO">
 
 <!-- 채연; dishView.jsp -->
+<!-- index.jsp 음식 목록 -->
+<select id="getDishIndexList" resultType="dish.bean.DishDTO">
+	SELECT * FROM dish_tb ORDER BY dcode DESC limit 4;
+</select>
 
+<select id="getDishList" resultType="dish.bean.DishDTO">
+	SELECT * FROM dish_tb ORDER BY dcode DESC LIMIT #{startNum}, #{endNum}
+</select>
+   
+<select id="getTotalA" resultType="int">
+	SELECT COUNT(*) FROM dish_tb
+</select> 
 
+<!-- MonoRecipe/src/main/java/mapper/recipeMapper.xml -->
+<select id="getDimageUUID" parameterType="int" resultType="String">
+select dimageUUID from dish_tb where dcode=#{dcode}
+</select>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<delete id="dishListDelete" parameterType="list">
+    DELETE FROM dish_tb WHERE dimageUUID IN 
+    <foreach item="dimageUUID" collection="list" open="(" separator="," close=")">
+        #{dimageUUID}
+    </foreach>
+</delete>	
 
 
 
 
 
 <!-- 민선; dishWrite.jsp, dishUpdate.jsp, dishDelete.jsp -->
+<!-- 이미지 등록 -->
+<insert id="dishWrite" parameterType="dish.bean.DishDTO">
+    INSERT INTO dish_tb (dimage, dimageUUID, dname, dintro, drecipe)
+    VALUES (#{dimage}, #{dimageUUID}, #{dname}, #{dintro}, #{drecipe})
+</insert>
+<!-- 업데이트 하기전 정보 불러오기 -->
+<select id="getDishDTO" parameterType="String">
+	select * from dish_tb where dcode=#{dcode}
+</select>
+<!-- 업데이트전 이미지 파일만 불러오기 -->
+<select id="getImageFileName" parameterType="int" resultType="String">
+select dimageUUID from dish_tb where dcode=#{dcode}
+</select>
+<select id="getimageOriginalFileName" parameterType="int" resultType="String">
+select dimage from dish_tb where dcode=#{dcode}
+</select>
 
-
-
-
-
-
-
-  
+ <update id="dishUpdate" parameterType="dish.bean.DishDTO">
+ UPDATE dish_tb
+    SET 
+        dimage = #{dimage},
+        dimageUUID = #{dimageUUID},
+        dname = #{dname},
+        dintro = #{dintro},
+        drecipe = #{drecipe}
+    WHERE dcode = #{dcode};
+ </update> 
+ <delete id="dishDelete" parameterType="String">
+  DELETE FROM dish_tb
+    WHERE dcode = #{seq};
+ </delete>
+ 
 </mapper>

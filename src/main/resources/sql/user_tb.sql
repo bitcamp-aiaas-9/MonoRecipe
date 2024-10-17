@@ -4,6 +4,5 @@ CREATE TABLE user_tb (
     uname VARCHAR(50) NOT NULL,				-- 사용자 이름
     uid VARCHAR(50) NOT NULL UNIQUE,		-- 사용자 아이디
     upwd VARCHAR(100) NOT NULL,				-- 사용자 비밀번호
-    uemai1 VARCHAR(50) NOT NULL,			-- 사용자 이메일 아이디
-    uemai2 VARCHAR(50) NOT NULL				-- 사용자 이메일 도메인
+    uemail VARCHAR(100) NOT NULL            -- 사용자 이메일
 );
