@@ -29,10 +29,9 @@
 		<div class="container mt-4">
 			<div class="d-flex align-items-center mb-3">
 	            <div class="dishTop" >
-					<span id="backButton">&lt;</span>
+					<span id="backButton" style="width: 30px">&lt;</span>
 		            <h1 class="text-center flex-grow-1">${dishDTO.dname}</h1>
-					<span style="color: black; font-size: 30px;" class="align-items-center">♥</span>
-	            </div>
+				<span id="heartIcon" style="color: black; font-size: 30px;" class="align-items-center">&hearts;</span></div>
         	</div>
         	
 			<table class="table">
