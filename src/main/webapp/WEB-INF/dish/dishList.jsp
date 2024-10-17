@@ -41,15 +41,7 @@
 <!-- 아직 admin session 구현 안됨; 되면 .adminSection 감싸기 -->
 <c:if test="${sessionScope.adminDTO.aid == 'admin'}">
 </c:if>
-<!-- 
-<section class="adminSection">
-	<input type="checkbox" id="all-check" />
-	<button type="button" id="writePageBtn" class="adminBtn" onclick="location.href='/MonoRecipe/dish/dishWrite'" >음식 등록</button>
-	<div id="deleteWrap" class="adminBtn">
-		<button type="button" id="deleteBtn">선택 삭제</button>
-	</div>
-</section> 
- -->
+
 
 <section class="adminSection">
     <div class="checkboxContainer">

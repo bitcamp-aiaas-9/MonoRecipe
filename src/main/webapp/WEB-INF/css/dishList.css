@@ -81,13 +81,6 @@ section {
 }
 
 
- /* 
-button {
-	border: none;
-	background: transparent;
-}
-  */
-
 .checkboxContainer {
     position: relative;
 }
@@ -132,29 +125,6 @@ button {
 	border: 1px solid #3d3d3d;	
 	cursor: pointer;
 }
-
-/*  
-#deleteWrap {
-	border-radius: 0 5px 5px 0;	
-}
-
-#writePageBtn:hover, #deleteWrap:hover {
-    transition: background-color 0.3s ease; 
-	background-color: #3d3d3d;
-	color: #FFFFFF;
-	border: 1px solid #3d3d3d;	
-	cursor: pointer;
-}
-#deleteBtn {
-	width: 80%;	
-	height: 80%;
-}
-
-#deleteWrap:hover #deleteBtn {
-    color: #FFFFFF;
-}
- 
- */
 
 
 
@@ -336,10 +306,6 @@ span:hover {
     	max-height: 40px;
     	font-size: 0.9rem;
     }
-    
-    
-    
-    
     
     
     

@@ -50,7 +50,7 @@ public class DishServiceImpl implements DishService {
 	
 	@Override
 	public Map<String, Object> getDishList(String pg) {
-		// 한페이지 당 5개씩
+		// 한페이지 당 12개씩
 		int endNum = 12;
 		int startNum = (Integer.parseInt(pg)) * endNum - endNum;
 		
