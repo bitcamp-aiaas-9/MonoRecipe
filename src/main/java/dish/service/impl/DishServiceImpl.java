@@ -3,6 +3,7 @@ package dish.service.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,8 +78,23 @@ public class DishServiceImpl implements DishService {
 	}
 	
 	
-	
-	
+	@Override
+	public void dishDelete(String[] check) {
+		// dishMapper.xml 에서 forEach 사용하려면 데이터를 List 에 담아야 함
+		List<String> list = new ArrayList<>();
+		
+		
+		// Object Storage 에 있는 이미지도 삭제해야함 >> dimageUUID 을 list 에 담기
+		for (String dcode : check) {
+			String dimageUUID = dishDAO.getDimageUUID(Integer.parseInt(dcode));
+			list.add(dimageUUID);
+		}
+		objectStorageService.deleteFile(bucketName, "storage/", list);
+		
+		
+		// DB 삭제
+		dishDAO.dishListDelete(list);
+	}	
 	
 	
 	

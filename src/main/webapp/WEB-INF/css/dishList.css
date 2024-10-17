@@ -326,9 +326,9 @@ span:hover {
     /** <section class="adminSection"> */
     
 	#all-check {
-	    top: -7px;  
-	    left :12px;	
-	    transform: scale(1.8);
+	    top: -6px;  
+	    left :13px;	
+	    transform: scale(1.7);
 	}	 
 	   
     .adminBtn {

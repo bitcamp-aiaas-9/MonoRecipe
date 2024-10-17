@@ -45,7 +45,14 @@ public class DishController {
 		return "/dish/dishList"; 
 	}
 	
-	
+	@ResponseBody
+	@RequestMapping(value = "/dishDelete", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
+	public void uploadDelete(@RequestParam String[] check) {
+		for (String dcode: check) {
+			System.out.println("삭제할 음식 번호: " + dcode);
+		}
+		dishService.dishDelete(check);
+	}		
 	
 	
 	

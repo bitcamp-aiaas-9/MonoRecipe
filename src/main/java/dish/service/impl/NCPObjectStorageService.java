@@ -1,6 +1,7 @@
 package dish.service.impl;
 
 import java.io.InputStream;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -15,8 +16,8 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
-import spring.conf.NaverConfiguration;
 import dish.service.ObjectStorageService;
+import spring.conf.NaverConfiguration;
 
 @Service
 public class NCPObjectStorageService implements ObjectStorageService {
@@ -72,4 +73,11 @@ public class NCPObjectStorageService implements ObjectStorageService {
 	    }
 	}
 
+	// deleteFile Overloading
+	@Override
+	public void deleteFile(String bucketName, String directoryPath, List<String> list) {
+		for (String imageFileName: list) {
+			s3.deleteObject(bucketName, directoryPath + imageFileName);
+		}
+	}
 }

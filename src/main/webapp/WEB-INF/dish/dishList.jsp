@@ -55,13 +55,15 @@
     <div class="checkboxContainer">
         <input type="checkbox" id="all-check" />
     </div>
-	<button type="button" id="deleteBtn" class="adminBtn">선택 삭제</button>
+	<button type="submit" id="deleteBtn" class="adminBtn">선택 삭제</button>
 	<button type="button" id="writePageBtn" class="adminBtn" onclick="location.href='/MonoRecipe/dish/dishWrite'" >음식 등록</button>
 </section> 
 
 
 
 <section class=dishSection>
+<form id="dishListForm" name="dishListForm" >
+	<input type="hidden" id="pg" name="pg" value="${dishPageMap.pg}" />
     <div class="dishGrid">
     <input type="hidden" id="pg" name="pg" value="1" />
     <c:if test="${not empty dishPageMap.list}">
@@ -95,6 +97,7 @@
         <div>등록된 레시피가 없습니다.</div>
     </c:if>	    
 	</div>
+</form>
 </section>
     
 <section class="pageSection">

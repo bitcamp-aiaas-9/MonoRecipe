@@ -21,7 +21,16 @@
 	SELECT COUNT(*) FROM dish_tb
 </select> 
 
+<select id="getDimageUUID" parameterType="int" resultType="String">
+select dimageUUID from dish_tb where dcode=#{dcode}
+</select>
 
+<delete id="dishListDelete" parameterType="list">
+    DELETE FROM dish_tb WHERE dimageUUID IN 
+    <foreach item="dimageUUID" collection="list" open="(" separator="," close=")">
+        #{dimageUUID}
+    </foreach>
+</delete>	
 
 
 

@@ -37,6 +37,28 @@ $(document).ready(function () {
         const url = context + `/dish/dishView?dcode=${dcode}&pg=${pg}`;
         location.href = url;
     });
-    
+
+$('#deleteBtn').click(function() {
+    if ($("input[name='board-list-check']:checked").length === 0) {
+        alert('삭제할 파일을 선택해 주세요.');
+        return;
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: context + '/dish/dishDelete',
+        data: $('#dishListForm').serialize(), // 폼 데이터 직렬화하여 전송
+        success: function() {
+            alert('음식 삭제 완료');
+            location.href = context + `/dish/dishlist?pg=1`;
+        },
+        error: function(xhr, status, error) {
+            alert('음식 삭제에 실패했습니다.');
+            console.log("음식 삭제 실패:", error); 
+            console.log("상태 코드:", xhr.status); 
+            console.log("응답 메시지:", xhr.responseText); 
+        }
+    });
+});    
     
 });

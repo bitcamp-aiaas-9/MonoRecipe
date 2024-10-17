@@ -19,8 +19,9 @@ public interface DishDAO {
 	
 	public int getTotalA();
 	
-	
-	
+	public String getDimageUUID(int dcode);
+
+	public void dishListDelete(List<String> list);
 	
 	
 	
