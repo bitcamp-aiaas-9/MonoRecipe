@@ -26,26 +26,20 @@ $(document).ready(function() {
     };
 
 
- $('#image').change(function() {
-            $('#showImageList').empty(); // 미리보기 영역 초기화
-
-             for (var i = 0; i < this.files.length; i++) {
-                readURL(this.files[i]); // 각 파일에 대해 미리보기 함수 호출
-            }
-        });
-
-        function readURL(file) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                var img = document.createElement('img');
-                img.src = e.target.result;
-                img.width = 70;
-                img.height = 70;
-                $('#showImageList').append(img); // 미리보기 영역에 이미지 추가
-            }
-            reader.readAsDataURL(file);
-        }
-		
+function readURL(file) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var img = document.createElement('img');
+        img.src = e.target.result;
+        img.className = 'img-fluid'; // Bootstrap 스타일 클래스 추가
+        img.style.cursor = 'pointer'; // 커서 스타일 추가
+        img.width = 300; // 폭 설정
+        img.height = 300; // 높이 설정
+        $('#showImageList').empty(); // 기존 이미지 제거
+        $('#showImageList').append(img); // 미리보기 영역에 새 이미지 추가
+    }
+    reader.readAsDataURL(file);
+}
 	
 		
 		$('#updateBtn').click(function(e) {
@@ -103,25 +97,21 @@ $(document).ready(function() {
     
  
 	$(document).ready(function() {
-	const initialImage = $('#showImageList img.img-fluid'); // 비우기 전에 초기 이미지 가져오기
+    const initialImage = $('#showImageList img.img-fluid'); // 비우기 전에 초기 이미지 가져오기
     const initialImageUUID = initialImage.data('uuid'); // data-uuid로 수정
     console.log(initialImageUUID); // 초기 이미지 UUID 출력
     console.log($('#showImageList').html()); // 초기 내용 출력
-	
-    // 이곳에서 $('#showImageList').html() 실행
-    console.log($('#showImageList').html()); // 확인용
-    // 취소 버튼 클릭 시 초기화
-        $('#cancelBtn').click(function() {
-            
-    $('#dishUpdateUpload')[0].reset(); // 폼 초기화
-    $('#showImageList').empty(); // 이미지 미리보기 초기화
-    $('.error-message').remove(); // 모든 오류 메시지 제거
 
-    // 초기 이미지를 다시 추가
-    $('#showImageList').append('<img src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/' + initialImageUUID + '" alt="수정 전 이미지" class="img-fluid" style="cursor: pointer;">');
+    // 취소 버튼 클릭 시 초기화
+    $('#cancelBtn').click(function() {
+        $('#dishUpdateUpload')[0].reset(); // 폼 초기화
+        $('#showImageList').empty(); // 이미지 미리보기 초기화
+        $('.error-message').remove(); // 모든 오류 메시지 제거
+
+        // 초기 이미지를 다시 추가
+        $('#showImageList').append('<img src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/' + initialImageUUID + '" alt="수정 전 이미지" class="img-fluid" style="cursor: pointer;" width="300" height="300">');
+    });
 });
-    
-});	
 		
     
 });

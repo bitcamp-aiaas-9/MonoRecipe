@@ -215,3 +215,17 @@ $(document).ready(function() {
         }
     });
 });
+
+
+    // 하트 클릭 이벤트
+    $('#heartIcon').on('click', function() {
+        const heartIcon = $(this);
+        // 현재 색상이 검은색이면 빨간색으로 변경하고, 빨간색이면 검은색으로 변경
+        if (heartIcon.css('color') === 'rgb(0, 0, 0)') { // 검은색
+            heartIcon.css('color', 'red'); // 빨간색으로 변경
+        } else { // 붉은색
+            heartIcon.css('color', 'black'); // 검은색으로 변경
+        }
+    });
+
+
