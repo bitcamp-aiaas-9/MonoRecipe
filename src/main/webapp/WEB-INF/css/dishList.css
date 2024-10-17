@@ -143,15 +143,12 @@ section {
     gap: 20px;
 }
  
-.checkDiv {
-    cursor: pointer;	
-}
 
 .board-list-check {
     cursor: pointer;	
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 14px;
+    left: 14px;
     transform: scale(1.7);
     accent-color: black;    
 }
@@ -186,7 +183,7 @@ section {
 
 .dishImgDiv {
 	width: 100%;
-	max-widh: 220px;
+	max-width: 220px;
 	aspect-ratio: 1; /* 정사각형 유지 */
 	display: flex;
 	justify-content: center;
@@ -198,6 +195,7 @@ section {
 .dishImg {
     width: 100%;
     height: auto;
+    aspect-ratio: 1; /* 정사각형 유지 */
     object-fit: contain;
 }
 
