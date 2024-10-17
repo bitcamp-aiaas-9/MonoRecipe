@@ -1,5 +1,7 @@
 package user.service;
 
+import java.util.Map;
+
 import user.bean.UserDTO;
 
 public interface UserService {
@@ -15,6 +17,8 @@ public interface UserService {
 	void update(UserDTO userDTO);
 
 	void delete(UserDTO userDTO);
+
+	Map<String, Object> list(String pg);
 
 
 
