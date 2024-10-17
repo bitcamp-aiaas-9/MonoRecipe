@@ -14,7 +14,7 @@
 </select>
 
 <select id="getDishList" resultType="dish.bean.DishDTO">
-	SELECT * FROM dish_tb LIMIT #{startNum}, #{endNum}
+	SELECT * FROM dish_tb ORDER BY dcode DESC LIMIT #{startNum}, #{endNum}
 </select>
    
 <select id="getTotalA" resultType="int">
