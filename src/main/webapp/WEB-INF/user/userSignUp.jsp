@@ -13,7 +13,7 @@
 <title>회원가입</title>
 </head>
 <body>
-<c:import url="/common/header" />
+<jsp:include page="../common/header.jsp" />
 <main>
  
 
@@ -48,7 +48,7 @@
 <tr>
     <th class="label">이메일</th>
     <td class="input">
-        <input type="text" name="uemail" id="uemail" placeholder="이메일"  />
+        <input type="text" name="uemail" id="uemail" placeholder="이메일 입력"   />
         <div id="uemailDiv"></div>
     </td>
     				   
@@ -57,21 +57,22 @@
 <tr>
  <th class="label"></th>
     <td class="input">
-         <button type="button"  id="emailAuth"  style="width: 40%;">인증번호 발송</button>
+         <button type="button"  id="emailAuth"  style="width: 94%;">인증번호 발송</button>
     </td>  				       
 </tr>
 
 				<tr>			
 				<th class="label">인증번호 입력</th>	
 				  <td class="input">
-				 <input type="text" id="inputCode" required> 
+				 <input type="text" id="inputCode" placeholder="인증번호 입력"> 
 				 <div id="inputCodeDiv"></div>
 				  </td >
 								
 			<tr>
  <th class="label"></th>
     <td class="input">
-            <button type="button" id="writeBtn"  style="width: 40%;">회원가입</button>
+            <button type="button" id="writeBtn"  style="width: 44%;">회원가입</button>
+            <button type="reset" id="resetBtn"  style="width: 44%; margin-left:5%;">초기화</button>
     </td>  				       
 </tr>					
 										         
@@ -79,9 +80,43 @@
 			</form>
 		</div>
 </main>
-<c:import url="/common/footer" />
+<jsp:include page="../common/footer.jsp" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/userSignUp.js"></script> 
+<script>
+$('#resetBtn').click(function(){
+	$('#unameDiv').empty();
+	$('#uidDiv').empty();
+	$('#upwdDiv').empty();
+	$('#uemailDiv').empty();
+	$('#inputCodeDiv').empty();
+});
+
+$('#uname').focusout(function() {
+    $('#unameDiv').empty();
+    uname = $('#uname').val();  
+    if (uname == '') {
+        $('#unameDiv').html("<span style='color: red;'>이름을 입력해주세요</span>");
+    }
+});   
+
+$('#upwd').focusout(function() {
+    $('#upwdDiv').empty();
+    upwd = $('#upwd').val();  
+    if (upwd == '') {
+        $('#upwdDiv').html("<span style='color: red;'>비밀번호를 입력해주세요</span>");
+    }
+});   
+
+$('#uemail').focusout(function() {
+    $('#uemailDiv').empty();
+    uemail = $('#uemail').val();  
+    if (uemail == '') {
+        $('#uemailDiv').html("<span style='color: red;'>이메일을 입력해주세요</span>");
+    }
+});   
+
+</script>
 </body>
 </html>

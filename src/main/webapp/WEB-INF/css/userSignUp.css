@@ -24,7 +24,7 @@ table {
 }
 
 .label {
-    text-align: right; /* 라벨을 오른쪽 정렬 */
+    text-align: center;
     padding: 10px; /* 패딩 추가 */
     font-weight: bold; /* 라벨을 굵게 표시 */
     width: 30%; /* 라벨의 고정 너비 설정 */
@@ -32,6 +32,7 @@ table {
 
 .input {
     padding: 10px; /* 패딩 추가 */
+    width: 94%;
 }
 
 input[type="text"],
@@ -65,7 +66,7 @@ button:hover {
 
 #unameDiv, #uidDiv, #upwdDiv,#uemailDiv,#inputCodeDiv {
     color: red; /* 오류 메시지 색상 */
-    font-size: 20px; /* 오류 메시지 글씨 크기 */
+    font-size: 16px; /* 오류 메시지 글씨 크기 */
 }
 
 
@@ -78,3 +79,21 @@ button:hover {
     margin-right: 0; 
 }
 
+#deleteBtn,#confirmYes {
+    background-color: #dc3545; /* 붉은색 배경 */
+    color: white; /* 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 내부 패딩 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    cursor: pointer; /* 포인터 커서 */
+    font-size: 16px; /* 글씨 크기 */
+}
+
+#deleteBtn:hover {
+    background-color: #c82333; /* 호버 시 더 어두운 붉은색 */
+}
+
+
+#confirmYes:hover {
+    background-color: #c82333; /* 호버 시 더 어두운 붉은색 */
+}

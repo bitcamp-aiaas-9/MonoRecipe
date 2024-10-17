@@ -15,11 +15,11 @@ $(function() {
                 dataType: 'text',
                 success: function(data) {
                     if (data == 'exist') {
-                        $('#uidDiv').html('사용 불가능');
+                        $('#uidDiv').html('사용 불가능한 아이디 입니다');
                         $('#uidDiv').css('color', 'red');
                     }
                     else {
-                        $('#uidDiv').html('사용 가능');
+                        $('#uidDiv').html('사용 가능한 아이디 입니다');
                         $('#uidDiv').css('color', 'blue');
                     }
                 },
@@ -33,21 +33,26 @@ $(function() {
     
     //등록
     $('#writeBtn').click(function(){
-    
+   
     	$('#unameDiv').empty();
     	$('#uidDiv').empty();
     	$('#upwdDiv').empty();
+        $('#uemailDiv').empty();
+         $('#uinputCodeDiv').empty();
+    	
+    	if($('#inputCode').val() == ''){
+    		alert ('이메일 인증이 완료되지않았습니다');	
+    		return;
+    		}
     	
     	if($('#uname').val() == '')
-    		$('#unameDiv').html('이름 입력');
+    		$('#unameDiv').html('이름을 입력해주세요');
     	else if($('#uid').val() == '')
-    		$('#uidDiv').html('아이디 입력');
+    		$('#uidDiv').html('아이디를 입력해주세요');
     	else if($('#upwd').val() == '')
-    		$('#upwdDiv').html('비밀번호 입력');
+    		$('#upwdDiv').html('비밀번호를 입력해주세요');
         else if($('#uemail').val() == '')
-    		$('#uemailDiv').html('이메일 입력');
-    	else if($('#inputCode').val() == '')
-    		$('#inputCodeDiv').html('인증번호 입력');	
+    		$('#uemailDiv').html('이메일을 입력해주세요');
     	else
     		$.ajax({
     			type: 'post',
@@ -93,9 +98,7 @@ $('#inputCode').focusout(function() {
     if (inputCode == randomNum) {
         $('#inputCodeDiv').text("인증코드가 일치합니다.").css("color", "blue");
     } else {
-        alert("불일치합니다. 메일을 다시 확인하세요.");
-        $('#inputCode').val('');
-        $('#inputCodeDiv').text(""); 
+        $('#inputCodeDiv').text("인증코드가 불일치합니다.").css("color", "red");
     }
 });
 

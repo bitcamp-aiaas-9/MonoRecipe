@@ -17,4 +17,6 @@ public interface UserDAO {
 
 	void update(UserDTO userDTO);
 
+	void delete(UserDTO userDTO);
+
 }
