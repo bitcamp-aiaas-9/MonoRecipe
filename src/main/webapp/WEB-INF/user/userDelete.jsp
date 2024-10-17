@@ -60,7 +60,7 @@
   
                 <tr>
                     <td class="input"  colspan="2" style="text-align:center;">
-                        <button type="button" id="deleteBtn"  style="width: 88%; margin-left:4%;">탈퇴하기</button>
+                        <button type="button" id="deleteUserBtn" >탈퇴하기</button>
                     </td>
                 </tr>
             </table>
@@ -86,7 +86,7 @@ $('#upwdCheck').focusout(function(){
 	}
 });
 
-$('#deleteBtn').click(function() {
+$('#deleteUserBtn').click(function() {
     if (!check) {
         alert("비밀번호 인증이 완료되지 않았습니다");
         return;

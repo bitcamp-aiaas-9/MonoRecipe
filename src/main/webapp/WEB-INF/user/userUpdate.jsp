@@ -53,7 +53,7 @@
                 <tr id="authRow" style="display: none;">
                     <th class="label"></th>
                     <td class="input">
-                        <button type="button" id="emailAuth" style="width: 94%;">인증번호 발송</button>
+                        <button type="button" id="emailAuth" >인증번호 발송</button>
                     </td>
                 </tr>
                 <tr id="inputCodeRow" style="display: none;">
@@ -66,8 +66,8 @@
                 <tr>
                     <th class="label"></th>
                     <td class="input">
-                        <button type="button" id="updateBtn" style="width: 44%;">정보수정</button>
-                        <button type="button" id="deleteBtn"  style="width: 44%; margin-left:5%;" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
+                        <button type="button" id="updateBtn" >정보수정</button>
+                        <button type="button" id="deleteBtn"  onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
                     </td>
                 </tr>
             </table>

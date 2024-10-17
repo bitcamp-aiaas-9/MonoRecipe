@@ -2,6 +2,7 @@ package com.controller.MonoRecipe;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
@@ -112,6 +113,21 @@ public class UserController {
 		userService.delete(userDTO);
 		session.removeAttribute("userDTO");	
 	}
+	
+	@RequestMapping(value="/user/userList", method = RequestMethod.GET)
+	public String list(@RequestParam(required = false, defaultValue = "1") String pg, Model model) {
+		Map<String, Object> map2 = userService.list(pg);
+		
+		map2.put("pg", pg);
+		
+		model.addAttribute("map2", map2);
+		
+		//model.addAttribute("list", map2.get("list"));
+		//model.addAttribute("userPaging", map2.get("userPaging"));
+		return "/user/userList"; //=> /WEB-INF/user/list.jsp
+	}
+	
+	
 	
 	
 	//이메일 인증

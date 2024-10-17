@@ -51,4 +51,13 @@ public class AdminController {
 	    return "redirect:/";// /WEB-INF/index.jsp
 	}
 	
+	@RequestMapping(value="/admin/adminLogout", method = RequestMethod.GET)
+	public String userLogout(HttpSession session)  {	
+		session.removeAttribute("adminDTO");	
+		return "redirect:/";
+	}
+	
+	
+
+	
 }
