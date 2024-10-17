@@ -75,6 +75,19 @@ public class DishController {
 	
 	
 	/** 민선 */
+	//리스트 검색
+	@RequestMapping(value="/dishListSearch",method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Object> dishListSearch(@RequestParam(required = false, defaultValue = "1") String pg, String SearhKey,Model model) {
+	   
+		Map<String, Object> dishPageMap = dishService.getdishListSearch(pg,SearhKey);
+		dishPageMap.put("pg", pg);
+		model.addAttribute("dishPageMap", dishPageMap);
+		
+		return dishPageMap; 
+	}
+	
+	
 	@RequestMapping(value="/dishView")
 	public String dishView(@RequestParam String dcode,Model model) {
 	   

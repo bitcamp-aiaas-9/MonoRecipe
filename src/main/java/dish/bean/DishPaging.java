@@ -25,16 +25,16 @@ public class DishPaging {
 		if (endPage > totalP) endPage = totalP;
 		
 		if (startPage != 1)
-				pagingHTML.append("<span id='paging' onclick='dishPaging(" + (startPage - 1) + ")'>이전</span>");
+				pagingHTML.append("<span id='paging' onclick='handlePaging(" + (startPage - 1) + ")'>이전</span>");
 		
 		for (int i = startPage; i<=endPage; i++ ) {
 			if ( i == currentPage)
-				pagingHTML.append("<span id='currentPaging' onclick='dishPaging(" + i + ")'>" + i + "</span>");
+				pagingHTML.append("<span id='currentPaging' onclick='handlePaging(" + i + ")'>" + i + "</span>");
 			else
-				pagingHTML.append("<span id='paging' onclick='dishPaging(" + i + ")'>" + i + "</span>");
+				pagingHTML.append("<span id='paging' onclick='handlePaging(" + i + ")'>" + i + "</span>");
 		}
 		
 		if (endPage < totalP)
-			pagingHTML.append("<span id='paging' onclick='dishPaging(" + (endPage + 1) + ")'>다음</span>");
+			pagingHTML.append("<span id='paging' onclick='handlePaging(" + (endPage + 1) + ")'>다음</span>");
 	}
 }
