@@ -10,4 +10,8 @@ public interface ReviewService {
 
 	List<ReviewDTO> getReviewList(String dcode);
 
+	void reviewUpdate(ReviewDTO reviewDTO);
+
+	void reviewDelete(String rcode);
+
 }

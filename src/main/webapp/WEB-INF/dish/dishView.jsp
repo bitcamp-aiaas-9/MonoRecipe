@@ -19,11 +19,20 @@
 <title>레시피 상세보기</title>
 </head>
 <body>
-	<c:import url="/common/header" />
+	<jsp:include page="/WEB-INF/common/header.jsp" />
 	<main>
+	
+	
+	
 		<p id="dcode" class="d-none">${dishDTO.dcode}</p>
 		<div class="container mt-4">
-			<h1 class="text-center">${dishDTO.dname}</h1>
+			<div class="d-flex align-items-center mb-3">
+            <div class="back-button me-2" style="cursor: pointer;">
+                <span onclick="window.location.href='/MonoRecipe/dish/dishList';" style="color: black; font-size: 24px; font-weight: bold;">&lt;</span>
+            </div>
+            
+            <h1 class="text-center flex-grow-1">${dishDTO.dname}</h1>
+        </div>
 			<table class="table">
 				<tbody>
 					<tr>
@@ -68,7 +77,7 @@
 							class="d-none"> <label for="rate4" class="star">★</label>
 						<input type="radio" name="rating" value="5" id="rate5"
 							class="d-none"> <label for="rate5" class="star">★</label>
-					</fieldset>
+					</fieldset><br>
 				</div>
 				<div
 					class="input-container d-flex flex-column align-items-center mb-2">
@@ -110,8 +119,39 @@
 				</tbody>
 			</table>
 		</div>
+		
+		
+		<!-- 수정 입력 팝업 -->
+<div id="popup-overlay"></div>
+<div id="popup">
+    <div id="popupContent">
+        <form id="editReviewForm" class="mb-3">
+            <div class="rating-container mb-2">
+                <label for="editRating" class="form-label">평점 : </label>
+                <fieldset class="d-flex gap-2">
+                    <input type="radio" name="editRating" value="1" id="editRate1" class="d-none">
+                    <label for="editRate1" class="star">★</label>
+                    <input type="radio" name="editRating" value="2" id="editRate2" class="d-none">
+                    <label for="editRate2" class="star">★</label>
+                    <input type="radio" name="editRating" value="3" id="editRate3" class="d-none">
+                    <label for="editRate3" class="star">★</label>
+                    <input type="radio" name="editRating" value="4" id="editRate4" class="d-none">
+                    <label for="editRate4" class="star">★</label>
+                    <input type="radio" name="editRating" value="5" id="editRate5" class="d-none">
+                    <label for="editRate5" class="star">★</label>
+                </fieldset>
+            </div>
+            <div class="input-container d-flex flex-column align-items-center mb-2">
+                <textarea id="editContent" name="content" class="form-control" required placeholder="리뷰 내용을 입력하세요" rows="3"></textarea>
+                <button type="submit" id="btn-edit-write" class="btn btn-black mt-2">리뷰 수정</button>
+                <button type="button" id="closePopup" class="btn btn-black mt-2">닫기</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 수정 입력 팝업 -->
 	</main>
-	<c:import url="/common/footer" />
+<jsp:include page="/WEB-INF/common/footer.jsp" />
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../js/dishView.js"></script>
