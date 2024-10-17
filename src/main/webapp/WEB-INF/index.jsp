@@ -41,7 +41,6 @@
         	<a href="/MonoRecipe/dish/dishList">모두보기  ></a> 
         </div>
     </div>
-    
     <div class="dishGrid">
     <input type="hidden" id="pg" name="pg" value="1" />
     <c:if test="${not empty dishList}">
