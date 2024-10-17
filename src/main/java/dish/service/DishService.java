@@ -17,7 +17,7 @@ public interface DishService {
 	public List<DishDTO> getDishIndexList();
 	
 	public Map<String, Object> getDishList(String pg);
-	
+	// ...
 	
 	
 	

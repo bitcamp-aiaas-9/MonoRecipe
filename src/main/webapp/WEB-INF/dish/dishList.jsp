@@ -1,3 +1,4 @@
+<%--MonoRecipe/src/main/webapp/WEB-INF/dish/dishList.jsp --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -10,9 +11,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="../image/mono_favicon.png" type="image/png">
+<link rel="icon" href="${pageContext.request.contextPath}/image/mono_favicon.png" type="image/png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/dishList.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/dishList.css">
 <title>음식 목록</title>
 </head>
 <body>
@@ -33,14 +34,20 @@
 <section class="searchSection">
 	<div class="searchBox">
 	    <input type="text" placeholder="음식, 레시피 검색">
-	    <img class="searchIcon" id="searchIconBlack" src="../image/search_icon_black.png" alt="Search Icon">
+	    <img class="searchIcon" id="searchIconBlack" src="${pageContext.request.contextPath}/image/search_icon_black.png" alt="Search Icon">
 	</div>
 </section>
 
+<!-- 아직 admin session 구현 안됨; 되면 .adminSection 감싸기 -->
+<c:if test="${sessionScope.adminDTO.aid == 'admin'}">
+</c:if>
 
 <section class="adminSection">
+	<input type="checkbox" id="all-check" />
 	<button type="button" id="writePageBtn" class="adminBtn" onclick="location.href='/MonoRecipe/dish/dishWrite'" >음식 등록</button>
-	<button type="button" id="deleteBtn" class="adminBtn">선택 삭제</button>
+	<div id="deleteWrap" class="adminBtn">
+		<button type="button" id="deleteBtn">선택 삭제</button>
+	</div>
 </section> 
 
 
@@ -50,6 +57,11 @@
     <c:if test="${not empty dishPageMap.list}">
 	    <c:forEach var="dishDTO" items="${dishPageMap.list}">
 	        <div class="dishItem">
+					<div class="checkDiv">
+						<input type="checkbox" class="board-list-check" name="board-list-check" value="${dishDTO.dcode}" /> ${dishDTO.dcode}            
+					</div>					
+		        <c:if test="${sessionScope.adminDTO.aid == 'admin'}">
+		        </c:if>	        
 	        	<div class="dishImgDiv">
 		            <img class="dishImg"
 		                 src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
@@ -76,12 +88,15 @@
 </section>
     
 <section class="pageSection">
-<div id="page-block">${dishPageMap.dishPaging.pagingHTML }</div>
+	<div id="page-block">${dishPageMap.dishPaging.pagingHTML }</div>
 </section>  
 </main>
 <c:import url="/common/footer" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../js/dishList.js"></script>
+<script>
+    var context = '${pageContext.request.contextPath}';
+</script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/dishList.js"></script>
 
 </body>
 </html>

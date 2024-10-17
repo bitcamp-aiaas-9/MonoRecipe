@@ -50,7 +50,7 @@ public class DishServiceImpl implements DishService {
 	@Override
 	public Map<String, Object> getDishList(String pg) {
 		// 한페이지 당 5개씩
-		int endNum = 16;
+		int endNum = 12;
 		int startNum = (Integer.parseInt(pg)) * endNum - endNum;
 		
 		Map<String, Integer> map = new HashMap<>();
@@ -65,7 +65,7 @@ public class DishServiceImpl implements DishService {
 				
 		        dishPaging.setCurrentPage(Integer.parseInt(pg));
 		        dishPaging.setPageBlock(3);
-		        dishPaging.setPageSize(16);
+		        dishPaging.setPageSize(12);
 		        dishPaging.setTotalA(totalA);
 		        dishPaging.makePagingHTML();	
 				
