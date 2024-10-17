@@ -27,9 +27,13 @@
         <li><a class="headerList" href="https://www.youtube.com/playlist?list=PLL1qZqiuec_Qctidjh4_euZOpPQA_bp_W" target="_blank">YouTube</a></li>
         
         <c:choose>
+	        <c:when test="${not empty sessionScope.adminDTO}">
+                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userList">Admin</a></li>
+                <li><a class="headerList" href="${pageContext.request.contextPath}/admin/adminLogout">Log Out</a></li>
+	        </c:when>        
             <c:when test="${not empty sessionScope.userDTO}">
-                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userUpdate">회원정보 수정</a></li>
-                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userLogout">로그아웃</a></li>
+                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userMyPage">My Page</a></li>
+                <li><a class="headerList" href="${pageContext.request.contextPath}/user/userLogout">Log Out</a></li>
             </c:when>
             <c:otherwise>
                 <li><a class="headerList" href="${pageContext.request.contextPath}/user/signUp">Sign Up</a></li>
