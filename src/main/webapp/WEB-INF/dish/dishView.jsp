@@ -56,7 +56,7 @@
 			</table>
 			<hr />
 			<div class="text-end">
-				<button type="button" class="btn btn-black" id="dishUpdateBtn">수정&삭제</button>
+				<button type="button" class="btn btn-black" id="dishUpdateBtn">수정 & 삭제</button>
 			</div>
 		</div>
 
