@@ -31,7 +31,7 @@
 	            <div class="dishTop" >
 					<span id="backButton">&lt;</span>
 		            <h1 class="text-center flex-grow-1">${dishDTO.dname}</h1>
-					<span style="visibility: hidden;">&gt;</span>
+					<span style="color: black; font-size: 30px;" class="align-items-center">♥</span>
 	            </div>
         	</div>
         	
