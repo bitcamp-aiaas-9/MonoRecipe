@@ -40,8 +40,8 @@ public class DishController {
 	
 	
 	/** 채연 */ 
-	// MonoRecipe/src/main/java/com/controller/MonoRecipe/DishController.java
-	@RequestMapping(value="/dishList") // 
+	
+	@RequestMapping(value="/dishList")
 	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg, Model model, HttpSession session) {
 	    // 세션에서 adminDTO가 있는지 확인
 	    AdminDTO adminDTO = (AdminDTO) session.getAttribute("adminDTO");
