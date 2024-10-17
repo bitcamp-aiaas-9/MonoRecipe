@@ -1,5 +1,8 @@
 package user.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import user.bean.UserDTO;
@@ -18,5 +21,9 @@ public interface UserDAO {
 	void update(UserDTO userDTO);
 
 	void delete(UserDTO userDTO);
+
+	List<UserDTO> list(Map<String, Integer> map);
+
+	int getTotalA();
 
 }

@@ -39,7 +39,6 @@
     </div>
 </section>
 
-<!-- 아직 admin session 구현 안됨; 되면 .adminSection 감싸기 -->
 <c:if test="${sessionScope.adminDTO.aid == 'admin'}">
 <section class="adminSection">
     <div class="checkboxContainer">
@@ -61,11 +60,8 @@
 	    <c:forEach var="dishDTO" items="${dishPageMap.list}">
 	        <div class="dishItem">
 					
-				<!-- 아직 admin session 구현 안됨; 되면 .adminSection 감싸기 -->						
 		        <c:if test="${sessionScope.adminDTO.aid == 'admin'}">
-					<div class="checkDiv">
-						<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" /> ${dishDTO.dcode}            
-					</div>
+					<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" />          
 		        </c:if>	        
 	        	<div class="dishImgDiv">
 		            <img class="dishImg"
