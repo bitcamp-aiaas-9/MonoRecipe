@@ -17,16 +17,16 @@ public class MainController {
 	@Autowired
 	private DishService dishService;
 	
-	/*
-	 * @RequestMapping(value="/") public String index(Model model) {
-	 * System.out.println("index.jsp 호출"); List<DishDTO> dishList =
-	 * dishService.getDishIndexList(); model.addAttribute("dishList", dishList !=
-	 * null ? dishList : List.of());
-	 * 
-	 * return "/index"; // /WEB-INF/index.jsp }
-	 */
-	
 	@RequestMapping(value="/")
+	public String index(Model model) {
+		System.out.println("index.jsp 호출");
+	    List<DishDTO> dishList = dishService.getDishIndexList();
+	    model.addAttribute("dishList", dishList != null ? dishList : List.of());
+
+	    return "/index"; // /WEB-INF/index.jsp
+	}
+	
+	@RequestMapping(value="/index2")
 	public String index2(Model model) {
 		System.out.println("index.jsp 호출");
 	    List<DishDTO> dishList = dishService.getDishIndexList();
