@@ -61,7 +61,8 @@
 								<img
         src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}"
         alt="${dishDTO.dimage}" class="img-fluid"
-        style="cursor: pointer;" data-uuid="${dishDTO.dimageUUID}">
+        style="cursor: pointer;" data-uuid="${dishDTO.dimageUUID}"
+        width="300" height="300">
 							</div>
 						</td>
 					</tr>
