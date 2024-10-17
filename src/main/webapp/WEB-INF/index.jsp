@@ -38,7 +38,7 @@
     <div class="dishCategory">
         <div class="categoryTitle">오늘의 NEW RECIPE</div>
         <div class="categoryAll">
-        	<a href="/MonoRecipe/dish/dishList">모두보기  ></a>
+        	<a href="/MonoRecipe/dish/dishList">모두보기  ></a> 
         </div>
     </div>
     

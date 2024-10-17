@@ -6,5 +6,8 @@
   
 <mapper namespace="admin.dao.AdminDAO">
 
+<select id="login" parameterType="admin.bean.AdminDTO" resultType="admin.bean.AdminDTO">
+    SELECT * FROM admin_tb WHERE aid = #{aid} AND apwd = #{apwd}
+</select>
   
 </mapper>
