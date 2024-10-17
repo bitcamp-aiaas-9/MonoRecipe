@@ -25,6 +25,34 @@ h1 {
     margin-bottom: 20px;
 }
 
+.dishTop {
+	width: 100%;
+	color: black; 
+	font-size: 24px; 
+	font-weight: bold; 
+	display: flex;
+	justify-content: space-between;
+}
+
+#backButton {
+	font-size: 26px;	
+}
+
+#backButton:hover {
+	cursor: pointer;
+}
+
+.flex-grow-1 {
+	margin: 0;
+	color: black; 
+	font-size: 24px; 
+	font-weight: bold; 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	letter-spacing: 2px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse; /* 테이블 경계 제거 */
