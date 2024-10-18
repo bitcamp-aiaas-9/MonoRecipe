@@ -205,6 +205,7 @@ margin-left: 2%;
     
     
 #naverIcon {
+		margin-top:10px;
     display: inline;
     width: 15%;
     height: auto;
@@ -217,6 +218,7 @@ margin-left: 2%;
 #kakaoIcon,
 #appleIcon,
 #lineIcon {
+	margin-top:10px;
     display: inline;
     width: 15%;
     height: auto;
