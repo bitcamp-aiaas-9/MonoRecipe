@@ -21,11 +21,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import dish.bean.DishDTO;
 import dish.service.DishService;
+import favorite.bean.FavoriteDTO;
+import favorite.service.FavoriteService;
 import user.bean.UserDTO;
 import user.service.UserService;
 
 @Controller
 public class UserController {
+	
+	@Autowired
+	private FavoriteDTO favoriteDTO;
+   
+	@Autowired
+	private UserDTO userDTO;
 	
 	@Autowired
 	private UserService userService;
@@ -34,10 +42,10 @@ public class UserController {
 	JavaMailSender mailSender;
 	
 	@Autowired
-	private UserDTO userDTO;
+	private DishService dishService;
 	
 	@Autowired
-	private DishService dishService;
+	private FavoriteService favoriteService;
 	
 	@RequestMapping(value="/user/signUp", method = RequestMethod.GET)
 	public String userSignUp() {
@@ -186,7 +194,27 @@ public class UserController {
 			}
 
 	  
+	   // MonoRecipe/src/main/java/com/controller/MonoRecipe/UserController.java
+	   // My Page 즐겨찾기 목록
+	     @RequestMapping(value="/user/userMyPage") 
+	     public String userMyPage(Model model, HttpSession session) {
+	        UserDTO userDTO = (UserDTO) session.getAttribute("userDTO");
+	        session.setAttribute("userDTO", userDTO);
+	        
+	        if (userDTO != null) {
+	             String uid = userDTO.getUid();
+	             System.out.println("로그인 사용자 아이디 : " + uid);
+	             List<DishDTO> favoriteList = favoriteService.getFavoriteList(uid);
+	             model.addAttribute("favoriteList", favoriteList);
+	         } else {
+	             System.out.println("userDTO is null");
+	             model.addAttribute("favoriteList", List.of()); // 빈 리스트 처리
+	         }
 
+	        
+	        session.setAttribute("userDTO", userDTO);
+	        return "/user/userMyPage"; 
+	     }
 	  
 
 }
