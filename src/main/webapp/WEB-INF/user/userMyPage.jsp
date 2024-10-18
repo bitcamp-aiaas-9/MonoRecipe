@@ -39,7 +39,7 @@
 
 
 <section class=dishSection>
-<form id="dishListForm" name="dishListForm" >
+<form id="favoriteListForm" name="favoriteListForm" >
 	<%-- <input type="hidden" id="pg" name="pg" value="${dishPageMap.pg}" /> --%>
     <div class="dishGrid">
     <input type="hidden" id="pg" name="pg" value="1" />
@@ -73,14 +73,6 @@
 	</div>
 </form>
 </section>
-
-
-
-
-
-
-
-
 
 
 </main>

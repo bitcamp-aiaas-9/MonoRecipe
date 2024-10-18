@@ -34,16 +34,10 @@ public class DishController {
 	@Autowired
 	private AdminDTO adminDTO;
 	
-	/** ObjectStorageService 작업은 DishServiceImpl.java 에서 수행 */
-	
-	
-	
-	
-	/** 채연 */ 
 	
 	@RequestMapping(value="/dishList")
 	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg, Model model, HttpSession session) {
-	    // 세션에서 adminDTO가 있는지 확인
+	    
 	    AdminDTO adminDTO = (AdminDTO) session.getAttribute("adminDTO");
 		
 		Map<String, Object> dishPageMap = dishService.getDishList(pg);
@@ -69,11 +63,6 @@ public class DishController {
 	
 	
 	
-	
-	
-	
-	
-	/** 민선 */
 	//메인페이지 검색
 	@RequestMapping(value="/indxSearch", method = RequestMethod.POST)
 	public String indxSearch(@RequestParam String SearhKey, HttpSession session) {

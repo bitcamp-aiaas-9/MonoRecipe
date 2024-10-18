@@ -1,4 +1,3 @@
-// MonoRecipe/src/main/java/dish/dao/DishDAO.java
 package dish.dao;
 
 import java.util.List;
@@ -18,17 +17,9 @@ public interface DishDAO {
 	
 	public int getTotalA();
 	
-	// MonoRecipe/src/main/java/dish/dao/DishDAO.java
 	public String getDimageUUID(int dcode);
 
 	public void dishListDelete(List<String> list);
-	
-	
-	
-	
-	
-	
-	/** 민선 */
 	
 	void dishWrite(DishDTO dishDTO);
 
@@ -45,8 +36,6 @@ public interface DishDAO {
 	public List<DishDTO> getdishListSearch(Map<String, Object> map);
 
 	public int getTotalASearch(String searchKey);
-	
-	
 	
 	
 }

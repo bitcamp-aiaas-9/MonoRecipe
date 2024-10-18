@@ -58,8 +58,9 @@ public class FavoriteController {
       return "저장 완료";
    }   
    
+// MonoRecipe/src/main/java/com/controller/MonoRecipe/FavoriteController.java
    @ResponseBody
-   @RequestMapping(value = "/favoriteDelete", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
+   @RequestMapping(value = "favorite/favoriteDelete", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
    public String favoriteDelete(@RequestBody Map<String, String> requestData) {
        String dcode = requestData.get("dcode"); 
        String uid = requestData.get("uid");
