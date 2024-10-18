@@ -18,8 +18,11 @@
 									  dish.service,
 									  review.bean,
 									  review.service,
-									  user.bean
-									  user.service" />
+									  user.bean,
+									  user.service,
+									  favorite.bean,
+									  favorite.dao,
+									  favorite.service" />
 
 		
 </beans>
