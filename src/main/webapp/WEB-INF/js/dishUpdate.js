@@ -135,7 +135,7 @@ $('#deleteBtn').click(function(event) {
         data: { dcode: dcode },
         success: function(data) {
             alert("삭제 완료");
-             window.location.href = '/MonoRecipe/dish/dishList?';
+             window.location.href = '/MonoRecipe/dish/dishList';
         },
         error: function(e) {
             console.log(e);
