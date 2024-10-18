@@ -9,6 +9,18 @@ CREATE TABLE dish_tb (
     dscore DECIMAL(5, 2) DEFAULT 0.00		-- 음식 평균 평점
 );
 
+CREATE TABLE `dish_tb` (
+  `dcode` int NOT NULL AUTO_INCREMENT,	-- 음식 코드
+  `dimage` varchar(255) NOT NULL,		-- 음식 사진 파일명
+  `dimageUUID` varchar(255) NOT NULL,	-- 음식 사진 UUID
+  `dname` varchar(100) NOT NULL,		-- 음식 이름
+  `dintro` text,
+  `drecipe` text NOT NULL,
+  `dscore` decimal(5,2) DEFAULT '0.00'
+  PRIMARY KEY (`dcode`)
+)
+
+
 
 -- 트리거: 리뷰 추가 시 트리거 (AFTER INSERT)
 CREATE TRIGGER update_dscore_after_insert
