@@ -126,6 +126,7 @@ function readURL(file) {
 });
 
 $('#deleteBtn').click(function(event) {
+
     event.preventDefault(); // 기본 제출 방지
     let dcode = $('input[name="dcode"]').val();
     $.ajax({
@@ -134,7 +135,7 @@ $('#deleteBtn').click(function(event) {
         data: { dcode: dcode },
         success: function(data) {
             alert("삭제 완료");
-             window.location.href = '/MonoRecipe/dish/dishList';
+             window.location.href = '/MonoRecipe/dish/dishList?';
         },
         error: function(e) {
             console.log(e);
