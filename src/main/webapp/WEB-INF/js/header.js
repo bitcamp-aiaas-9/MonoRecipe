@@ -42,14 +42,58 @@ $(document).ready(function() {
         }
     });
 
-    // 검색 아이콘 클릭 시 검색 실행 (임시로 alert 사용)
-    $("#headerSearchIcon").on("click", function() {
-        const query = $("#headerSearchInput").val();
-        if (query) {
-            alert(`검색어: ${query}`);  // 실제 검색 기능을 여기에 구현
-        }
-    });
+    
     
 });
 
+/////////
 
+
+$(document).ready(function() {
+    $('#searchIcon').on('click', function() {
+        $('#headerMobileSearchInput').toggleClass('hidden');
+        $('#projectName').toggleClass('hidden');
+        
+    });
+});
+//////////
+$(document).ready(function () {
+    // 검색 아이콘 클릭 시 AJAX 요청
+    $('#headerSearchIcon').on('click', function() {
+        const searchKey = $('#headerSearchInput').val().trim();
+        console.log(searchKey);
+        if (searchKey) {
+            performSearch(1, searchKey);
+        } else {
+            alert('검색어를 입력해 주세요.');
+        }
+    });
+
+    $('#headerSearchInput,#headerMobileSearchInput').on('keypress', function(e) {
+        if (e.which === 13) { // Enter 키
+            const searchKey = $(this).val().trim();
+            if (searchKey) {
+                performSearch(1, searchKey);
+            } else {
+                alert('검색어를 입력해 주세요.');
+            }
+        }
+    });
+});
+
+// performSearch 함수
+function performSearch(pg, searchKey) {
+    $.ajax({
+        url: '/MonoRecipe/dish/indxSearch',
+        type: 'POST',
+        data: {
+            SearhKey: searchKey
+        },
+        success: function(response) {
+            window.location.href = '/MonoRecipe/dish/dishList'
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX 요청 실패:", status, error);
+        }
+    });
+}

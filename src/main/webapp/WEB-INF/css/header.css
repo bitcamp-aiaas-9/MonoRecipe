@@ -4,6 +4,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&display=swap');
 
 /* 가로가 600px 이상일 때 */
+#headerSearch {
+    width: 30% ; /* 검색 박스 너비 */
+}
+
+#headerSearchBox {
+    width: 100% ; /* 너비 100% */
+   
+}
+.searchBox {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: white !important;
+    
+    max-height: 50px !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+}
+
+.searchBox input {
+    width: 100% !important;
+    border: none !important;
+    padding: 10px !important;
+    font-size: 1rem !important;
+    outline: none !important;
+}
+
+.searchIcon {
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 10px !important;
+    cursor: pointer !important;
+}
+
+
+.headerSearchIcon {
+    width: 30px !important; /* 아이콘 너비 */
+    height: 30px !important; /* 아이콘 높이 */
+    margin-left: 10px !important; /* 왼쪽 여백 */
+    cursor: pointer !important; /* 포인터 커서 */
+    
+}
+
 header.header {
 	position: fixed;
 	z-index: 1000;
@@ -104,19 +147,27 @@ header.header {
 
 /* 모바일 환경에서 스타일 */
 @media screen and (max-width: 600px) {
-	/* 검은색 반투명 배경 */
-	#mobileOverlay {
-	    position: fixed;
-	    top: 0;
-	    left: 0;
-	    width: 100%;
-	    height: 100%;
-	    background-color: rgba(0, 0, 0, 0.5); /* 50% 투명도 */
-	    z-index: 1000;
-	    display: none; /* 초기에는 숨김 */
-	}
-
-	
+	 #headerSearch {
+        display: none !important; /* 모바일 화면에서 강제로 숨김 */
+        width: 900px;
+        margin-left: 10px;
+    }
+     #headerMobileSearchInput {
+        width: 250px; /* 너비 조정 */
+        padding: 10px; /* 내부 여백 */
+        border: 1px solid #ccc; /* 테두리 색상 */
+        border-radius: 5px; /* 모서리 둥글게 */
+        font-size: 16px; /* 글꼴 크기 */
+        transition: border-color 0.3s; /* 테두리 색상 변화에 부드러운 전환 추가 */
+        outline: none; /* 기본 테두리 제거 */
+        max-height:40px;
+        margin: 0 !important;
+    }
+    
+    
+   .hidden {
+        display: none;
+    }
 	
     #headerContent {
         display: none;
@@ -191,5 +242,14 @@ header.header {
 
 
 	
+
+
+
+
+
+
     
 }
+
+
+

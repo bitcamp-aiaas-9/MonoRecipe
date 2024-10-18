@@ -2,6 +2,11 @@
 @import url("init.css");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&display=swap');
 
+
+
+
+
+
 body {
     font-family: "Noto Serif Oriya", serif;
     background-color: #f4f4f4; /* 배경색 추가 */
@@ -116,6 +121,14 @@ button:hover {
 
 .rating-container input[type="radio"]:checked + label {
     color: gold; /* 선택된 별 색상 */
+}
+
+p{
+	
+	top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 fieldset {

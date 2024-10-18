@@ -17,6 +17,7 @@
 <title>레시피 수정</title>
 </head>
 <body>
+
 	<jsp:include page="/WEB-INF/common/header.jsp" />
 	<main>
 		<div class="container mt-4">
@@ -85,7 +86,9 @@
 					</tr>
 				</table>
 			</form>
+			
 		</div>
+		 <div id="test" style="height: 10px;"></div>
 	</main>
 <jsp:include page="/WEB-INF/common/footer.jsp" />
 

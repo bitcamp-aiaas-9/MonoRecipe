@@ -63,7 +63,8 @@
             </div>
         </c:if>
 		</div>
-
+     <div id="test" style="height: 10px;"></div>
+       
 		<!-- 리뷰 작성 및 댓글 리스트 컨테이너 -->
 		<div class="review-container mt-4 p-3 bg-light rounded shadow">
 			<h3 class="text-center">리뷰 작성하기</h3>
