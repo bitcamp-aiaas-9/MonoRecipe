@@ -17,7 +17,9 @@
 <body>
 <jsp:include page="../common/header.jsp" />
 <main>
-    <div id="container">
+	<jsp:include page="../common/myPageMenu.jsp" />
+	
+    <div id="container" style="margin-top: 0 !important">
         <div id="edit-header">회원탈퇴</div>
         <form name="userDeleteForm" id="userDeleteForm">
             <table>
@@ -60,7 +62,7 @@
   
                 <tr>
                     <td class="input"  colspan="2" style="text-align:center;">
-                        <button type="button" id="deleteUserBtn" >탈퇴하기</button>
+                        <button type="button" id="deleteUserBtn" style="margin: 0">탈퇴하기</button>
                     </td>
                 </tr>
             </table>
@@ -71,6 +73,22 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+$(function() {
+    // 회원정보 메뉴의 배경색 설정
+    $('#userUpdateMenu a').css('background-color', '#222').css('color', 'white');
+
+    // 즐겨찾기 메뉴에 마우스가 올라가면
+    $('#userFavoriteMenu').mouseenter(function () {
+        $('#userFavoriteMenu a').css('background-color', '#222').css('color', 'white'); // 회원정보 메뉴 배경색 변경
+        $('#userUpdateMenu a').css('background-color', 'transparent').css('color', 'black'); // 즐겨찾기 메뉴 원래대로
+    });
+
+    // 즐겨찾기 메뉴에서 마우스가 나가면
+    $('#userFavoriteMenu').mouseleave(function () {
+        $('#userUpdateMenu a').css('background-color', '#222').css('color', 'white'); // 즐겨찾기 메뉴 배경색 변경
+        $('#userFavoriteMenu a').css('background-color', 'transparent').css('color', 'black'); // 회원정보 메뉴 원래대로
+    }); 
+});
 
 var userEmail = "${sessionScope.userDTO.uemail}";
 var userId = "${sessionScope.userDTO.uid}";
