@@ -72,9 +72,21 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 
+var userEmail = "${sessionScope.userDTO.uemail}";
+var userId = "${sessionScope.userDTO.uid}";
+
 var animalImageUrl = '${pageContext.request.contextPath}/image/CryingGom.png';
 
  var check=false;
+ 
+ 
+ if (userEmail === userId) {
+	    $('input').attr('readonly', true); 
+	    $('#uidDiv').html('소셜로그인 회원입니다').css('color', 'blue');
+	    $('#upwdCheck').val($('#upwd').val()); 
+		 $('#upwdCheckDiv').html("<span style='color: blue;'>비밀번호가 일치합니다</span>");
+	    check = true; // 인증 완료
+	}
  
 $('#upwdCheck').focusout(function(){
 	if($('#upwd').val() !=$('#upwdCheck').val()){
