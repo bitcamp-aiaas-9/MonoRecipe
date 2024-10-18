@@ -26,4 +26,8 @@ public interface UserDAO {
 
 	int getTotalA();
 
+	UserDTO naverLogin(String uid, String uname, String uemail);
+
+	UserDTO naverLogin(Map<String, Object> map);
+
 }

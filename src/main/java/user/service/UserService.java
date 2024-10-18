@@ -21,5 +21,9 @@ public interface UserService {
 	Map<String, Object> list(String pg);
 
 
+	UserDTO naverLogin(Map<String, Object> map);
+
+
+
 
 }
