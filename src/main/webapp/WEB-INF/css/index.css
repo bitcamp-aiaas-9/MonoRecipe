@@ -1,7 +1,15 @@
 /* MonoRecipe/src/main/webapp/WEB-INF/css/index.css */
 @charset "UTF-8";
 @import url("init.css");
-
+.searchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+    transition: width 0.3s ease; /* 너비 변경 시 애니메이션 */
+}
 
 .carouselContainer {
     padding-top: 80px;
@@ -175,6 +183,20 @@ main {
 
 /** 600px 이하일 때 적용될 스타일 */
 @media (max-width: 600px) {
+	#headerSearchInputMobile {
+    display: none; /* 초기에는 숨김 */
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 5px;
+}
+
+#headerSearchInputMobile.visible {
+    display: block; /* 보이도록 설정 */
+}
+	
     
 	/* <div class="carouselContainer"> */
     .carouselContainer {
