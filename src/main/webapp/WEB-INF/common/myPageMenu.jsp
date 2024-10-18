@@ -8,7 +8,7 @@
 <nav class="nav" id="nav">
 	<div class="navDiv">
 		<div class="menuDiv" id="userFavoriteMenu" >
-			<a class="navA" href="${pageContext.request.contextPath }/user/userUpdate">
+			<a class="navA" href="${pageContext.request.contextPath }/user/userMyPage">
 				즐겨찾기
 			</a>
 		</div>	
