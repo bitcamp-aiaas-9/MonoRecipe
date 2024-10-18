@@ -24,22 +24,22 @@
         <form name="loginForm" id="loginForm" action="/MonoRecipe/user/login" >
             <table>
                 <tr>
-                    <th class="label">이메일</th>
-                    <td class="input">
-                        <input type="text" name="uemail" id="uemail" placeholder="이메일 입력" required />
+                    <th class="labelth">이메일</th>
+                    <td class="inputtd">
+                        <input type="text" class="uemail" name="uemail" id="uemail" placeholder="이메일 입력" required />
                         <div id="uemailDiv"></div>
                     </td>
                 </tr>
                 <tr>
-                    <th class="label">비밀번호</th>
-                    <td class="input">
-                        <input type="password" name="upwd" id="upwd" placeholder="비밀번호 입력" required />
+                    <th class="labelth">비밀번호</th>
+                    <td class="inputtd">
+                        <input type="password" class="upwd" name="upwd" id="upwd" placeholder="비밀번호 입력" required />
                         <div id="upwdDiv"></div>
                     </td>
                 </tr>
                 <tr>
-                <th class="label"></th>
-               <td class="input" >
+                <th class="labelth"></th>
+               <td class="inputtd" >
               
                         <button type="submit" id="loginBtn" >로그인</button>
             

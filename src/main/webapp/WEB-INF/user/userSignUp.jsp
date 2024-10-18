@@ -24,22 +24,22 @@
 				<form name="userWriteForm" id="userWriteForm">
 					<table>
 					<tr>
-					     <th class="label">이름</th>
-					     <td class="input">
+					     <th class="labelth">이름</th>
+					     <td class="inputtd">
 					        <input type="text" name="uname" id="uname" placeholder="이름 입력" />
 					       	<div id="unameDiv"></div>
 					    </td>
 					</tr>
 					<tr>
-					    <th class="label">아이디</th>
-					    <td class="input">
+					    <th class="labelth">아이디</th>
+					    <td class="inputtd">
 					       <input type="text" name="uid" id="uid" placeholder="아이디 입력" />
 					       <div id="uidDiv"></div>
 					    </td>
 					</tr>
 					<tr>
-					    <th class="label">비밀번호</th>
-					    <td class="input">
+					    <th class="labelth">비밀번호</th>
+					    <td class="inputtd">
 					       <input type="password" name="upwd" id="upwd" placeholder="비밀번호 입력" />
 					       <div id="upwdDiv"></div>
 					    </td>
