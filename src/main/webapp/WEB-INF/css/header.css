@@ -5,14 +5,38 @@
 
 /* 가로가 600px 이상일 때 */
 #headerSearch {
-    width: 30% !important; /* 검색 박스 너비 */
+    width: 30% ; /* 검색 박스 너비 */
 }
 
 #headerSearchBox {
     width: 100% ; /* 너비 100% */
    
 }
+.searchBox {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: white !important;
+    
+    max-height: 50px !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+}
 
+.searchBox input {
+    width: 100% !important;
+    border: none !important;
+    padding: 10px !important;
+    font-size: 1rem !important;
+    outline: none !important;
+}
+
+.searchIcon {
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 10px !important;
+    cursor: pointer !important;
+}
 
 
 .headerSearchIcon {
