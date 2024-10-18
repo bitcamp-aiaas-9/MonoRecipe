@@ -94,7 +94,12 @@ function readURL(file) {
         data: formData,
         success: function(data) {
             alert("수정 완료");
-            location.reload(); // 페이지 새로 고침
+           const urlParams = new URLSearchParams(window.location.search);
+            const dcode = urlParams.get('dcode'); // dcode 값
+            const pg = urlParams.get('pg'); // pg 값
+
+            // 새 URL로 이동
+            location.href = `/MonoRecipe/dish/dishView?dcode=${dcode}&pg=${pg}`;
         },
         error: function(e) {
             console.log(e);
