@@ -159,7 +159,7 @@ button:hover {
     .input {
         width: 100%; /* 입력란 너비를 100%로 변경 */
         display: flex; /* 입력란을 플렉스 박스로 변경 */
-        flex-direction: column; /* 세로 방향으로 나열 */
+      
     }
 
     input[type="text"],
@@ -168,7 +168,7 @@ button:hover {
         margin-bottom: 10px; /* 아래쪽 여백 추가 */
     }
 
-  #loginBtn,#adminLoginBtn,#writeBtn,#resetBtn,#updateBtn,#deleteBtn,#deleteUserBtn{
+  #adminLoginBtn,#writeBtn,#resetBtn,#updateBtn,#deleteBtn,#deleteUserBtn{
         width: 100%; /* 버튼 너비 조정 */
         margin: 10px auto; /* 중앙 정렬 */
         display: block; /* 블록 요소로 변경 */
@@ -189,16 +189,17 @@ button:hover {
         padding: 15px; /* 패딩 조정 */
     }
     
+    #loginBtn{
+         width: 100%; 
+       margin-right: 5px; 
+    }
 
 	
-   #naver_id_login {
+   #naver_id_login  {
       width: 100%; /* 버튼의 최대 너비 */
-       margin: 10px auto; /* 중앙 정렬 */
+       text-align:right;
   }
+  
 
-  #naver_id_login img {
-      width: 100%; /* 부모 요소에 맞게 너비 조정 */
-      height:auto;
-  }
     
 }
