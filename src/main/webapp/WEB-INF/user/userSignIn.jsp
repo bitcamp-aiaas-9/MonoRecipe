@@ -46,6 +46,11 @@
                         <div id="naver_id_login" ></div>
                         <div id="naverButton" >
                         <img src=${pageContext.request.contextPath}/image/NaverIcon.png id="naverIcon" />
+                        <img src=${pageContext.request.contextPath}/image/Google.png id="googleIcon" />
+                        <img src=${pageContext.request.contextPath}/image/Facebook.png id="facebookIcon" />
+                        <img src=${pageContext.request.contextPath}/image/Kakao.png id="kakaoIcon" />
+                        <img src=${pageContext.request.contextPath}/image/Apple.png id="appleIcon" />
+                         <img src=${pageContext.request.contextPath}/image/Line.png id="lineIcon" />
                         </div>
                     </td>
                 </tr>
@@ -69,6 +74,16 @@
 		
          <!-- 네이버 로그인 버튼 노출 스크립트 -->
 			  <script type="text/javascript">
+			  
+			 $(document).ready(function() {
+			       
+			        $('#naverIcon').on('click', function() {
+			            
+			            $('#naver_id_login').find('a').click(); 
+			        });
+			    });
+		
+			  
 			  	var naver_id_login = new naver_id_login("JNIt7kaoRhfyIQV0WGHU", "http://localhost:8080/MonoRecipe/user/callback");
 			  	var state = naver_id_login.getUniqState();
 			  	naver_id_login.setButton("green", 3,45);
