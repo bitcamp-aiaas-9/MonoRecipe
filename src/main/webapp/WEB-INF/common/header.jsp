@@ -28,9 +28,9 @@
               
         <div id="mobileMenu" >
         	
-           <div id="mobileSearchContainer" class="hidden">
-        <input type="text" placeholder="음식, 레시피 검색" id="headerMobileSearchInput" name="SearchKey">
-    </div>
+            <input type="text" placeholder="음식, 레시피 검색" id="headerMobileSearchInput" 
+            name="SearchKey" class="hidden" >
+
           
         
             <img id="searchIcon" class="searchIcon" src="${pageContext.request.contextPath}/image/search_icon.png" alt="search">

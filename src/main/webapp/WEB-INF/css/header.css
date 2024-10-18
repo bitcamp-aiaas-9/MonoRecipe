@@ -4,7 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&display=swap');
 
 /* 가로가 600px 이상일 때 */
-
+#headerSearchInput{
+	
+	max-height: 50px;
+}
 
 
 
@@ -121,21 +124,10 @@ header.header {
         font-size: 16px; /* 글꼴 크기 */
         transition: border-color 0.3s; /* 테두리 색상 변화에 부드러운 전환 추가 */
         outline: none; /* 기본 테두리 제거 */
+        max-height:40px;
     }
     
-    #mobileSearchContainer {
-    overflow: hidden; /* 내용이 넘치지 않도록 숨김 */
-    width: 0; /* 초기 너비 */
-    transition: width 0.5s ease, opacity 0.5s ease; /* 너비와 불투명도 변화에 애니메이션 효과 추가 */
-    opacity: 0; /* 초기 불투명도 */
-    visibility: hidden; /* 보이지 않음 */
-}
-
-#mobileSearchContainer.active {
-    width: 250px; /* 펼쳐질 때 너비 설정 */
-    opacity: 1; /* 완전 불투명 */
-    visibility: visible; /* 보이게 설정 */
-}
+    
    .hidden {
         display: none;
     }

@@ -57,7 +57,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('#searchIcon').on('click', function() {
-        $('#mobileSearchContainer').toggleClass('active');
+        $('#headerMobileSearchInput').toggleClass('hidden');
         $('#projectName').toggleClass('hidden');
         
     });
