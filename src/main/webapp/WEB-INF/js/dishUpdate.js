@@ -126,6 +126,7 @@ function readURL(file) {
 });
 
 $('#deleteBtn').click(function(event) {
+
     event.preventDefault(); // 기본 제출 방지
     let dcode = $('input[name="dcode"]').val();
     $.ajax({

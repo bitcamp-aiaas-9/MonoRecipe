@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:spring/db.properties")
-@MapperScan("admin.dao user.dao dish.dao review.dao") 
+@MapperScan("admin.dao user.dao dish.dao review.dao favorite.dao") 
 public class SpringConfiguration { 
 	
 	/** Connection Pool */
