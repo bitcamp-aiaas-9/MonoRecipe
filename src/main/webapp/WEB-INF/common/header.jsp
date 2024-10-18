@@ -15,6 +15,15 @@
             </a>
         </div>
         
+         <div id="headerSearch">
+            <div class="searchBox" id="headerSearchBox" style="display: none;">
+                <input type="text" placeholder="음식, 레시피 검색" id="headerSearchInput" name="SearchKey">
+                <img id="headerSearchIcon" class="headerSearchIcon"
+                     src="${pageContext.request.contextPath}/image/search_icon_black.png"
+                     alt="Search Icon">
+            </div>
+        </div> 
+              
         <div id="mobileMenu">
             <img id="searchIcon" class="searchIcon" src="${pageContext.request.contextPath}/image/search_icon.png" alt="search">
             <img id="menuIcon" class="menuIcon" src="${pageContext.request.contextPath}/image/menu_icon.png" alt="menu">
@@ -67,5 +76,12 @@
 		</c:choose>
     </ul>
 </div>
+
+
+
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/header.js"></script>

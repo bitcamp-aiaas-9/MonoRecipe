@@ -1,5 +1,6 @@
 // MonoRecipe/src/main/webapp/WEB-INF/js/index.js
 $(document).ready(function() {
+    let searchOpen = false;  // 검색창 열림 상태 추적 변수
     
     // 모바일 메뉴 열기
     $("#menuIcon").on("click", function() {
@@ -21,6 +22,34 @@ $(document).ready(function() {
         $("#closeIcon").hide();                      	// 닫기 아이콘 숨김
         $("#menuIcon").show();                       	// 햄버거 아이콘 표시
     });
+
+
+    // 검색 아이콘 클릭 시 검색 입력창 표시
+    $("#openSearchIcon").on("click", function() {
+        $("#headerSearchBox").fadeIn();  // 검색창 표시
+        $(this).attr("src", "${pageContext.request.contextPath}/image/search_icon_black.png");  // 아이콘 변경
+        searchOpen = true;
+    });
+
+    // 검색창 외부 클릭 시 검색창 닫기
+    $(document).on("click", function(event) {
+        if (!$(event.target).closest("#headerSearchBox, #openSearchIcon").length) {
+            if (searchOpen) {
+                $("#headerSearchBox").fadeOut();  // 검색창 숨김
+                $("#openSearchIcon").attr("src", "${pageContext.request.contextPath}/image/search_icon.png");  // 아이콘 원래대로
+                searchOpen = false;
+            }
+        }
+    });
+
+    // 검색 아이콘 클릭 시 검색 실행 (임시로 alert 사용)
+    $("#headerSearchIcon").on("click", function() {
+        const query = $("#headerSearchInput").val();
+        if (query) {
+            alert(`검색어: ${query}`);  // 실제 검색 기능을 여기에 구현
+        }
+    });
+    
 });
 
 
