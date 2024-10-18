@@ -51,7 +51,7 @@ table {
     }
     
         #writeBtn,#resetBtn,#updateBtn,#deleteBtn{
-        width: 44%; /* 버튼 너비 조정 */
+        width: 45%; /* 버튼 너비 조정 */
     }
     #resetBtn,#deleteBtn{
      margin-left:5%;
@@ -139,8 +139,13 @@ margin-left: 2%;
     background-color: #c82333; /* 호버 시 더 어두운 붉은색 */
 }
 
-    #adminLoginBtn,#deleteUserBtn {
+    #adminLoginBtn {
         width: 88%; /* 버튼 너비 조정 */
+        margin-left: 5%;
+    }
+    
+    #deleteUserBtn {
+        width: 93%; /* 버튼 너비 조정 */
         margin-left: 5%;
     }
     
