@@ -45,12 +45,6 @@ public class DishController {
 	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg, Model model, HttpSession session) {
 	    // 세션에서 adminDTO가 있는지 확인
 	    AdminDTO adminDTO = (AdminDTO) session.getAttribute("adminDTO");
-	    
-	    if (adminDTO != null) {
-	        System.out.println("DishList: 관리자 아이디 - " + adminDTO.getAid());
-	    } else {
-	        System.out.println("DishList: 관리자 세션이 없습니다.");
-	    }		
 		
 		Map<String, Object> dishPageMap = dishService.getDishList(pg);
 		String searchKey = (String) session.getAttribute("searchKey");
