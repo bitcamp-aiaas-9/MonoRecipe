@@ -18,4 +18,16 @@ VALUES (#{fuserid},#{fdishcode})
 	DELETE FROM favorite_tb 
 	WHERE fuserid = #{fuserid} AND fdishcode = #{fdishcode};
   </delete>
+
+<select id="getFavoriteList" resultType="dish.bean.DishDTO">
+    SELECT d.dcode, d.dimage, d.dimageUUID, d.dname, d.dintro, d.drecipe, d.dscore
+    FROM dish_tb d
+    INNER JOIN favorite_tb f ON d.dcode = f.fdishcode
+    WHERE f.fuserid = #{uid}
+</select>
+
+
+
+
+
 </mapper>

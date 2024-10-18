@@ -1,5 +1,6 @@
 package com.controller.MonoRecipe;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -10,10 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import dish.service.DishService;
+import dish.bean.DishDTO;
 import favorite.bean.FavoriteDTO;
 import favorite.service.FavoriteService;
 import user.bean.UserDTO;
@@ -29,40 +29,9 @@ public class FavoriteController {
 	@Autowired
 	private UserDTO userDTO;
    
-
 	@Autowired
 	private FavoriteService favoriteService;
 
-	@Autowired
-	private DishService dishService;
-   
-   
-   
-//   // MonoRecipe/src/main/java/com/controller/MonoRecipe/FavoriteController.java
-   // My Page 즐겨찾기 목록
-     @RequestMapping(value="/user/userMyPage") 
-     public String userMyPage( Model model, HttpSession session) {
-        UserDTO userDTO = (UserDTO) session.getAttribute("userDTO");
-        session.setAttribute("userDTO", userDTO);
-        
-        if (userDTO != null) {
-             String userId = userDTO.getUid();
-             System.out.println("로그인 사용자 아이디 : " + userId);
-         } else {
-             // 로그나 예외 처리 코드 추가
-             System.out.println("userDTO is null");
-         }
-
-        //List<DishDTO> favoriteList = favoriteService.getFavoriteList();
-        
-        //model.addAttribute("favoriteList", favoriteList);
-        
-        session.setAttribute("userDTO", userDTO);
-        return "/user/userMyPage"; 
-     }
-   
-   
-   
    //체크
    @RequestMapping(value = "/favorite/favoriteCheck", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
    @ResponseBody

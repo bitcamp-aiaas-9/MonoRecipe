@@ -1,11 +1,14 @@
+// favorite/service/impl/FavoriteServiceImpl.java
 package favorite.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import dish.bean.DishDTO;
 import favorite.dao.FavoriteDAO;
 import favorite.service.FavoriteService;
 
@@ -52,6 +55,12 @@ public class FavoriteServiceImpl implements FavoriteService{
 	    
 	    favoriteDAO.removeFavorite(params);
 		
+	}
+
+	@Override
+	public List<DishDTO> getFavoriteList(String uid) {
+		List<DishDTO> favoriteList = favoriteDAO.getFavoriteList(uid);
+		return favoriteList;
 	}
 
 	

@@ -42,7 +42,7 @@
 <form id="dishListForm" name="dishListForm" >
 	<%-- <input type="hidden" id="pg" name="pg" value="${dishPageMap.pg}" /> --%>
     <div class="dishGrid">
-    <!-- <input type="hidden" id="pg" name="pg" value="1" /> -->
+    <input type="hidden" id="pg" name="pg" value="1" />
     <c:if test="${not empty favoriteList}">
 	    <c:forEach var="dishDTO" items="${favoriteList }">
 	        <div class="dishItem">
