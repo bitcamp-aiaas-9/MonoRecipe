@@ -121,6 +121,7 @@ function performSearch(pg, searchKey) {
         },
         success: function(response) {
             updateDishList(response);
+            
         },
         error: function(xhr, status, error) {
             console.error("AJAX 요청 실패:", status, error);
@@ -132,7 +133,7 @@ function performSearch(pg, searchKey) {
 function updateDishList(dishPageMap) {
     const dishGrid = $('.dishGrid');
     dishGrid.empty();
-
+	
     if (dishPageMap.list && dishPageMap.list.length > 0) {
         $.each(dishPageMap.list, function(index, dishDTO) {
             const dishItem = `
