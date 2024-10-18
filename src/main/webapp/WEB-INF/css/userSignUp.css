@@ -8,6 +8,10 @@ body {
     color: #333; /* 글씨 색상 */
    font-weight: 500; /* 라벨을 조금 덜 굵게 표시 */
 }
+#headerSearchBox{
+	margin-bottom: 10px;
+}
+
 
 
 
