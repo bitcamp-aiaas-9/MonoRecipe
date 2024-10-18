@@ -12,12 +12,21 @@ $(document).ready(function () {
     setInterval(showNextImage, 5000); // 5초마다 이미지 전환
 
     $('.dishItem').on('click', function () {
-        let dcode = $('#dcode').val().trim();
+    	
+        
+        let dcode = $(this).find('input[name="dcode"]').val().trim();
         let pg = $("#pg").val().trim();
+        console.log(dcode,pg);
         const url = context + `/dish/dishView?dcode=${dcode}&pg=${pg}`; // 이동할 URL
         location.href = url; // 페이지 이동
     });
 });
+
+
+
+
+
+
 ///
 $(document).ready(function () {
     // 검색 아이콘 클릭 시 AJAX 요청
