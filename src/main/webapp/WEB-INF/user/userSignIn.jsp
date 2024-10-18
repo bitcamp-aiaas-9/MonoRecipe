@@ -58,9 +58,10 @@
         </form>
         
         <div id="naver_id_login" ></div>
+        
 <div style="margin-top: 5px; margin-right:27px;  margin-bottom: 30px; ">
-    <a href="/MonoRecipe/admin/adminSignIn" style="font-size: 1em; float: right;  ">관리자 로그인</a>
-    <a href="/MonoRecipe/user/signUp" style="font-size: 1em; float: right; margin-right:15px;">회원가입</a>  
+    <a href="/MonoRecipe/admin/adminSignIn" style="font-size: 1em; float: right; margin-right:1%; ">관리자 로그인</a>
+    <a href="/MonoRecipe/user/signUp" style="font-size: 1em; float: right; margin-right:5%;">회원가입</a>  
 
 </div>
     </div>

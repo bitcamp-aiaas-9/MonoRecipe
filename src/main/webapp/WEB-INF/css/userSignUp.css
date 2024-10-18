@@ -58,12 +58,12 @@ table {
         width: 45%; /* 버튼 너비 조정 */
     }
     #resetBtn,#deleteBtn{
-     margin-left:5%;
+     margin-left:3%;
     }
     
     
 
-.uemail,.upwd {
+.uemail,.upwd,.uname,.uid,.ubtn ,.inputCode{
     width: calc(100% - 20px); /* 전체 너비에서 패딩 제외 */
     padding: 10px; /* 입력란 내부에 패딩 추가 */
     border: 1px solid #ccc; /* 입력란 테두리 설정 */
@@ -159,18 +159,18 @@ margin-left: 2%;
     th {
         display: none; /* th 요소 숨기기 */
     }
-  .input {
+ .uemail,.upwd,.uname,.uid,.ubtn ,.inputCode {
         width: 100%; /* 입력란 너비를 100%로 변경 */
         display: flex; /* 입력란을 플렉스 박스로 변경 */
         flex-direction: column; /* 세로 방향으로 나열 */
     }
 
 
-    input[type="password"] {
+.uemail,.upwd,.uname,.uid,.ubtn ,.inputCode {
         width: 100%; /* 입력란 너비를 100%로 변경 */
         margin-bottom: 10px; /* 아래쪽 여백 추가 */
     }
-    input[type="text"] {
+.uemail,.upwd,.uname,.uid,.ubtn ,.inputCode {
         width: 100%; /* 입력란 너비를 100%로 변경 */
         margin-bottom: 10px; /* 아래쪽 여백 추가 */
     }
@@ -198,33 +198,27 @@ margin-left: 2%;
         padding: 15px; /* 패딩 조정 */
     }
     
-    
-#naverIcon {
-		margin-top:10px;
-    display: inline;
-    width: 15%;
-    height: auto;
-    cursor: pointer;
+#naverButton {
+    justify-content: space-between; /* 아이콘 간의 간격을 균등하게 배분 */
+    align-items: center; /* 수직 정렬 */
 }
 
-
+#naverIcon,
 #googleIcon,
-#facebookIcon,
 #kakaoIcon,
 #appleIcon,
-#lineIcon {
-	margin-top:10px;
-    display: inline;
-    width: 15%;
+#lineIcon ,
+#facebookIcon{
+    margin-top: 10px;
+    display: inline; 
+    width: 15.4%;
     height: auto;
-    margin-left: 0.85%;
     cursor: pointer;
 }
 
-	
-   #naver_id_login img {
-     display:none;
-  }
+#naver_id_login img {
+    display: none;
+}
   
   
 

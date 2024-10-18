@@ -24,21 +24,21 @@
         <form name=" adminLoginForm" id="adminLoginForm" action="/MonoRecipe/admin/adminLogin" >
             <table>
                 <tr>
-                    <th class="label">아이디</th>
-                    <td class="input">
-                        <input type="text" name="aid" id="aid" placeholder="아이디 입력" required />
+                    <th class="labelth">아이디</th>
+                    <td class="inputtd">
+                        <input type="text" class="uid" name="aid" id="aid" placeholder="아이디 입력" required />
                         <div id="aidDiv"></div>
                     </td>
                 </tr>
                 <tr>
-                    <th class="label">비밀번호</th>
-                    <td class="input">
-                        <input type="password" name="apwd" id=apwd" placeholder="비밀번호 입력" required />
+                    <th class="labelth">비밀번호</th>
+                    <td class="inputtd">
+                        <input type="password" class="upwd" name="apwd" id=apwd" placeholder="비밀번호 입력" required />
                         <div id="apwdDiv"></div>
                     </td>
                 </tr>
                 <tr>
-               <td class="input" colspan="2" style="text-align: center;">
+               <td class="inputtd" colspan="2" style="text-align: center;">
                         <button type="submit" id="adminLoginBtn" >관리자 로그인</button>
                     </td>
                 </tr>
