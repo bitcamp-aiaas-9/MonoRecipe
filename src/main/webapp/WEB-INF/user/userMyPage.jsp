@@ -18,13 +18,27 @@
 <jsp:include page="../common/header.jsp" />
 <main>
 <jsp:include page="../common/myPageMenu.jsp" />
- 
+
+
+
+
+
+
+
+
+
+
+
+
 </main>
 <jsp:include page="../common/footer.jsp" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script> 
+<script>
+    var context = '${pageContext.request.contextPath}';
 </script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/userMyPage.js"></script>
+
 
 </body>
 </html>

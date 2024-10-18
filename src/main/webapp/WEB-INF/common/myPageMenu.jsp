@@ -6,8 +6,21 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myPageMenu.css">
 
 <nav class="nav" id="nav">
-
+	<div class="navDiv">
+		<div class="menuDiv" id="userFavoriteMenu" >
+			<a class="navA" href="${pageContext.request.contextPath }/user/userUpdate">
+				즐겨찾기
+			</a>
+		</div>	
+		<div class="menuDiv" id="userUpdateMenu" >
+			<a class="navA" href="${pageContext.request.contextPath }/user/userUpdate">
+				회원정보
+			</a>
+		</div>
+	</div>
 </nav>
+
+
 <div id="mobileMenuList" style="display: none;">
     <ul>
         <li><a href="${pageContext.request.contextPath}/user/userMyPage">즐겨찾기</a></li>
