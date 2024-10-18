@@ -194,9 +194,9 @@ public class UserController {
 			}
 
 	  
-	   // MonoRecipe/src/main/java/com/controller/MonoRecipe/UserController.java
+	   
 	   // My Page 즐겨찾기 목록
-	     @RequestMapping(value="/user/userMyPage") 
+	     @RequestMapping(value="/user/userMyPage")
 	     public String userMyPage(Model model, HttpSession session) {
 	        UserDTO userDTO = (UserDTO) session.getAttribute("userDTO");
 	        session.setAttribute("userDTO", userDTO);

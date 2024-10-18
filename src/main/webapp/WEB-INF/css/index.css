@@ -156,6 +156,7 @@ main {
 .dishImg {
     width: 100%;
     height: auto;
+    aspect-ratio: 1; /* 정사각형 유지 */
     object-fit: contain;
 }
 

@@ -18,4 +18,6 @@ public interface FavoriteDAO {
 
 	public List<DishDTO> getFavoriteList(String uid);
 
+	public void favoriteListDelete(List<Integer> list);
+
 }

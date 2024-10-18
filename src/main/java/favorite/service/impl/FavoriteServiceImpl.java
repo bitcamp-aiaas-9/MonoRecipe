@@ -1,6 +1,7 @@
 // favorite/service/impl/FavoriteServiceImpl.java
 package favorite.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,6 +62,17 @@ public class FavoriteServiceImpl implements FavoriteService{
 	public List<DishDTO> getFavoriteList(String uid) {
 		List<DishDTO> favoriteList = favoriteDAO.getFavoriteList(uid);
 		return favoriteList;
+	}
+
+	/** My Page 즐겨찾기 목록 삭제 */
+	@Override
+	public void favoriteListDelete(String[] check) {
+		List<Integer> list = new ArrayList<>();
+		for (String dcode : check) {
+			int fdishcode = Integer.parseInt(dcode);
+			list.add(fdishcode);
+		}
+		favoriteDAO.favoriteListDelete(list);
 	}
 
 	

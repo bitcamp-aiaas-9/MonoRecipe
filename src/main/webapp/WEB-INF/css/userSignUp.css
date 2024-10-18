@@ -159,7 +159,7 @@ margin-left: 2%;
         float:left;
     }
     
-#naverIcon{
+#naverIcon,#googleIcon,#facebookIcon,#kakaoIcon,#appleIcon,#lineIcon{
 		display:none;
 	} 
 
@@ -189,6 +189,7 @@ margin-left: 2%;
         width: 100%; /* 버튼 너비 조정 */
         margin: 10px auto; /* 중앙 정렬 */
         display: block; /* 블록 요소로 변경 */
+        
     }
     
         #loginBtn,#resetBtn,#deleteBtn,#deleteUserBtn{
@@ -207,12 +208,28 @@ margin-left: 2%;
     }
     
     
-	#naverIcon{
-		display:block;
-		width:15%;
-		height:auto;
-	} 
-	
+#naverIcon {
+		margin-top:10px;
+    display: inline;
+    width: 15%;
+    height: auto;
+    cursor: pointer;
+}
+
+
+#googleIcon,
+#facebookIcon,
+#kakaoIcon,
+#appleIcon,
+#lineIcon {
+	margin-top:10px;
+    display: inline;
+    width: 15%;
+    height: auto;
+    margin-left: 0.85%;
+    cursor: pointer;
+}
+
 	
    #naver_id_login img {
      display:none;

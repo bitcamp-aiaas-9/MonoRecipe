@@ -15,4 +15,6 @@ public interface FavoriteService {
 
 	public List<DishDTO> getFavoriteList(String uid);
 
+	public void favoriteListDelete(String[] check);
+
 }

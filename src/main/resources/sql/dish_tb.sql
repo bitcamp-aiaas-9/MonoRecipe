@@ -6,7 +6,7 @@ CREATE TABLE dish_tb (
     dname VARCHAR(100) NOT NULL,			-- 음식 이름
     dintro TEXT,							-- 음식 소개글
     drecipe TEXT NOT NULL,					-- 음식 레시피
-    dscore DECIMAL(5, 2) DEFAULT 0			-- 음식 평균 평점
+    dscore DECIMAL(5, 2) DEFAULT 0.00		-- 음식 평균 평점
 );
 
 
