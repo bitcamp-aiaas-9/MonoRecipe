@@ -44,6 +44,9 @@
                         <button type="submit" id="loginBtn" >로그인</button>
             
                         <div id="naver_id_login" ></div>
+                        <div id="naverButton" >
+                        <img src=${pageContext.request.contextPath}/image/NaverIcon.png id="naverIcon" />
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -60,7 +63,6 @@
 <c:import url="/common/footer" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../js/userSignIn.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
