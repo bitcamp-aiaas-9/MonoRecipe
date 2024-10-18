@@ -3,8 +3,7 @@
 @import url("init.css");
 
 nav {
-	padding-top: 50px;
-	border: 3px solid red;
+	padding: 50px 0;
 	width: 100%%;
 }
 
@@ -22,9 +21,6 @@ nav {
 	height: 50px;
 }
 
-.menuDiv:hover {
-	color: #bbb;
-}
 
 .navA {
 	height: 100%;
@@ -36,9 +32,26 @@ nav {
 	letter-spacing: 2px;
 }
 
+/* .navA:hover {
+	background: #333;
+	color: white;
+} */
 
 
+/* 가로 600px 이하 */
+@media (max-width: 600px) {
+	nav {
+		padding: 30px 0;
+	}
+	
+    .menuDiv {
+        max-height: 40px;
+    }
 
+    .navA {
+        font-size: 16px;
+    }
+}
 
 
 
