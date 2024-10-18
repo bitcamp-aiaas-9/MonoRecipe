@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 @import url("init.css");
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
 
 body {
@@ -26,6 +25,7 @@ table {
     width: 100%; /* 테이블 너비 */
     border-collapse: collapse; /* 셀 간의 간격 제거 */
     margin: 20px 0; /* 테이블 위아래 여백 */
+    white-space: pre-wrap; /* 줄 바꿈 적용 */
 }
 
 th, td {
@@ -45,8 +45,8 @@ th, td {
     cursor: pointer; /* 포인터 커서 */
     font-weight: bold; /* 텍스트 굵게 */
     transition: transform 0.2s ease; /* 부드러운 크기 변화 */
-    margin-left:2%;
-    margin-right:2%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 #paging {
@@ -55,12 +55,20 @@ th, td {
     border-radius: 4px; /* 모서리 둥글게 */
     cursor: pointer; /* 포인터 커서 */
     transition: transform 0.2s ease, font-size 0.2s ease; /* 부드러운 크기 변화 */
-    margin-left:2%;
-    margin-right:2%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
-#paging:hover {
-    transform: scale(1.1); /* 호버 시 크기 증가 */
-    background-color: #f2f2f2; /* 호버 시 배경색 변화 */
-    font-size: 1.1em; /* 호버 시 글씨 크기 증가 */
+#paging  {
+    padding: 10px; /* 셀 패딩을 다른 셀과 동일하게 설정 */
+    border: 1px solid #ddd; /* 연한 테두리 */
+    height: 10px; /* 높이 설정 (필요에 따라 조정) */
+}
+
+/* 미디어 쿼리: 600px 이하에서 아이디 열 숨기기 */
+@media (max-width: 600px) {
+    th:nth-child(2),
+    td:nth-child(2) {
+        display: none; /* 두 번째 열 숨기기 */
+    }
 }

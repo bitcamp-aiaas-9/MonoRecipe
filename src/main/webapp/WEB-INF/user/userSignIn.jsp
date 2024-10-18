@@ -44,10 +44,20 @@
                         <button type="submit" id="loginBtn" >로그인</button>
             
                         <div id="naver_id_login" ></div>
+                        <div id="naverButton" >
+                        <img src=${pageContext.request.contextPath}/image/NaverIcon.png id="naverIcon" />
+                        <img src=${pageContext.request.contextPath}/image/Google.png id="googleIcon" />
+                        <img src=${pageContext.request.contextPath}/image/Facebook.png id="facebookIcon" />
+                        <img src=${pageContext.request.contextPath}/image/Kakao.png id="kakaoIcon" />
+                        <img src=${pageContext.request.contextPath}/image/Apple.png id="appleIcon" />
+                         <img src=${pageContext.request.contextPath}/image/Line.png id="lineIcon" />
+                        </div>
                     </td>
                 </tr>
             </table>
         </form>
+        
+        <div id="naver_id_login" ></div>
 <div style="margin-top: 5px; margin-right:27px;  margin-bottom: 30px; ">
     <a href="/MonoRecipe/admin/adminSignIn" style="font-size: 1em; float: right;  ">관리자 로그인</a>
     <a href="/MonoRecipe/user/signUp" style="font-size: 1em; float: right; margin-right:15px;">회원가입</a>  
@@ -58,13 +68,22 @@
 <c:import url="/common/footer" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../js/userSignIn.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		
          <!-- 네이버 로그인 버튼 노출 스크립트 -->
 			  <script type="text/javascript">
+			  
+			 $(document).ready(function() {
+			       
+			        $('#naverIcon').on('click', function() {
+			            
+			            $('#naver_id_login').find('a').click(); 
+			        });
+			    });
+		
+			  
 			  	var naver_id_login = new naver_id_login("JNIt7kaoRhfyIQV0WGHU", "http://localhost:8080/MonoRecipe/user/callback");
 			  	var state = naver_id_login.getUniqState();
 			  	naver_id_login.setButton("green", 3,45);

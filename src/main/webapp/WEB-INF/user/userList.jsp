@@ -34,13 +34,13 @@
 	        <c:forEach var="userDTO" items="${map2.list }">
 	            <tr>
 	                <td>${userDTO.uname}</td>
-	                <td><a href="/spring/user/updateForm?id=${userDTO.uid}&pg=${map2.upg}">${userDTO.uid}</a></td>
+	                <td>${userDTO.uid}</td>
 	                <td>${userDTO.uemail}</td>
 	            </tr>
 	        </c:forEach>
 	        
 	        <tr>
-	        <td colspan="3">
+	        <td id="paging" colspan="3">
 	       
 		${map2.userPaging.pagingHTML }
 
