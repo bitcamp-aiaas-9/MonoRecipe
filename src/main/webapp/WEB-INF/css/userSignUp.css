@@ -204,7 +204,14 @@ margin-left: 2%;
     }
     
     
-#naverIcon,
+#naverIcon {
+    display: inline;
+    width: 15%;
+    height: auto;
+    cursor: pointer;
+}
+
+
 #googleIcon,
 #facebookIcon,
 #kakaoIcon,
@@ -213,7 +220,7 @@ margin-left: 2%;
     display: inline;
     width: 15%;
     height: auto;
-    margin-left: 0.6%;
+    margin-left: 0.85%;
     cursor: pointer;
 }
 
