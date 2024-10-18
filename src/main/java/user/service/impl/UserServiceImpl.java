@@ -109,5 +109,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	@Override
+	public UserDTO naverLogin(Map<String, Object> map) {
+		return userDAO.naverLogin(map);
+	}
+
+
 
 }
