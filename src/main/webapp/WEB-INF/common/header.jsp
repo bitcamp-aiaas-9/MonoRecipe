@@ -15,17 +15,20 @@
             </a>
         </div>
         
-         <div id="headerSearch">
-            <div class="searchBox" id="headerSearchBox" style="display: none;">
-                <input type="text" placeholder="음식, 레시피 검색" id="headerSearchInput" name="SearchKey">
+         <div id="headerSearch"  >
+            <div class="searchBox" id="headerSearchBox">
+                <input type="text" placeholder="음식, 레시피 검색" id="headerSearchInput" 
+                 name="SearchKey">
                 <img id="headerSearchIcon" class="headerSearchIcon"
                      src="${pageContext.request.contextPath}/image/search_icon_black.png"
-                     alt="Search Icon">
+                     alt="Search Icon" >
             </div>
         </div> 
-              
-        <div id="mobileMenu">
-            <img id="searchIcon" class="searchIcon" src="${pageContext.request.contextPath}/image/search_icon.png" alt="search">
+          <div id="mobileMenu" >
+        	
+            <input type="text" placeholder="음식, 레시피 검색" id="headerMobileSearchInput" 
+            	name="SearchKey" class="hidden" >
+			<img id="searchIcon" class="searchIcon" src="${pageContext.request.contextPath}/image/search_icon.png" alt="search">
             <img id="menuIcon" class="menuIcon" src="${pageContext.request.contextPath}/image/menu_icon.png" alt="menu">
             <img id="closeIcon" class="closeIcon" src="${pageContext.request.contextPath}/image/close_icon.png" alt="close" style="display: none;">
         </div>
