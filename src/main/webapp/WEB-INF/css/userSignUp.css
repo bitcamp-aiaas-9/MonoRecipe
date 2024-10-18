@@ -155,7 +155,9 @@ margin-left: 2%;
         float:left;
     }
     
-
+#naverIcon{
+		display:none;
+	} 
 
 
 @media (max-width: 600px) {
@@ -201,15 +203,17 @@ margin-left: 2%;
     }
     
     
-
+	#naverIcon{
+		display:block;
+		width:15%;
+		height:auto;
+	} 
 	
 	
    #naver_id_login img {
-      width: 100%; /* 버튼의 최대 너비 */
-      height:auto;
-        margin: 10px auto; /* 중앙 정렬 */
-        display: block; /* 블록 요소로 변경 */
+     display:none;
   }
+  
   
 
     
