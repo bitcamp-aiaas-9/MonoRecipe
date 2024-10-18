@@ -1,114 +1,266 @@
+/* MonoRecipe/src/main/webapp/WEB-INF/css/userMyPage.css */
+@charset "UTF-8";
 @import url("init.css");
 
-
-#container {
-    max-width: 600px; /* 컨테이너의 최대 너비 설정 */
-    margin: 50px auto; /* 컨테이너를 수평으로 중앙 정렬 */
-    padding: 20px; /* 컨테이너 내부에 패딩 추가 */
-    border: 1px solid #ccc; /* 테두리 추가 */
-    border-radius: 8px; /* 모서리 둥글게 */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 추가 */
-    background-color: #f9f9f9; /* 밝은 배경색 */
+section {
+	margin: 10px 0;
 }
 
-#edit-header {
-    font-size: 24px; /* 헤더 글씨 크기 */
-    margin-bottom: 20px; /* 헤더 아래 공간 추가 */
-    text-align: center; /* 헤더 텍스트 중앙 정렬 */
-    color: #333; /* 어두운 텍스트 색상 */
+/** <section class="searchSection"> */
+.searchSection {
+	margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-table {
-    width: 100%; /* 테이블 너비를 100%로 설정 */
-    border-collapse: collapse; /* 셀 간의 간격 제거 */
+.searchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 400px;
+    max-height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
-.label {
+.searchBox input {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.searchIcon {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+
+
+/** <section class="selectSection"> */
+.selectSection {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.checkboxContainer {
+    position: relative;
+}
+
+#all-check {
+    position: absolute;
+    top: -7px;  /* deleteBtn 위로 올리기 */
+    left: 14px;	
+    transform: scale(2.0);
+    accent-color: black;
+    cursor: pointer;
+}
+
+.adminBtn {
+	padding: 0;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	width: 200px;
+    height: 45px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
     text-align: center;
-    padding: 10px; /* 패딩 추가 */
-    font-weight: bold; /* 라벨을 굵게 표시 */
-    width: 30%; /* 라벨의 고정 너비 설정 */
+    border: 1px solid black;
+    background: white;
 }
 
-.input {
-    padding: 10px; /* 패딩 추가 */
-    width: 94%;
+#deleteBtn {
+	border-right: none;
+	border-radius: 5px 0 0 5px;
 }
 
-input[type="text"],
-input[type="password"] {
-    width: calc(100% - 20px); /* 전체 너비에서 패딩 제외 */
-    padding: 10px; /* 입력란 내부에 패딩 추가 */
-    border: 1px solid #ccc; /* 입력란 테두리 설정 */
-    border-radius: 4px; /* 모서리 둥글게 */
-    font-size: 16px; /* 입력란 글씨 크기 */
+#writePageBtn {
+	border-radius: 0 5px 5px 0;	
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #007bff; /* 포커스 시 테두리 색상 변경 */
-    outline: none; /* 외곽선 제거 */
-}
-
-button {
-    background-color: #007bff; /* 버튼 배경색 */
-    color: white; /* 버튼 텍스트 색상 */
-    border: none; /* 테두리 제거 */
-    padding: 10px 20px; /* 버튼 내부에 패딩 추가 */
-    border-radius: 4px; /* 모서리 둥글게 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    font-size: 16px; /* 버튼 글씨 크기 */
-}
-
-button:hover {
-    background-color: #0056b3; /* 호버 시 더 어두운 색상 */
-}
-
-#unameDiv, #uidDiv, #upwdDiv,#uemailDiv,#inputCodeDiv {
-    color: red; /* 오류 메시지 색상 */
-    font-size: 16px; /* 오류 메시지 글씨 크기 */
+#writePageBtn:hover, #deleteBtn:hover {
+    transition: background-color 0.3s ease; 
+	background-color: #3d3d3d;
+	color: #FFFFFF;
+	border: 1px solid #3d3d3d;	
+	cursor: pointer;
 }
 
 
-.input input[type="text"] {
-    display: inline-block; 
-    margin-right: 5px; 
-}
 
-.input input[type="text"]:last-child {
-    margin-right: 0; 
-}
+/** <section class="dishSection"> */
 
-#deleteBtn,#confirmYes {
-    background-color: #dc3545; /* 붉은색 배경 */
-    color: white; /* 텍스트 색상 */
-    border: none; /* 테두리 제거 */
-    padding: 10px 20px; /* 내부 패딩 */
-    border-radius: 4px; /* 모서리 둥글게 */
-    cursor: pointer; /* 포인터 커서 */
-    font-size: 16px; /* 글씨 크기 */
+.dishSection {
+	margin-top: 30px;
 }
 
 
-#adminLoginBtn{
-	   background-color: #343a40; /* 검은색 배경 (다크 그레이) */
-    color: white; /* 텍스트 색상 */
-    border: none; /* 테두리 제거 */
-    padding: 10px 20px; /* 내부 패딩 */
-    border-radius: 4px; /* 모서리 둥글게 */
-    cursor: pointer; /* 포인터 커서 */
-    font-size: 16px; /* 글씨 크기 */
+.dishGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr); /* 4열 구성*/
+    gap: 20px;
+}
+ 
+
+.board-list-check {
+    cursor: pointer;	
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    transform: scale(1.7);
+    accent-color: black;    
 }
 
-#adminLoginBtn:hover {
-    background-color: #23272b; /* 호버 시 더 어두운 색상 */
+.dishItem {
+	position: relative;
+    width: 22%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: visible;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#deleteBtn:hover {
-    background-color: #c82333; /* 호버 시 더 어두운 붉은색 */
+.dishItem:hover {
+    transform: scale(1.05); /* 5% 확대 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;	
+}
+
+/* 빈 플레이스홀더 아이템 스타일 */
+.dishItem.placeholder {
+    visibility: hidden; /* 보이지 않게 처리 */
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dishImgDiv {
+	width: 100%;
+	max-width: 220px;
+	aspect-ratio: 1; /* 정사각형 유지 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
 }
 
 
-#confirmYes:hover {
-    background-color: #c82333; /* 호버 시 더 어두운 붉은색 */
+.dishImg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1; /* 정사각형 유지 */
+    object-fit: contain;
 }
+
+.dishInfo {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dname {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.scoreDiv {
+	text-align: right;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+
+
+
+
+
+/** 600px 이하일 때 적용될 스타일 */
+@media (max-width: 600px) {
+	
+	/** <section class="topSection"> */
+	.topSection {
+		padding-top: 60px;
+	}
+	
+	.moveIndex {
+	    font-size: 1.8rem;
+	}
+	
+	.categoryTitle {
+	    font-size: 1.6rem;
+	}	
+	
+    /** <section class="searchSection"> */
+    .searchBox {
+        width: 80%;
+        height: 20%;
+        max-height: 40px;
+        padding: 8px;
+    }
+
+    .searchBox input {
+        padding: 8px; 
+        height: 18%;
+        font-size: 0.9rem; 
+    }
+
+    .searchIcon {
+        width: 20px; 
+        height: 20px;
+        margin: 0 8px;
+    }    
+    
+    
+    
+    /** <section class="selectSection"> */
+    
+	#all-check {
+	    top: -6px;  
+	    left :13px;	
+	    transform: scale(1.7);
+	}	 
+	   
+    .adminBtn {
+    	width: 40%;
+    	max-height: 40px;
+    	font-size: 0.9rem;
+    }
+    
+    
+    
+	.board-list-check {
+		transform: scale(1.4);
+		cursor: pointer;
+	}    
+    
+    .dishItem {
+        width: 46%;
+    }
+
+	.carousel-container {
+		padding-top: 80px;
+	}
+}
+
+
+
+

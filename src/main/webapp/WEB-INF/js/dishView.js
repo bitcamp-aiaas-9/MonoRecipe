@@ -92,6 +92,9 @@ $(document).ready(function() {
         data: JSON.stringify(dcode),
         success: function(response) {
             response.forEach(function(review) {
+           // ruserid가 null일 경우 "이름없음"으로 출력
+            const userId = review.ruserid || "이름없음";
+            console.log("Review User ID:", userId);
                 let stars = '';
                 for (let i = 1; i <= 5; i++) {
                     stars += (i <= review.rscore) ? '<span class="gold">★</span>' : '☆';
@@ -99,7 +102,7 @@ $(document).ready(function() {
                 const isSameUser = (review.ruserid === sessionUserId);
                 const reviewItemHTML = `
                     <tr class="review-item">
-                        <td class="text-start align-middle" width="50%">${review.ruserid} ${stars}</td>
+                        <td class="text-start align-middle" width="50%">${userId} ${stars}</td>
                         <td class="text-end align-middle" width="50%">${new Date(review.rdate).toLocaleString()}</td>
                     </tr>
                     <tr class="review-item">

@@ -4,6 +4,7 @@
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+<div id="mobileOverlay"></div>
 
 <header class="header" id="header">
     <div id="headerWrap">
@@ -47,7 +48,8 @@
     <ul>
 		<c:choose>
 			<c:when test="${not empty sessionScope.adminDTO}">
-				<li><a href="${pageContext.request.contextPath}/user/userList">Admin</a></li>
+				<li><a href="${pageContext.request.contextPath}/user/userList">관리자</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/adminLogout">로그아웃</a></li>
 		        <li><a href="https://www.youtube.com/playlist?list=PLL1qZqiuec_Qctidjh4_euZOpPQA_bp_W" target="_blank">모노레시피 YouTube</a></li>
 		        <li><a href="https://github.com/bitcamp-aiaas-9/MonoRecipe">모노레시피 Lab</a></li>
 			</c:when>        

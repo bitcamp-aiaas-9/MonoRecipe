@@ -53,6 +53,11 @@ public class DishController {
 	    }		
 		
 		Map<String, Object> dishPageMap = dishService.getDishList(pg);
+		String searchKey = (String) session.getAttribute("searchKey");
+	    if (searchKey != null && !searchKey.isEmpty()) {
+	        // 검색어가 있다면, 검색어를 사용한 리스트를 가져오도록 수정
+	        dishPageMap = dishService.getdishListSearch(pg, searchKey);
+	    }
 		dishPageMap.put("pg", pg);
 		model.addAttribute("dishPageMap", dishPageMap);
 		session.setAttribute("adminDTO", adminDTO);
@@ -75,11 +80,33 @@ public class DishController {
 	
 	
 	/** 민선 */
+	//메인페이지 검색
+	@RequestMapping(value="/indxSearch", method = RequestMethod.POST)
+	public String indxSearch(@RequestParam String SearhKey, HttpSession session) {
+	    System.out.println("Received search key: " + SearhKey);
+	    session.setAttribute("searchKey", SearhKey); // 세션에 검색어 저장
+	    return "redirect:/dish/dishList"; // 리스트 페이지로 리다이렉트
+	}
+	//새로고침세션 삭제
+	@RequestMapping(value="/clearSearchSession", method = RequestMethod.POST)
+	@ResponseBody
+	public void clearSearchSession(HttpSession session) {
+	    if (session.getAttribute("searchKey") != null) {
+	        session.removeAttribute("searchKey");
+	        System.out.println("Search session cleared.");
+	    }
+	}
+	
 	//리스트 검색
 	@RequestMapping(value="/dishListSearch",method = RequestMethod.GET)
 	@ResponseBody
-	public Map<String, Object> dishListSearch(@RequestParam(required = false, defaultValue = "1") String pg, String SearhKey,Model model) {
-	   
+	public Map<String, Object> dishListSearch(@RequestParam(required = false, defaultValue = "1")
+											String pg, String SearhKey,Model model,HttpSession session) {
+		
+		 if (session.getAttribute("searchKey") != null) {
+		        session.removeAttribute("searchKey");
+		        System.out.println("Search session cleared.");
+		    }
 		Map<String, Object> dishPageMap = dishService.getdishListSearch(pg,SearhKey);
 		dishPageMap.put("pg", pg);
 		model.addAttribute("dishPageMap", dishPageMap);
