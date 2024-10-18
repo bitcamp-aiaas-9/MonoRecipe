@@ -43,9 +43,12 @@ $(function() {
 	});    
 
     $(document).on('click', '.dishImgDiv', '.dishInfo', function () {
-        let dcode = $(this).closest('.dishItem').find('#dcode').val().trim();
-        let pg = $("#pg").val().trim();
-        const url = context + `/dish/dishView?dcode=${dcode}`;
+        let dcode = $(this).closest('.dishItem').find('input[name="dcode"]').val().trim();
+	    // pg 값을 가져오고, null 또는 빈 값일 경우 1로 설정
+	    let pg = $("#pg").val();
+	    pg = pg ? pg.trim() : "1";    
+	         
+        const url = context + `/dish/dishView?dcode=${dcode}&pg=${pg}`;
         location.href = url;
     });    
     

@@ -35,7 +35,8 @@ $(document).ready(function() {
     // pg 값을 가져오고, null일 경우 1로 설정
 	const pg = new URLSearchParams(window.location.search).get('pg') || 1;
     $('#backButton').click(function() {
-        window.location.href = `/MonoRecipe/dish/dishList?pg=${pg}`;
+    	window.history.back(); // 즐겨찾기 목록에서도 사용하기 위해 이전 페이지로 이동
+        // window.location.href = `/MonoRecipe/dish/dishList?pg=${pg}`;
     });
 
     // 리뷰 작성 버튼 클릭 시 처리
