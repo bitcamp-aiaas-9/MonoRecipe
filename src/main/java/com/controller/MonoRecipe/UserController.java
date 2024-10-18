@@ -158,13 +158,19 @@ public class UserController {
 	  @RequestMapping(value="/user/userMyPage") 
 	  public String userMyPage( Model model, HttpSession session) {
 		  UserDTO userDTO = (UserDTO) session.getAttribute("userDTO");
-//		  session.setAttribute("adminDTO", userDTO);
-//		  System.out.println("로그인 사용자 아이디 : " + userDTO.getUid());
-//		  
-//		  
-//		  List<DishDTO> favoriteList = dishService.getFavoriteList();
-//		  
-//		  model.addAttribute("favoriteList", favoriteList);
+		  session.setAttribute("userDTO", userDTO);
+		  
+		  if (userDTO != null) {
+			    String userId = userDTO.getUid();
+			    System.out.println("로그인 사용자 아이디 : " + userId);
+			} else {
+			    // 로그나 예외 처리 코드 추가
+			    System.out.println("userDTO is null");
+			}
+
+		  //List<DishDTO> favoriteList = dishService.getFavoriteList();
+		  
+		  //model.addAttribute("favoriteList", favoriteList);
 		  
 		  session.setAttribute("userDTO", userDTO);
 		  return "/user/userMyPage"; 

@@ -87,7 +87,7 @@ section {
 
 #all-check {
     position: absolute;
-    top: -8px;  /* deleteBtn 위로 올리기 */
+    top: -7px;  /* deleteBtn 위로 올리기 */
     left: 14px;	
     transform: scale(2.0);
     accent-color: black;
