@@ -24,44 +24,44 @@
         <form name="userDeleteForm" id="userDeleteForm">
             <table>
                 <tr>
-                    <th class="label">이름</th>
-                    <td class="input">
-                        <input type="text" name="uname" id="uname" value="${sessionScope.userDTO.uname}"  readonly/>
+                    <th class="labelth">이름</th>
+                    <td class="inputtd">
+                        <input type="text" class="uname" name="uname" id="uname" value="${sessionScope.userDTO.uname}"  readonly/>
                         <div id="unameDiv"></div>
                     </td>
                 </tr>
                 <tr>
-                    <th class="label">아이디</th>
-                    <td class="input">
-                        <input type="text" name="uid" id="uid" value="${sessionScope.userDTO.uid}" readonly />
+                    <th class="labelth">아이디</th>
+                    <td class="inputtd">
+                        <input type="text" class="uid" name="uid" id="uid" value="${sessionScope.userDTO.uid}" readonly />
                         <div id="uidDiv"></div>
                     </td>
                 </tr>
                 <tr>
-                    <th class="label">비밀번호</th>
-                    <td class="input">
-                        <input type="password" name="upwd" id="upwd" value="${sessionScope.userDTO.upwd}" readonly/>
+                    <th class="labelth">비밀번호</th>
+                    <td class="inputtd">
+                        <input type="password" class="upwd" name="upwd" id="upwd" value="${sessionScope.userDTO.upwd}" readonly/>
                         <div id="upwdDiv"></div>
                     </td>
                 </tr>
                 <tr>
-                    <th class="label">이메일</th>
-                    <td class="input">
-                        <input type="text" name="uemail" id="uemail" value="${sessionScope.userDTO.uemail}" readonly/>
+                    <th class="labelth">이메일</th>
+                    <td class="inputtd">
+                        <input type="text" class="uemail" name="uemail" id="uemail" value="${sessionScope.userDTO.uemail}" readonly/>
                         <div id="uemailDiv"></div>
                     </td>
                 </tr>
                 
                  <tr>
-                    <th class="label">비밀번호 확인</th>
-                    <td class="input">
-                        <input type="password" name="upwdCheck" id="upwdCheck" placeholder="비밀번호를 다시 입력해주세요"/>
+                    <th class="labelth">비밀번호 확인</th>
+                    <td class="inputtd">
+                        <input type="password" class="upwd" name="upwdCheck" id="upwdCheck" placeholder="비밀번호를 다시 입력해주세요"/>
                         <div id="upwdCheckDiv"></div>
                     </td>
                 </tr>
   
                 <tr>
-                    <td class="input"  colspan="2" style="text-align:center;">
+                    <td class="inputtd"  colspan="2" style="text-align:center;">
                         <button type="button" id="deleteUserBtn" style="margin: 0">탈퇴하기</button>
                     </td>
                 </tr>

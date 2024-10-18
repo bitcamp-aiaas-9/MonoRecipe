@@ -24,53 +24,53 @@
 				<form name="userWriteForm" id="userWriteForm">
 					<table>
 					<tr>
-					     <th class="label">이름</th>
-					     <td class="input">
-					        <input type="text" name="uname" id="uname" placeholder="이름 입력" />
+					     <th class="labelth">이름</th>
+					     <td class="inputtd">
+					        <input type="text" class="uname" name="uname" id="uname" placeholder="이름 입력" />
 					       	<div id="unameDiv"></div>
 					    </td>
 					</tr>
 					<tr>
-					    <th class="label">아이디</th>
-					    <td class="input">
-					       <input type="text" name="uid" id="uid" placeholder="아이디 입력" />
+					    <th class="labelth">아이디</th>
+					    <td class="inputtd">
+					       <input type="text" class="uid" name="uid" id="uid" placeholder="아이디 입력" />
 					       <div id="uidDiv"></div>
 					    </td>
 					</tr>
 					<tr>
-					    <th class="label">비밀번호</th>
-					    <td class="input">
-					       <input type="password" name="upwd" id="upwd" placeholder="비밀번호 입력" />
+					    <th class="labelth">비밀번호</th>
+					    <td class="inputtd">
+					       <input type="password" class="upwd" name="upwd" id="upwd" placeholder="비밀번호 입력" />
 					       <div id="upwdDiv"></div>
 					    </td>
 					</tr>
 					
 <tr>
-    <th class="label">이메일</th>
-    <td class="input">
-        <input type="text" name="uemail" id="uemail" placeholder="이메일 입력"   />
+    <th class="labelth">이메일</th>
+    <td class="inputtd">
+        <input type="text" name="uemail" class="uemail" id="uemail" placeholder="이메일 입력"   />
         <div id="uemailDiv"></div>
     </td>
     				   
 </tr>
 
 <tr>
- <th class="label"></th>
-    <td class="input">
-         <button type="button"  id="emailAuth" >인증번호 발송</button>
+ <th class="labelth"></th>
+    <td class="inputtd">
+         <button type="button"  class="ubtn" id="emailAuth" >인증번호 발송</button>
     </td>  				       
 </tr>
 
 				<tr>			
-				<th class="label">인증번호 입력</th>	
-				  <td class="input">
-				 <input type="text" id="inputCode" placeholder="인증번호 입력"> 
+				<th class="labelth">인증번호 입력</th>	
+				  <td class="inputtd">
+				 <input type="text" class="inputCode" id="inputCode" placeholder="인증번호 입력"> 
 				 <div id="inputCodeDiv"></div>
 				  </td >
 								
 			<tr>
- <th class="label"></th>
-    <td class="input" colspan="2">
+ <th class="labelth"></th>
+    <td class="inputtd" colspan="2">
             <button type="button" id="writeBtn"  >회원가입</button>
             <button type="reset" id="resetBtn" >초기화</button>
     </td>  				       
