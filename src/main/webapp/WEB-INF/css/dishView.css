@@ -118,6 +118,14 @@ button:hover {
     color: gold; /* 선택된 별 색상 */
 }
 
+p{
+	
+	top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 fieldset {
     display: flex;
     gap: 10px; /* 별 사이의 간격 */

@@ -4,12 +4,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&display=swap');
 
 /* 가로가 600px 이상일 때 */
-#headerSearchInput{
-	
-	max-height: 50px;
+#headerSearch {
+    width: 30% !important; /* 검색 박스 너비 */
 }
 
+#headerSearchBox {
+    width: 100% ; /* 너비 100% */
+    max-height:50px;
+    margin-left: -50px;
+    border-radius: 5px; /* 모서리 둥글게 */
+    background-color: white;
+    padding: 10px; /* 내부 여백 */
+}
 
+#headerSearchInput {
+     width: 80%; /* 너비 조정 */
+         
+        border-radius: 5px; /* 모서리 둥글게 */
+        font-size: 16px; /* 글꼴 크기 */
+       	height:100%;
+       	 max-height:50px;
+         border:  hidden;
+         
+}
+
+.headerSearchIcon {
+    width: 30px !important; /* 아이콘 너비 */
+    height: 30px !important; /* 아이콘 높이 */
+    margin-left: 10px !important; /* 왼쪽 여백 */
+    cursor: pointer !important; /* 포인터 커서 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
 
 header.header {
 	position: fixed;
