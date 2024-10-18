@@ -20,6 +20,11 @@
     SELECT * FROM user_tb WHERE uemail = #{uemail} AND upwd = #{upwd}
 </select>
 
+
+<select id="naverLogin" parameterType="map" resultType="user.bean.UserDTO">
+    SELECT * FROM user_tb WHERE uemail = #{uemail} AND uid = #{uid} AND uname = #{uname}
+</select>
+
 	<select id="getMember" parameterType="String" resultType="user.bean.UserDTO">
 		select * from user_tb where uemail=#{uemail}
 	</select>
@@ -45,9 +50,8 @@
 	
 
 
+
 	
-	<select id="getExistPwd" parameterType="String" resultType="userDTO">
-		select * from usertable where id=#{id}
-	</select>
+
 	
 </mapper>
