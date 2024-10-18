@@ -34,23 +34,11 @@ public class DishController {
 	@Autowired
 	private AdminDTO adminDTO;
 	
-	/** ObjectStorageService 작업은 DishServiceImpl.java 에서 수행 */
-	
-	
-	
-	
-	/** 채연 */ 
 	
 	@RequestMapping(value="/dishList")
 	public String dishList(@RequestParam(required = false, defaultValue = "1") String pg, Model model, HttpSession session) {
-	    // 세션에서 adminDTO가 있는지 확인
-	    AdminDTO adminDTO = (AdminDTO) session.getAttribute("adminDTO");
 	    
-	    if (adminDTO != null) {
-	        System.out.println("DishList: 관리자 아이디 - " + adminDTO.getAid());
-	    } else {
-	        System.out.println("DishList: 관리자 세션이 없습니다.");
-	    }		
+	    AdminDTO adminDTO = (AdminDTO) session.getAttribute("adminDTO");
 		
 		Map<String, Object> dishPageMap = dishService.getDishList(pg);
 		String searchKey = (String) session.getAttribute("searchKey");
@@ -65,21 +53,15 @@ public class DishController {
 		return "/dish/dishList"; 
 	}
 	
+	/** 관리자 요리 목록 삭제 */
 	@ResponseBody
 	@RequestMapping(value = "/dishListDelete", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
 	public void uploadDelete(@RequestParam("check") String[] check) {
-		for (String dcode: check) {
-		}
 		dishService.dishListDelete(check);
 	}		
 	
 	
 	
-	
-	
-	
-	
-	/** 민선 */
 	//메인페이지 검색
 	@RequestMapping(value="/indxSearch", method = RequestMethod.POST)
 	public String indxSearch(@RequestParam String SearhKey, HttpSession session) {

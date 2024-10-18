@@ -14,7 +14,7 @@
 <link rel="icon" href="${pageContext.request.contextPath}/image/mono_favicon.png" type="image/png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dishList.css">
-<title>음식 목록</title>
+<title>요리 목록</title>
 </head>
 <body>
 <c:import url="/common/header" />
@@ -45,7 +45,7 @@
         <input type="checkbox" id="all-check" />
     </div>
 	<button type="submit" id="deleteBtn" class="adminBtn">선택 삭제</button>
-	<button type="button" id="writePageBtn" class="adminBtn" onclick="location.href='/MonoRecipe/dish/dishWrite'" >음식 등록</button>
+	<button type="button" id="writePageBtn" class="adminBtn" onclick="location.href='/MonoRecipe/dish/dishWrite'" >요리 등록</button>
 </section> 
 </c:if>
 

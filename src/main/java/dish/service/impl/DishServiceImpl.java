@@ -1,4 +1,3 @@
-// MonoRecipe/src/main/java/dish/service/impl/DishServiceImpl.java
 package dish.service.impl;
 
 import java.io.File;
@@ -37,11 +36,6 @@ public class DishServiceImpl implements DishService {
 	private HttpSession session;
 	
 	
-	
-	
-	
-	/** 채연 */
-	// MonoRecipe/src/main/java/dish/service/impl/DishServiceImpl.java
 	@Override
 	public List<DishDTO> getDishIndexList() {
 	    List<DishDTO> dishList = dishDAO.getDishIndexList();
@@ -97,8 +91,6 @@ public class DishServiceImpl implements DishService {
 	}	
 	
 	
-	
-	/** 민선 */
 	//래시피 검색
 	@Override
 	public Map<String, Object> getdishListSearch(String pg, String searchKey) {

@@ -61,8 +61,8 @@ $('#deleteBtn').click(function() {
 
     $.ajax({
         type: 'POST',
-        url: context + '/dish/dishListDelete',
-        data: $('#dishListForm').serialize(), // 폼 데이터 직렬화하여 전송
+        url: context + '/favorite/favoriteListDelete',
+        data: $('#favoriteListForm').serialize(), // 폼 데이터 직렬화하여 전송
         success: function() {
             alert('즐겨찾기 삭제 완료');
             location.href = context + `/user/userMyPage`;

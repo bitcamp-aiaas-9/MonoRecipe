@@ -27,7 +27,12 @@ VALUES (#{fuserid},#{fdishcode})
 </select>
 
 
-
+<delete id="favoriteListDelete" parameterType="list">
+    DELETE FROM favorite_tb WHERE fdishcode IN 
+    <foreach item="fdishcode" collection="list" open="(" separator="," close=")">
+        #{fdishcode}
+    </foreach>
+</delete>
 
 
 </mapper>
