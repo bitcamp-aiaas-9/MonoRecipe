@@ -16,8 +16,9 @@
         </div>
         
          <div id="headerSearch" style="width: 40%; right: 30px; display: flex; justify-content: center; r" >
-            <div class="searchBox" id="headerSearchBox" style="width: 100%; height: 30%; margin-right: 50px;">
-                <input type="text" placeholder="음식, 레시피 검색" id="headerSearchInput" name="SearchKey">
+            <div class="searchBox" id="headerSearchBox" style="width: 100%; height: 30%;  margin-right: 50px;">
+                <input type="text" placeholder="음식, 레시피 검색" id="headerSearchInput" 
+                 name="SearchKey">
                 <img id="headerSearchIcon" class="headerSearchIcon"
                      src="${pageContext.request.contextPath}/image/search_icon_black.png"
                      alt="Search Icon"
@@ -25,10 +26,11 @@
             </div>
         </div> 
               
-        <div id="mobileMenu">
+        <div id="mobileMenu" >
         	
-             <input type="text" placeholder="음식, 레시피 검색" id="headerSearchInputMobile" name="SearchKey" class="search-input hidden">
-             
+           <div id="mobileSearchContainer" class="hidden">
+        <input type="text" placeholder="음식, 레시피 검색" id="headerMobileSearchInput" name="SearchKey">
+    </div>
           
         
             <img id="searchIcon" class="searchIcon" src="${pageContext.request.contextPath}/image/search_icon.png" alt="search">

@@ -111,34 +111,34 @@ header.header {
 	 #headerSearch {
         display: none !important; /* 모바일 화면에서 강제로 숨김 */
         width: 900px;
-        margin-left: 60px;
+        margin-left: 10px;
+    }
+     #headerMobileSearchInput {
+        width: 250px; /* 너비 조정 */
+        padding: 10px; /* 내부 여백 */
+        border: 1px solid #ccc; /* 테두리 색상 */
+        border-radius: 5px; /* 모서리 둥글게 */
+        font-size: 16px; /* 글꼴 크기 */
+        transition: border-color 0.3s; /* 테두리 색상 변화에 부드러운 전환 추가 */
+        outline: none; /* 기본 테두리 제거 */
     }
     
-    .hidden {
-    display: none; /* 숨김 처리 */
-}
-	.search-input {
-    width: 0; /* 초기 폭을 0으로 설정 */
-    transition: width 0.3s ease; /* 폭 변화에 애니메이션 적용 */
-    overflow: hidden; /* 넘치는 내용 숨기기 */
+    #mobileSearchContainer {
+    overflow: hidden; /* 내용이 넘치지 않도록 숨김 */
+    width: 0; /* 초기 너비 */
+    transition: width 0.5s ease, opacity 0.5s ease; /* 너비와 불투명도 변화에 애니메이션 효과 추가 */
+    opacity: 0; /* 초기 불투명도 */
+    visibility: hidden; /* 보이지 않음 */
 }
 
-.search-input.active {
-    width: 200px; /* 원하는 최종 폭 설정 */
+#mobileSearchContainer.active {
+    width: 250px; /* 펼쳐질 때 너비 설정 */
+    opacity: 1; /* 완전 불투명 */
+    visibility: visible; /* 보이게 설정 */
 }
-	/* 검은색 반투명 배경 */
-	#mobileOverlay {
-	    position: fixed;
-	    top: 0;
-	    left: 0;
-	    width: 100%;
-	    height: 100%;
-	    background-color: rgba(0, 0, 0, 0.5); /* 50% 투명도 */
-	    z-index: 1000;
-	    display: none; /* 초기에는 숨김 */
-	}
-
-	
+   .hidden {
+        display: none;
+    }
 	
     #headerContent {
         display: none;
