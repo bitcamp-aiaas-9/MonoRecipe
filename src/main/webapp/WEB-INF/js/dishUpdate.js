@@ -25,7 +25,14 @@ $(document).ready(function() {
         window.location.href = `/MonoRecipe/dish/dishView?dcode=${dcode}&pg=${pg}`; // pg 값이 없으면 기본값 1
     };
 
-
+ // 파일 선택 시 이미지 미리보기
+    $('#image').on('change', function() {
+        const file = this.files[0]; // 선택된 파일 가져오기
+        if (file) {
+            readURL(file); // 미리보기 함수 호출
+        }
+    });
+    
 function readURL(file) {
     var reader = new FileReader();
     reader.onload = function(e) {
@@ -33,8 +40,10 @@ function readURL(file) {
         img.src = e.target.result;
         img.className = 'img-fluid'; // Bootstrap 스타일 클래스 추가
         img.style.cursor = 'pointer'; // 커서 스타일 추가
-        img.width = 300; // 폭 설정
-        img.height = 300; // 높이 설정
+        img.style.width = '300px'; // 폭 설정
+        img.style.height = '300px'; // 높이 설정
+        img.style.objectFit = 'cover'; // 비율에 맞게 잘라내기
+
         $('#showImageList').empty(); // 기존 이미지 제거
         $('#showImageList').append(img); // 미리보기 영역에 새 이미지 추가
     }
@@ -109,7 +118,7 @@ function readURL(file) {
         $('.error-message').remove(); // 모든 오류 메시지 제거
 
         // 초기 이미지를 다시 추가
-        $('#showImageList').append('<img src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/' + initialImageUUID + '" alt="수정 전 이미지" class="img-fluid" style="cursor: pointer;" width="300" height="300">');
+        $('#showImageList').append('<img src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/' + initialImageUUID + '" alt="수정 전 이미지" class="img-fluid" style="cursor: pointer; width: 300px; height: 300px; object-fit: cover;">');
     });
 });
 		
@@ -125,7 +134,7 @@ $('#deleteBtn').click(function(event) {
         data: { dcode: dcode },
         success: function(data) {
             alert("삭제 완료");
-            location.reload(); // 페이지 새로 고침
+             window.location.href = '/MonoRecipe/dish/dishList';
         },
         error: function(e) {
             console.log(e);
