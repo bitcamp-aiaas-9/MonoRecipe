@@ -40,9 +40,9 @@
                 <tr>
                 <th class="label"></th>
                <td class="input" >
-               <div id="loginBtnDiv" >
+              
                         <button type="submit" id="loginBtn" >로그인</button>
-                        </div>
+            
                         <div id="naver_id_login" ></div>
                     </td>
                 </tr>

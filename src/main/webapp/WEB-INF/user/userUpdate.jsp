@@ -74,7 +74,7 @@
                     <!-- <th class="label"></th> -->
                     <td class="input"  colspan="2" style="text-align:center;" >
                         <button type="button" id="updateBtn" >정보수정</button>
-                        <button type="button" id="deleteBtn"  style="margin-left: 2%;" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
+                        <button type="button" id="deleteBtn" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
                     </td>
                 </tr>
             </table>

@@ -112,7 +112,9 @@ button:hover {
     cursor: pointer; /* 포인터 커서 */
     font-size: 16px; /* 글씨 크기 */
 }
-
+#deleteBtn{
+margin-left: 2%;
+}
 
 #adminLoginBtn{
 	   background-color: #343a40; /* 검은색 배경 (다크 그레이) */
@@ -155,20 +157,24 @@ button:hover {
     th {
         display: none; /* th 요소 숨기기 */
     }
-
-    .input {
+  .input {
         width: 100%; /* 입력란 너비를 100%로 변경 */
         display: flex; /* 입력란을 플렉스 박스로 변경 */
-      
+        flex-direction: column; /* 세로 방향으로 나열 */
     }
 
-    input[type="text"],
+
     input[type="password"] {
         width: 100%; /* 입력란 너비를 100%로 변경 */
         margin-bottom: 10px; /* 아래쪽 여백 추가 */
     }
+    input[type="text"] {
+        width: 100%; /* 입력란 너비를 100%로 변경 */
+        margin-bottom: 10px; /* 아래쪽 여백 추가 */
+    }
+    
 
-  #adminLoginBtn,#writeBtn,#resetBtn,#updateBtn,#deleteBtn,#deleteUserBtn{
+ #loginBtn, #adminLoginBtn,#writeBtn,#resetBtn,#updateBtn,#deleteBtn,#deleteUserBtn{
         width: 100%; /* 버튼 너비 조정 */
         margin: 10px auto; /* 중앙 정렬 */
         display: block; /* 블록 요소로 변경 */
@@ -189,15 +195,15 @@ button:hover {
         padding: 15px; /* 패딩 조정 */
     }
     
-    #loginBtn{
-         width: 100%; 
-       margin-right: 5px; 
-    }
+    
 
 	
-   #naver_id_login  {
+	
+   #naver_id_login img {
       width: 100%; /* 버튼의 최대 너비 */
-       text-align:right;
+      height:auto;
+        margin: 10px auto; /* 중앙 정렬 */
+        display: block; /* 블록 요소로 변경 */
   }
   
 
