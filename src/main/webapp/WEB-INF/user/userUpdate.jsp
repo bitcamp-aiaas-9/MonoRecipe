@@ -42,14 +42,19 @@
                         <div id="upwdDiv"></div>
                     </td>
                 </tr>
-                <tr>
-                    <th class="label">이메일</th>
-                    <td class="input">
-                        <input type="text" name="uemail" id="uemail" value="${sessionScope.userDTO.uemail}" />
-                        <input type="hidden" name="uemailH" id="uemailH" value="${sessionScope.userDTO.uemail}" />
-                        <div id="uemailDiv"></div>
-                    </td>
-                </tr>
+<tr>
+    <th class="label">이메일</th>
+    <td class="input">
+        <input type="text" name="uemail" id="uemail" 
+               value="${sessionScope.userDTO.uemail}" 
+               <c:if test="${sessionScope.userDTO.uemail eq sessionScope.userDTO.uid}">
+                   readonly
+               </c:if>
+        />
+        <input type="hidden" name="uemailH" id="uemailH" value="${sessionScope.userDTO.uemail}" />
+        <div id="uemailDiv"></div>
+    </td>
+</tr>
                 <tr id="authRow" style="display: none;">
                     <th class="label"></th>
                     <td class="input">
@@ -82,7 +87,17 @@
 var emailVerified = true; // 이메일 인증 여부
 
 $(function() {
-    $('#uidDiv').html('아이디는 수정이 불가능합니다').css('color', 'blue');
+	
+    var userEmail = "${sessionScope.userDTO.uemail}";
+    var userId = "${sessionScope.userDTO.uid}";
+
+    if (userEmail === userId) {
+        $('#uidDiv').html('소셜로그인 아이디는 수정이 불가능합니다').css('color', 'blue');
+        $('input').attr('readonly', true);
+    } else {
+        $('#uidDiv').html('아이디는 수정이 불가능합니다').css('color', 'blue');
+    }
+	
 
     let previousEmail = $('#uemail').val(); 
     let hiddenEmail = $('#uemailH').val();
@@ -108,6 +123,11 @@ $(function() {
 
     // 등록
     $('#updateBtn').click(function() {
+    	
+    	  if (userEmail === userId) {
+    			alert("소셜로그인아이디는 수정이 불가능합니다");
+            	return;
+          }   
         
         if (emailVerified == false){
         	alert("이메일 인증이 완료되지않았습니다");

@@ -152,7 +152,7 @@ public class UserController {
 	    	System.out.println("존재하지않음");
 	        userDTO = new UserDTO();
 	        userDTO.setUid(uemail);  
-	        userDTO.setUpwd(uemail + uname + uid + "naver");  
+	        userDTO.setUpwd(uemail + uname + uid);  
 	        userDTO.setUemail(uemail); 
 	        userDTO.setUname(uname+"naver"); 
 	        userService.write(userDTO); 
