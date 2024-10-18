@@ -11,14 +11,21 @@
     }
 }
 function dishPaging(pg){
+	
+	
 	const url = context + "/dish/dishList?pg=" + pg;
     location.href = url;
 }
 $(document).ready(function () {
 	//메인페이지 세션
 	 $(window).on('beforeunload', function() {
-        $.post(context + '/clearSearchSession');
+        // 세션 삭제 요청
+        navigator.sendBeacon('/MonoRecipe/dish/clearSearchSession');
     });
+    const searchKey = $('#searchInputval').text().trim();
+     $('#searchInput').val(searchKey);
+    
+/////////
 	
     // .checkDiv 클릭 시 내부의 체크박스 상태를 토글
     $(document).on('click', '.checkDiv', function (e) {
