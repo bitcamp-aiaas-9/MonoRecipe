@@ -4,6 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&display=swap');
 
 /* 가로가 600px 이상일 때 */
+
+
+
+
 header.header {
 	position: fixed;
 	z-index: 1000;
@@ -104,6 +108,24 @@ header.header {
 
 /* 모바일 환경에서 스타일 */
 @media screen and (max-width: 600px) {
+	 #headerSearch {
+        display: none !important; /* 모바일 화면에서 강제로 숨김 */
+        width: 900px;
+        margin-left: 60px;
+    }
+    
+    .hidden {
+    display: none; /* 숨김 처리 */
+}
+	.search-input {
+    width: 0; /* 초기 폭을 0으로 설정 */
+    transition: width 0.3s ease; /* 폭 변화에 애니메이션 적용 */
+    overflow: hidden; /* 넘치는 내용 숨기기 */
+}
+
+.search-input.active {
+    width: 200px; /* 원하는 최종 폭 설정 */
+}
 	/* 검은색 반투명 배경 */
 	#mobileOverlay {
 	    position: fixed;
@@ -191,5 +213,14 @@ header.header {
 
 
 	
+
+
+
+
+
+
     
 }
+
+
+

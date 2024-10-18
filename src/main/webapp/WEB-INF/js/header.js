@@ -52,4 +52,12 @@ $(document).ready(function() {
     
 });
 
+//////
 
+
+$(document).ready(function() {
+    $('#searchIcon').on('click', function() {
+        $('#headerSearchInputMobile').toggle(); // 검색 입력 필드 토글
+        $('#projectName').toggleClass('hidden'); // 프로젝트 이름 숨기기
+    });
+});
