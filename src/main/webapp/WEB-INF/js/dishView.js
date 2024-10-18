@@ -1,4 +1,8 @@
 $(document).ready(function() {
+	
+
+
+
     // 사용자 세션 ID 가져오기
     const sessionUserId = document.getElementById('sessionScope').innerText;
 
@@ -218,17 +222,70 @@ $(document).ready(function() {
         }
     });
 });
+$(document).ready(function() {
+    const userId = $('#sessionScope').text().trim();
+    const dcode = $('#dcode').text();
+    console.log("dcode:", dcode, "userId:", userId);
 
+    if (userId) {
+        $.ajax({
+            type: 'POST',
+            url: '/MonoRecipe/favorite/favoriteCheck',
+            contentType: 'application/json', // JSON 형식으로 전송
+            data: JSON.stringify({ dcode: dcode, uid: userId }), // 객체를 JSON으로 변환
+            success: function(response) {
+                console.log(response);
+                const heartIcon = $('#heartIcon');
+                heartIcon.css('color', response === 'red' ? 'red' : 'black'); // 하트 색상 변경
+            },
+            error: function() {
+                console.error("즐겨찾기 체크 중 오류 발생");
+            }
+        });
+    } 
+    
+   
 
-    // 하트 클릭 이벤트
-    $('#heartIcon').on('click', function() {
+    
+}); $('#heartIcon').on('click', function() {
+ const dcode = $('#dcode').text();
+ 		const userId = $('#sessionScope').text().trim();
         const heartIcon = $(this);
-        // 현재 색상이 검은색이면 빨간색으로 변경하고, 빨간색이면 검은색으로 변경
-        if (heartIcon.css('color') === 'rgb(0, 0, 0)') { // 검은색
-            heartIcon.css('color', 'red'); // 빨간색으로 변경
-        } else { // 붉은색
-            heartIcon.css('color', 'black'); // 검은색으로 변경
+        const isFavorited = heartIcon.css('color') === 'rgb(255, 0, 0)'; // 빨간색 여부 확인
+
+        if (isFavorited) {
+            // 빨간색 -> 검은색 (삭제)
+            $.ajax({
+                type: 'POST',
+                url: '/MonoRecipe/favoriteDelete',
+                contentType: 'application/json',
+                data: JSON.stringify({ dcode: dcode, uid: userId }),
+                success: function(response) {
+                    alert(response); // 삭제 완료 메시지
+                    heartIcon.css('color', 'black'); // 색상 변경
+                },
+                error: function() {
+                    alert("즐겨찾기 삭제 중 오류가 발생했습니다.");
+                }
+            });
+        } else {
+            // 검은색 -> 빨간색 (저장)
+            $.ajax({
+                type: 'POST',
+                url: '/MonoRecipe/favoritePuls',
+                contentType: 'application/json',
+                data: JSON.stringify({ dcode: dcode, uid: userId }),
+                success: function(response) {
+                    alert(response); // 저장 완료 메시지
+                    heartIcon.css('color', 'red'); // 색상 변경
+                },
+                error: function() {
+                    alert("즐겨찾기 추가 중 오류가 발생했습니다.");
+                }
+            });
         }
     });
+
+    
 
 
