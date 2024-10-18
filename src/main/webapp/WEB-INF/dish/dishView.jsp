@@ -23,7 +23,7 @@
 	<main>
 	
 	
-	
+		<p id=admin style="display: none;">${adminDTO.aname}</p>
 		<p id="dcode" class="d-none">${dishDTO.dcode}</p>
 		<p id="sessionScope" style="display: none;">${sessionScope.userDTO.uid}</p>
 		<div class="container mt-4">

@@ -1,6 +1,16 @@
 $(document).ready(function() {
 	
+ // 텍스트 영역 자동 크기 조정
+    function autoResizeTextarea() {
+        $(this).css('height', 'auto'); // 높이를 초기화
+        $(this).css('height', this.scrollHeight + 'px'); // 내용에 맞춰 높이 조정
+    }
 
+    // 모든 textarea에 이벤트 리스너 추가 및 초기 높이 설정
+    $('textarea').each(function() {
+        $(this).on('input', autoResizeTextarea);
+        autoResizeTextarea.call(this); // 페이지 로드 시 초기 높이 설정
+    });
 
 
     // 사용자 세션 ID 가져오기
@@ -42,8 +52,10 @@ $(document).ready(function() {
     // 리뷰 작성 버튼 클릭 시 처리
     $('#btn-write').click(function(e) {
         e.preventDefault(); // 기본 제출 동작 방지
-
-        if (sessionUserId === '') {
+		const adminId = $('#admin').text().trim();
+		console.log(adminId)
+		if(!adminId){
+		if (sessionUserId === '') {
             alert("로그인 해주세요");
             return;
         }
@@ -87,6 +99,11 @@ $(document).ready(function() {
                 }
             });
         }
+		}
+		else{
+		alert("관리자입니다");
+		}
+        
     });
 
     // 리뷰 목록 불러오기
@@ -113,7 +130,7 @@ $(document).ready(function() {
                     </tr>
                     <tr class="review-item">
                         ${isSameUser ? `
-                            <td colspan="1" class="text-start" width="70%">${review.rcontent}</td>
+                            <td colspan="1" class="text-start" width="70%"><pre>${review.rcontent}</pre></td>
                             <td class="text-end align-middle">
                                 <button type="button" class="btn btn-dark btn-sm edit-review" 
                                     data-reviewid="${review.ruserid}" 
@@ -124,7 +141,7 @@ $(document).ready(function() {
                                     data-rcode="${review.rcode}" 
                                     data-reviewid="${review.ruserid}">삭제</button>
                             </td>` : `
-                            <td colspan="2" class="text-start" width="70%">${review.rcontent}</td>
+                            <td colspan="2" class="text-start" width="70%"><pre>${review.rcontent}</pre></td>
                         `}
                     </tr>`;
                 $('#reviewlist').append(reviewItemHTML);
@@ -250,12 +267,16 @@ $(document).ready(function() {
 
     
 }); $('#heartIcon').on('click', function() {
- const dcode = $('#dcode').text();
+		const dcode = $('#dcode').text();
  		const userId = $('#sessionScope').text().trim();
+ 		const adminId = $('#admin').text().trim();
         const heartIcon = $(this);
         const isFavorited = heartIcon.css('color') === 'rgb(255, 0, 0)'; // 빨간색 여부 확인
-
-        if (isFavorited) {
+	if(adminId){
+		 alert("관리자 입니다"); // 삭제 완료 메시지
+	}
+	else{
+	 if (isFavorited) {
             // 빨간색 -> 검은색 (삭제)
             $.ajax({
                 type: 'POST',
@@ -286,6 +307,8 @@ $(document).ready(function() {
                 }
             });
         }
+	}
+       
     });
 
     
