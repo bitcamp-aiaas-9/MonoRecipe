@@ -30,7 +30,8 @@
 			<div class="d-flex align-items-center mb-3">
 	            <div class="dishTop" >
 					<span id="backButton" style="width: 30px">&lt;</span>
-		            <h1 class="text-center flex-grow-1">${dishDTO.dname}</h1>
+					
+		            <h1 class="text-center flex-grow-1">${not empty dishDTO.dname && dishDTO.dname != 'null' ? dishDTO.dname : '이름없음'}</h1>
 				<span id="heartIcon" style="color: black; font-size: 30px;" class="align-items-center">&hearts;</span></div>
         	</div>
         	

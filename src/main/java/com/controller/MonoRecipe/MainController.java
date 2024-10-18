@@ -25,7 +25,7 @@ public class MainController {
 
 	    return "/index"; // /WEB-INF/index.jsp
 	}
-
+	
    
 	@RequestMapping(value = "/common/header", method = RequestMethod.GET)
 	public String header() {

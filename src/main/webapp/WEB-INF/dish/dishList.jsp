@@ -35,7 +35,7 @@
     <div class="searchBox">
         <input type="text" id="searchInput" placeholder="음식, 레시피 검색">
         <img class="searchIcon" id="searchIconBlack" src="${pageContext.request.contextPath}/image/search_icon_black.png" alt="Search Icon">
-    	<p id="searchInputval" style="visibility: hidden;"></p>
+    	<p id="searchInputval" style="visibility: hidden;">${sessionScope.searchKey != null ? sessionScope.searchKey : ""}</p>
     </div>
 </section>
 
