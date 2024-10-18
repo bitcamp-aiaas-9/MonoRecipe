@@ -1,6 +1,7 @@
 package com.controller.MonoRecipe;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -126,6 +127,40 @@ public class UserController {
 		return "/user/userList"; //=> /WEB-INF/user/list.jsp
 	}
 	
+	@RequestMapping(value="/user/callback", method = RequestMethod.GET)
+	public String userCallback()  {
+		return "/user/callback";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/user/naverLogin")
+	public int naverLogin(@RequestParam("uid") String uid, 
+	                      @RequestParam("uname") String uname, 
+	                      @RequestParam("uemail") String uemail,
+	                      HttpSession session) {
+		
+			
+	    if (userService.getExistId(uemail) != "non_exist") {
+	        System.out.println("존재함");
+	    	Map<String, Object> map = new HashMap<>();
+	    	map.put("uemail", uemail);
+	    	map.put("uid", uemail);
+	    	map.put("uname", uname+"naver");
+	        userDTO = userService.naverLogin(map);
+
+	    } else {
+	    	System.out.println("존재하지않음");
+	        userDTO = new UserDTO();
+	        userDTO.setUid(uemail);  
+	        userDTO.setUpwd(uemail + uname + uid + "naver");  
+	        userDTO.setUemail(uemail); 
+	        userDTO.setUname(uname+"naver"); 
+	        userService.write(userDTO); 
+	        userDTO = userService.login(userDTO);
+	    }
+	    session.setAttribute("userDTO", userDTO);
+	    return 1; 
+	}
 	
 	
 	

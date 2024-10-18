@@ -38,8 +38,10 @@
                     </td>
                 </tr>
                 <tr>
-               <td class="input" colspan="2" style="text-align: center;">
+                <th class="label"></th>
+               <td class="input" >
                         <button type="submit" id="loginBtn" >로그인</button>
+                        <div id="naver_id_login" ></div>
                     </td>
                 </tr>
             </table>
@@ -55,6 +57,20 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/userSignIn.js"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		
+         <!-- 네이버 로그인 버튼 노출 스크립트 -->
+			  <script type="text/javascript">
+			  	var naver_id_login = new naver_id_login("JNIt7kaoRhfyIQV0WGHU", "http://localhost:8080/MonoRecipe/user/callback");
+			  	var state = naver_id_login.getUniqState();
+			  	naver_id_login.setButton("green", 3,45);
+			  	naver_id_login.setDomain("http://localhost:8080/MonoRecipe/user/callback");
+			  	naver_id_login.setState(state);
+			  	naver_id_login.setPopup();
+			  	naver_id_login.init_naver_id_login();
+			  </script>
 
 </body>
 </html>

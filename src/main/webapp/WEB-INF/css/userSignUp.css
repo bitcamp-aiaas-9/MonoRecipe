@@ -137,10 +137,19 @@ button:hover {
     background-color: #c82333; /* 호버 시 더 어두운 붉은색 */
 }
 
-    #loginBtn,#adminLoginBtn,#deleteUserBtn {
+    #adminLoginBtn,#deleteUserBtn {
         width: 88%; /* 버튼 너비 조정 */
         margin-left: 5%;
     }
+    
+    #loginBtn{
+        width: 33%;
+        margin-right: 5% ;
+        float:left;
+    }
+    
+
+
 
 @media (max-width: 600px) {
     th {
@@ -159,13 +168,13 @@ button:hover {
         margin-bottom: 10px; /* 아래쪽 여백 추가 */
     }
 
-    #loginBtn,#adminLoginBtn,#writeBtn,#resetBtn,#updateBtn,#deleteBtn,#deleteUserBtn{
+  #loginBtn,#adminLoginBtn,#writeBtn,#resetBtn,#updateBtn,#deleteBtn,#deleteUserBtn{
         width: 100%; /* 버튼 너비 조정 */
         margin: 10px auto; /* 중앙 정렬 */
         display: block; /* 블록 요소로 변경 */
     }
     
-        #resetBtn,#deleteBtn,#deleteUserBtn{
+        #loginBtn,#resetBtn,#deleteBtn,#deleteUserBtn{
      margin-left:0%;
     }
     
@@ -180,8 +189,16 @@ button:hover {
         padding: 15px; /* 패딩 조정 */
     }
     
-    
-    
-    
+
+	
+   #naver_id_login {
+      width: 100%; /* 버튼의 최대 너비 */
+       margin: 10px auto; /* 중앙 정렬 */
+  }
+
+  #naver_id_login img {
+      width: 100%; /* 부모 요소에 맞게 너비 조정 */
+      height:auto;
+  }
     
 }
