@@ -71,11 +71,11 @@ public class FavoriteController {
    }
    
 // MonoRecipe/src/main/java/com/controller/MonoRecipe/FavoriteController.java
-   /** MyPage 에서 즐겨찾기 삭제 */
+	/** MyPage 에서 즐겨찾기 목록 삭제 */
 	@ResponseBody
-	@RequestMapping(value = "/favoriteListDelete", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
+	@RequestMapping(value = "favorite/favoriteListDelete", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
 	public void uploadDelete(@RequestParam("check") String[] check) {
-		// favoriteService.favoriteListDelete(check);
+		 favoriteService.favoriteListDelete(check);
 	}   
    
 	
