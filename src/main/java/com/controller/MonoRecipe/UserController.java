@@ -109,7 +109,6 @@ public class UserController {
 	@RequestMapping(value="/user/delete", method = RequestMethod.POST)
 	@ResponseBody
 	public void delete(@ModelAttribute UserDTO userDTO,HttpSession session) {
-		System.out.println("삭제중");
 		userService.delete(userDTO);
 		session.removeAttribute("userDTO");	
 	}
@@ -141,7 +140,6 @@ public class UserController {
 		
 			
 	    if (userService.getExistId(uemail) != "non_exist") {
-	        System.out.println("존재함");
 	    	Map<String, Object> map = new HashMap<>();
 	    	map.put("uemail", uemail);
 	    	map.put("uid", uemail);
@@ -149,7 +147,6 @@ public class UserController {
 	        userDTO = userService.naverLogin(map);
 
 	    } else {
-	    	System.out.println("존재하지않음");
 	        userDTO = new UserDTO();
 	        userDTO.setUid(uemail);  
 	        userDTO.setUpwd(uemail + uname + uid);  
