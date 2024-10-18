@@ -32,8 +32,8 @@
     <div class="checkboxContainer">
         <input type="checkbox" id="all-check" />
     </div>
-	<button type="submit" id="deleteBtn" class="adminBtn">선택 삭제</button>
-	<button type="button" id="writePageBtn" class="adminBtn" onclick="location.href='/MonoRecipe/dish/dishList'" >음식 목록</button>
+	<button type="submit" id="deleteBtn" class="myPageBtn">선택 삭제</button>
+	<button type="button" id="writePageBtn" class="myPageBtn" onclick="location.href='/MonoRecipe/dish/dishList'" >요리 목록</button>
 </section> 
 
 

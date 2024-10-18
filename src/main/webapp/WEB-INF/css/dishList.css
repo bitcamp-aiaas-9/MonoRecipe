@@ -90,7 +90,7 @@ section {
     top: -7px;  /* deleteBtn 위로 올리기 */
     left: 14px;	
     transform: scale(2.0);
-    accent-color: black;
+    accent-color: #222;
     cursor: pointer;
 }
 
@@ -107,6 +107,7 @@ section {
     text-align: center;
     border: 1px solid black;
     background: white;
+    color: black;
 }
 
 #deleteBtn {
@@ -150,7 +151,7 @@ section {
     top: 14px;
     left: 14px;
     transform: scale(1.7);
-    accent-color: black;    
+    accent-color: #222;    
 }
 
 .dishItem {

@@ -53,11 +53,10 @@ public class DishController {
 		return "/dish/dishList"; 
 	}
 	
+	/** 관리자 요리 목록 삭제 */
 	@ResponseBody
 	@RequestMapping(value = "/dishListDelete", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
 	public void uploadDelete(@RequestParam("check") String[] check) {
-		for (String dcode: check) {
-		}
 		dishService.dishListDelete(check);
 	}		
 	
