@@ -19,7 +19,6 @@ public class MainController {
 	
 	@RequestMapping(value="/")
 	public String index(Model model) {
-		System.out.println("index.jsp 호출");
 	    List<DishDTO> dishList = dishService.getDishIndexList();
 	    model.addAttribute("dishList", dishList != null ? dishList : List.of());
 
@@ -29,13 +28,11 @@ public class MainController {
    
 	@RequestMapping(value = "/common/header", method = RequestMethod.GET)
 	public String header() {
-		System.out.println("header.jsp 호출");
 	    return "/common/header"; // /WEB-INF/common/header.jsp
 	}
 
 	@RequestMapping(value = "/common/footer", method = RequestMethod.GET)
 	public String footer() {
-		System.out.println("footer.jsp 호출");
 	    return "/common/footer"; // /WEB-INF/common/footer.jsp
 	}
 }
