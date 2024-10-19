@@ -110,6 +110,11 @@ button:hover {
     cursor: pointer; /* 포인터 커서 */
     font-size: 16px; /* 글씨 크기 */
 }
+
+#confirmYes, #confirmNo {
+	width: 80%;	
+}
+
 #deleteBtn{
 margin-left: 2%;
 }
