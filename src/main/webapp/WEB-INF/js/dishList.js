@@ -22,9 +22,13 @@ $(document).ready(function () {
     const pg = searchParams.get('pg') || 1;
     const searchKey = searchParams.get('searchKey') || ''; // 검색어 가져오기
 
-    // **검색어와 페이지 번호 유지**
-    $('#searchInput').val(searchKey);
-    $("#pg").val(pg);
+    // 페이지와 검색어가 있는 경우 검색 수행
+    if (searchKey) {
+        $('#searchInput').val(searchKey); // 검색어 입력값 유지
+        performSearch(pg, searchKey); // 검색 결과 유지
+    } else {
+        dishPaging(pg); // 검색어 없을 경우 일반 페이징 처리
+    }
     
     // 새로고침 시 중복 실행 방지
     const pageLoaded = sessionStorage.getItem('pageLoaded');
