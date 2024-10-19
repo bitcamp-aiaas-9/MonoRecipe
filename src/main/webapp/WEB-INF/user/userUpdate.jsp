@@ -66,7 +66,7 @@
                 <tr id="inputCodeRow" style="display: none;">
                     <th class="labelth">인증번호 입력</th>
                     <td class="inputtd">
-                        <input type="text" class="inputCode" id="inputCode" />
+                        <input type="text" class="inputCode" id="inputCode" placeholder="인증번호를 입력해주세요"/>
                         <div id="inputCodeDiv"></div>
                     </td>
                 </tr>
