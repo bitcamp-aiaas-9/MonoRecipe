@@ -30,7 +30,7 @@
 						if(result == 1) {
 							console.log('네이버 로그인 성공')
 							       window.opener.location.href = '/MonoRecipe/'; // 부모 창 이동
-        window.close(); // 현재 팝업 창 닫기
+     							   window.close(); // 현재 팝업 창 닫기
 						} else  {
 							window.close();
 						}
