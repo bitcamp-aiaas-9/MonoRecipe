@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MonoRecipe/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml -->
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<annotation-driven />
+
+<!-- bean 등록 컴포넌트 스캔 -->
+<context:component-scan base-package="com.controller.MonoRecipe" />
+
+
+<resources mapping="/resources/**" location="/resources/" />
+
+
+<!-- DispatcherServlet 으로 보내지 않을 파일들 -->
+<resources location="/WEB-INF/css/" mapping="/css/**"></resources>
+<resources location="/WEB-INF/js/" mapping="/js/**"></resources>
+<resources location="/WEB-INF/image/" mapping="/image/**"></resources>
+<resources location="/WEB-INF/storage/" mapping="/storage/**"></resources>
+
+
+<!-- ViewResolver; JSP 파일을 찾기 -->
+<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<beans:property name="prefix" value="/WEB-INF" />
+	<beans:property name="suffix" value=".jsp" />
+</beans:bean>
+
+<!-- CommonsMultipartResolver; 파일 업로드 처리 -->
+<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<beans:property name="maxUploadSize" value="5000000"/>	<!-- 5MB -->
+</beans:bean>
+	
+	
+<!--  회원가입 메일 인증  -->
+<beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+<beans:property name="host" value="smtp.naver.com"/>
+<beans:property name="port" value="587"/>
+<beans:property name="username" value="lunasc@naver.com"/>
+<beans:property name="password" value="lackdow8769"/>
+<beans:property name="defaultEncoding" value="utf-8"/>
+<beans:property name="javaMailProperties">
+<beans:props>
+<beans:prop key="mail.smtp.ssl.protocols">TLSv1.2</beans:prop>
+<beans:prop key="mail.smtp.ssl.trust">smtp.naver.com</beans:prop>
+<beans:prop key="mail.transport.protocol">smtp</beans:prop>
+<beans:prop key="mail.smtp.auth">true</beans:prop>
+<beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+<beans:prop key="mail.debug">true</beans:prop>
+</beans:props>
+</beans:property>
+</beans:bean>	
+	
+	
+</beans:beans>

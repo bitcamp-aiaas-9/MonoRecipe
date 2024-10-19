@@ -1,0 +1,256 @@
+/* MonoRecipe/src/main/webapp/WEB-INF/css/header.css */
+@charset "UTF-8";
+@import url("init.css");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&display=swap');
+
+/* 가로가 600px 이상일 때 */
+#headerSearch {
+    width: 30% ; /* 검색 박스 너비 */
+}
+
+#headerSearchBox {
+    width: 100% ; /* 너비 100% */
+   
+}
+.searchBox {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: white !important;
+    
+    max-height: 50px !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+}
+
+.searchBox input {
+    width: 100% !important;
+    border: none !important;
+    padding: 10px !important;
+    font-size: 1rem !important;
+    outline: none !important;
+}
+
+.searchIcon {
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 10px !important;
+    cursor: pointer !important;
+}
+
+
+.headerSearchIcon {
+    width: 30px !important; /* 아이콘 너비 */
+    height: 30px !important; /* 아이콘 높이 */
+    margin-left: 10px !important; /* 왼쪽 여백 */
+    cursor: pointer !important; /* 포인터 커서 */
+    
+}
+
+header.header {
+	position: fixed;
+	z-index: 1000;
+    width: 100%;
+    height: 80px;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+#headerWrap {
+	width: 90%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 	
+}
+
+#headerLogo, #headerContent {
+    margin: 0;
+    padding: 0;
+}
+
+#headerLogo #logoLink {
+	font-family: "Noto Serif Oriya", serif;
+	font-size: 28px;
+	letter-spacing: 3px;
+	display: flex;
+	align-items: center; 
+	color: white;
+}
+
+#headerLogo img {
+	width: 70px;
+    height: 70px; 
+}
+
+#headerContent ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+#headerContent ul li {
+    margin-right: 20px;
+}
+
+#headerContent ul li:last-child {
+    margin-right: 0; 
+}
+
+.headerList {
+    color: white;
+    font-family: "Noto Serif Oriya", serif;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.headerList:hover {
+    text-decoration: underline; 
+}
+
+/* Mobile Menu - 아이콘 스타일 */
+#mobileMenu {
+    display: none; /* 기본적으로 보이지 않음 */
+    align-items: center;
+}
+
+#menuIcon, #closeIcon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+#mobileMenuList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#mobileMenuList ul li {
+    margin: 10px 0;
+}
+
+#mobileMenuList ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+#mobileMenuList ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* 모바일 환경에서 스타일 */
+@media screen and (max-width: 600px) {
+	 #headerSearch {
+        display: none !important; /* 모바일 화면에서 강제로 숨김 */
+        width: 900px;
+        margin-left: 10px;
+    }
+     #headerMobileSearchInput {
+        max-width: 250px; /* 너비 조정 */
+        padding: 10px; /* 내부 여백 */
+        border: 1px solid #ccc; /* 테두리 색상 */
+        border-radius: 5px; /* 모서리 둥글게 */
+        font-size: 16px; /* 글꼴 크기 */
+        transition: border-color 0.3s; /* 테두리 색상 변화에 부드러운 전환 추가 */
+        outline: none; /* 기본 테두리 제거 */
+        max-height:40px;
+        margin: 0 !important;
+    }
+    
+    
+   .hidden {
+        display: none;
+    }
+	
+    #headerContent {
+        display: none;
+    }
+
+    #mobileMenu {
+        display: flex;
+    }
+
+    #searchIcon, #menuIcon #closeIcon {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+    }
+
+    #headerLogo img {
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
+    }
+
+    #headerLogo #logoLink {
+        font-size: 18px;
+    }
+    
+	#mobileMenuList {
+	    position: fixed; 
+	    top: 80px;
+	    left: 0;
+	    width: 100%;
+	    background-color: #000;
+	    color: white;
+	    text-align: left;
+	    padding: 10px 30px 30px 30px;
+	    display: none;
+	    z-index: 2000; /* z-index를 항상 높게 유지 */
+	}
+
+	/* 모바일 헤더 검색칸 */
+
+/* 검색창 스타일 */
+#headerSearchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 50%;
+    max-height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+}
+
+#headerSearchBox input {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.headerSearchIcon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+
+	
+
+
+
+
+
+
+    
+}
+
+
+

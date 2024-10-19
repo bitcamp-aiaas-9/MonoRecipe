@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MonoRecipe/src/main/java/mapper/favoriteMapper.xml -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="favorite.dao.FavoriteDAO">
+<select id="getFavoriteFcode" parameterType="map" resultType="int">
+    SELECT fcode FROM favorite_tb WHERE fuserid=#{fuserid} AND fdishcode=#{fdishcode}
+</select>
+  
+  <insert id="favoritePuls" parameterType="map">
+  INSERT INTO favorite_tb (fuserid, fdishcode) 
+VALUES (#{fuserid},#{fdishcode})
+  </insert>
+  
+  <delete id="removeFavorite">
+	DELETE FROM favorite_tb 
+	WHERE fuserid = #{fuserid} AND fdishcode = #{fdishcode};
+  </delete>
+
+<select id="getFavoriteList" resultType="dish.bean.DishDTO">
+    SELECT d.dcode, d.dimage, d.dimageUUID, d.dname, d.dintro, d.drecipe, d.dscore
+    FROM dish_tb d
+    INNER JOIN favorite_tb f ON d.dcode = f.fdishcode
+    WHERE f.fuserid = #{uid}
+</select>
+
+
+<delete id="favoriteListDelete" parameterType="list">
+    DELETE FROM favorite_tb WHERE fdishcode IN 
+    <foreach item="fdishcode" collection="list" open="(" separator="," close=")">
+        #{fdishcode}
+    </foreach>
+</delete>
+
+
+</mapper>
