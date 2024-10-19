@@ -44,11 +44,11 @@ display:none!important;
                     </td>
                 </tr>
                 <tr>
-                <th class="labelth"></th>
-               <td class="inputtd" >
+          
+               <td class="inputtd" colspan="2" >
               
                         <button type="submit" id="loginBtn" >로그인</button>
-            
+            <img src=${pageContext.request.contextPath}/image/naverLoginImg.png id="naverLoginImg" />
                         <div id="naver_id_login" ></div>
                         <div id="naverButton" >
                         <img src=${pageContext.request.contextPath}/image/NaverIcon.png id="naverIcon" />
@@ -88,6 +88,13 @@ display:none!important;
 			            
 			            $('#naver_id_login').find('a').click(); 
 			        });
+			        
+  					 $('#naverLoginImg').on('click', function() {
+			            
+			            $('#naver_id_login').find('a').click(); 
+			        });
+			        
+			        
 			    });
 		
 			  
