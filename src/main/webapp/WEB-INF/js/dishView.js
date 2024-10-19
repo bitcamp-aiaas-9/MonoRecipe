@@ -38,7 +38,7 @@ $(document).ready(function() {
         const urlParams = new URLSearchParams(window.location.search);
         const pg = urlParams.get('pg');
         const dcode = $('#dcode').text();
-        window.location.href = `http://localhost:8080/MonoRecipe/dish/dishUpdate?dcode=${dcode}&pg=${pg}`;
+        window.location.href = `/MonoRecipe/dish/dishUpdate?dcode=${dcode}&pg=${pg}`;
     });
 
     /** dishView.js 뒤로 가기 버튼 클릭 시 이동 */
