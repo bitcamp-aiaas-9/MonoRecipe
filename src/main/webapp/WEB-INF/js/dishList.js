@@ -147,9 +147,11 @@ function updateDishList(dishPageMap) {
 	
     if (dishPageMap.list && dishPageMap.list.length > 0) {
         $.each(dishPageMap.list, function(index, dishDTO) {
+            const isAdmin=$('#admin').text();
+            console.log(isAdmin);
             const dishItem = `
                  <div class="dishItem">
-                    <div class="dishImgDiv">
+                  	<div class="dishImgDiv">
                         <img class="dishImg"
                              src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
                              alt="${dishDTO.dname}" />
@@ -158,6 +160,7 @@ function updateDishList(dishPageMap) {
                         <input type="hidden" id="dcode" name="dcode" value="${dishDTO.dcode}" />
                         <div class="dname">${dishDTO.dname}</div>
                         <div class="scoreDiv">평점 : ${dishDTO.dscore.toFixed(2)}</div>
+                        ${isAdmin ? `<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" />` : ''}
                     </div>
                 </div>
             `;
