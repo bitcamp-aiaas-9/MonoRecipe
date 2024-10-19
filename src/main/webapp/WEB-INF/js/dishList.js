@@ -1,33 +1,42 @@
 // MonoRecipe/src/main/webapp/WEB-INF/js/dishList.js
-	function handlePaging(pg) {
-	
+function handlePaging(pg) {
   
-    const searchKey = $('#searchInputval').text().trim();
+    const searchKey = $('#searchInput').val().trim(); // $('#searchInputval').text().trim();
 
     if (searchKey) {
+    	const url = `${context}/dish/dishList?pg=${pg}&searchKey=${encodeURIComponent(searchKey)}`;
+        history.pushState(null, '', url); // URL 업데이트
         performSearch(pg, searchKey);
     } else {
         dishPaging(pg);
     }
 }
+
 function dishPaging(pg){
-	
-	
-	const url = context + "/dish/dishList?pg=" + pg;
+	const url = context + "/dish/dishList?pg=${pg}";
     location.href = url;
 }
+
 $(document).ready(function () {
-	//메인페이지 세션
-	 $(window).on('beforeunload', function() {
-        // 세션 삭제 요청
-        navigator.sendBeacon('/MonoRecipe/dish/clearSearchSession');
-    });
-    const searchKey = $('#searchInputval').text().trim();
-     $('#searchInput').val(searchKey);
+    const searchParams = new URLSearchParams(window.location.search); // URL 파라미터 가져오기
+    const pg = searchParams.get('pg') || 1;
+    const searchKey = searchParams.get('searchKey') || ''; // 검색어 가져오기
+
+    // **검색어와 페이지 번호 유지**
+    $('#searchInput').val(searchKey);
+    $("#pg").val(pg);
     
-/////////
+    // 새로고침 시 중복 실행 방지
+    const pageLoaded = sessionStorage.getItem('pageLoaded');
+    if (!pageLoaded) {
+        sessionStorage.setItem('pageLoaded', 'true');
+        if (searchKey) {
+            performSearch(pg, searchKey); // 검색어가 있을 경우 검색 수행
+        }
+    }
+
 	
-    // .checkDiv 클릭 시 내부의 체크박스 상태를 토글
+    // **체크박스 토글 기능**
     $(document).on('click', '.checkDiv', function (e) {
         const checkbox = $(this).find('input[type="checkbox"]');
         
@@ -53,53 +62,54 @@ $(document).ready(function () {
 	    $('#all-check').prop('checked', checkNum == checkedNum);
 	});    
 
-    $(document).on('click', '.dishImgDiv', '.dishInfo', function () {
-        let dcode = $(this).closest('.dishItem').find('#dcode').val().trim();
-        let pg = $("#pg").val().trim();
-        const url = context + `/dish/dishView?dcode=${dcode}&pg=${pg}`;
+    // **dishView.jsp로 이동 시 검색어와 페이지 번호 전달**
+    $(document).on('click', '.dishImgDiv, .dishInfo', function () {
+        const dcode = $(this).closest('.dishItem').find('#dcode').val().trim();
+		const pg = new URLSearchParams(window.location.search).get('pg') || 1; // 현재 pg 값 가져오기
+        const searchKey = $('#searchInput').val().trim();
+        const url = `${context}/dish/dishView?dcode=${dcode}&pg=${pg}&searchKey=${encodeURIComponent(searchKey)}`;
         location.href = url;
     });
 
-$('#deleteBtn').click(function() {
-    if ($("input[name='check']:checked").length === 0) {
-        alert('삭제할 파일을 선택해 주세요.');
-        return;
-    }
-
-    $.ajax({
-        type: 'POST',
-        url: context + '/dish/dishListDelete',
-        data: $('#dishListForm').serialize(), // 폼 데이터 직렬화하여 전송
-        success: function() {
-            alert('음식 삭제 완료');
-            location.href = context + `/dish/dishList?pg=1`;
-        },
-        error: function(xhr, status, error) {
-            alert('음식 삭제에 실패했습니다.');
-            console.log("음식 삭제 실패:", error); 
-            console.log("상태 코드:", xhr.status); 
-            console.log("응답 메시지:", xhr.responseText); 
-        }
-    });
-});    
+    // **삭제 버튼 클릭 이벤트**
+	$('#deleteBtn').click(function() {
+	    if ($("input[name='check']:checked").length === 0) {
+	        alert('삭제할 파일을 선택해 주세요.');
+	        return;
+	    }
+	
+	    $.ajax({
+	        type: 'POST',
+	        url: context + '/dish/dishListDelete',
+	        data: $('#dishListForm').serialize(), // 폼 데이터 직렬화하여 전송
+	        success: function() {
+	            alert('음식 삭제 완료');
+	            location.href = context + `/dish/dishList?pg=1`;
+	        },
+	        error: function(xhr, status, error) {
+	            alert('음식 삭제에 실패했습니다.');
+	            console.log("음식 삭제 실패:", error); 
+	            console.log("상태 코드:", xhr.status); 
+	            console.log("응답 메시지:", xhr.responseText); 
+	        }
+	    });
+	});    
     
 
 
-//////
-
-
- // 검색 아이콘 클릭 시 처리
+    // **검색 버튼 클릭 시 performSearch 호출**
     $('#searchIconBlack').on('click', function() {
         performSearch(1, $('#searchInput').val().trim());
     });
 
+    // **Enter 키로 검색 수행**
     $('#searchInput').on('keypress', function(e) {
         if (e.which === 13) {
             performSearch(1, $(this).val().trim());
         }
     });
 
-    // 페이징 링크 클릭 시 AJAX 요청
+    // **페이징 링크 클릭 시 handlePaging 호출**
     $(document).on('click', '.paging-link', function(e) {
         e.preventDefault();
         const pg = $(this).data('pg');
@@ -109,7 +119,7 @@ $('#deleteBtn').click(function() {
 
 // performSearch 함수
 function performSearch(pg, searchKey) {
-    console.log(searchKey, pg);
+    console.log(`Searching for: ${searchKey} on page ${pg}`);
     $('#searchInputval').text(searchKey); // 검색어를 searchInputval에 저장
 
     $.ajax({
