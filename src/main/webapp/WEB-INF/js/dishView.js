@@ -41,7 +41,7 @@ $(document).ready(function() {
         window.location.href = `http://localhost:8080/MonoRecipe/dish/dishUpdate?dcode=${dcode}&pg=${pg}`;
     });
 
-    /** 뒤로 가기 버튼 클릭 시 이동 */
+    /** dishView.js 뒤로 가기 버튼 클릭 시 이동 */
     // 이전 페이지가 어디였는지에 따라 backButton의 동작을 다르게 처리
     // pg 값을 가져오고, null일 경우 1로 설정
 	const pg = new URLSearchParams(window.location.search).get('pg') || 1;
@@ -54,6 +54,7 @@ $(document).ready(function() {
 	        // dishList.jsp 에서 온 경우, pg 값을 들고 이동
 	        const url = `/MonoRecipe/dish/dishList?pg=${pg}&searchKey=${encodeURIComponent(searchKey)}`;
             location.href = url;
+            
             /** 검색 상태 복원: 로딩 후 performSearch 호출 */
             setTimeout(() => {
                 const event = new CustomEvent('restoreSearchState', { detail: { pg, searchKey } });
@@ -67,6 +68,11 @@ $(document).ready(function() {
 	    }
 	});
 
+    window.addEventListener('restoreSearchState', (event) => {
+        const { pg, searchKey } = event.detail;
+        $('#searchInput').val(searchKey);
+        performSearch(pg, searchKey);
+    });
 
     // 리뷰 작성 버튼 클릭 시 처리
     $('#btn-write').click(function(e) {
