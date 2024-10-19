@@ -49,7 +49,7 @@ public class FavoriteController {
    
    //저장
    @ResponseBody
-   @RequestMapping(value = "/favoritePuls", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
+   @RequestMapping(value = "favorite/favoritePuls", method = RequestMethod.POST, produces="text/html; charset=UTF-8")
    public String favoritePuls(@RequestBody Map<String, String> requestData) {
       //유저 아이디 가져오기 
       String dcode = requestData.get("dcode"); 
