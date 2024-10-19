@@ -13,10 +13,15 @@ function handlePaging(pg) {
 }
 
 function dishPaging(pg){
+
+	// **무한 새로고침 방지: 현재 페이지가 같으면 아무 작업도 안 함**
+    const currentUrl = window.location.href;    
+    const newUrl = `${context}/dish/dishList?pg=${pg}`;
+	// const url = context + "/dish/dishList?pg=" + pg;
 	
-    
-	const url = context + "/dish/dishList?pg=${pg}";
-    location.href = url;
+	if (currentUrl === newUrl) return; // 동일한 URL이면 새로고침 안 함
+    location.href = newUrl;
+
 }
 
 $(document).ready(function () {
@@ -24,14 +29,18 @@ $(document).ready(function () {
     const pg = searchParams.get('pg') || 1;
     const searchKey = searchParams.get('searchKey') || ''; // 검색어 가져오기
 
-    // 페이지와 검색어가 있는 경우 검색 수행
+    // **검색어가 있을 경우 검색 수행, 없을 경우 페이징만 수행**
     if (searchKey) {
         $('#searchInput').val(searchKey); // 검색어 입력값 유지
         performSearch(pg, searchKey); // 검색 결과 유지
     } else {
-        dishPaging(pg); // 검색어 없을 경우 일반 페이징 처리
+    	// 검색어가 없고 페이지가 처음 로딩된 경우에는 페이징만 처리
+        if (!sessionStorage.getItem('firstLoad')) {
+            sessionStorage.setItem('firstLoad', 'true');
+            dishPaging(pg); // 첫 로딩 시 페이징 처리
+        }
     }
-    
+    /*
     // 새로고침 시 중복 실행 방지
     const pageLoaded = sessionStorage.getItem('pageLoaded');
     if (!pageLoaded) {
@@ -40,7 +49,8 @@ $(document).ready(function () {
             performSearch(pg, searchKey); // 검색어가 있을 경우 검색 수행
         }
     }
-
+    */
+	
 	
     // **체크박스 토글 기능**
     $(document).on('click', '.checkDiv', function (e) {
