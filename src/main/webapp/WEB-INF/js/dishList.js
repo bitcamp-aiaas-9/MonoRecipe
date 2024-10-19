@@ -13,6 +13,7 @@ function handlePaging(pg) {
 }
 
 function dishPaging(pg){
+
 	// **무한 새로고침 방지: 현재 페이지가 같으면 아무 작업도 안 함**
     const currentUrl = window.location.href;    
     const newUrl = `${context}/dish/dishList?pg=${pg}`;
@@ -20,6 +21,7 @@ function dishPaging(pg){
 	
 	if (currentUrl === newUrl) return; // 동일한 URL이면 새로고침 안 함
     location.href = newUrl;
+
 }
 
 $(document).ready(function () {
@@ -165,6 +167,8 @@ function updateDishList(dishPageMap) {
             console.log(isAdmin);
             const dishItem = `
                  <div class="dishItem">
+                   ${isAdmin ? `<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" />` : ''}
+           
                   	<div class="dishImgDiv">
                         <img class="dishImg"
                              src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
@@ -174,7 +178,6 @@ function updateDishList(dishPageMap) {
                         <input type="hidden" id="dcode" name="dcode" value="${dishDTO.dcode}" />
                         <div class="dname">${dishDTO.dname}</div>
                         <div class="scoreDiv">평점 : ${dishDTO.dscore.toFixed(2)}</div>
-                        ${isAdmin ? `<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" />` : ''}
                     </div>
                 </div>
             `;
