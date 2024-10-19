@@ -9,6 +9,9 @@
     resize: vertical; /* 사용자가 수직으로 크기를 조절할 수 있게 함 */
 }
 
+pre {
+	white-space: pre-wrap;
+}
 
 
 
