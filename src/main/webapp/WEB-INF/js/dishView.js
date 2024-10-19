@@ -52,9 +52,14 @@ $(document).ready(function() {
 	
 	    if (referrer.includes('dishList')) {
 	        // dishList.jsp 에서 온 경우, pg 값을 들고 이동
-	        window.location.href = `/MonoRecipe/dish/dishList?pg=${pg}&searchKey=${encodeURIComponent(searchKey)}`;
-	    } else if (referrer.includes('userMyPage')) {
-	        // userMyPage.jsp 에서 온 경우, pg 값 없이 이동
+	        const url = `/MonoRecipe/dish/dishList?pg=${pg}&searchKey=${encodeURIComponent(searchKey)}`;
+            location.href = url;
+            /** 검색 상태 복원: 로딩 후 performSearch 호출 */
+            setTimeout(() => {
+                const event = new CustomEvent('restoreSearchState', { detail: { pg, searchKey } });
+                window.dispatchEvent(event);
+            }, 500);            
+	    } else if (referrer.includes('userMyPage')) { // userMyPage.jsp 에서 온 경우, pg 값 없이 이동
 	        window.location.href = `/MonoRecipe/user/userMyPage`;
 	    } else {
 	        // 그 외의 경우, 이전 페이지로 이동
