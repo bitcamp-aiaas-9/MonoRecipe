@@ -305,7 +305,7 @@ $(document).ready(function() {
             // 빨간색 -> 검은색 (삭제)
             $.ajax({
                 type: 'POST',
-                url: '/MonoRecipe/favoriteDelete',
+                url: '/MonoRecipe/favorite/favoriteDelete',
                 contentType: 'application/json',
                 data: JSON.stringify({ dcode: dcode, uid: userId }),
                 success: function(response) {
@@ -320,7 +320,7 @@ $(document).ready(function() {
             // 검은색 -> 빨간색 (저장)
             $.ajax({
                 type: 'POST',
-                url: '/MonoRecipe/favoritePuls',
+                url: '/MonoRecipe/favorite/favoritePuls',
                 contentType: 'application/json',
                 data: JSON.stringify({ dcode: dcode, uid: userId }),
                 success: function(response) {
