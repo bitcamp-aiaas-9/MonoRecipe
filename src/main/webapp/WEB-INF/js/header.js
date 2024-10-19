@@ -79,6 +79,15 @@ $(document).ready(function () {
             }
         }
     });
+    
+    
+    if ($("#search").length === 0) {
+        // "search"가 없으면 headerSearch를 보임
+        $("#headerSearch").show();
+    } else {
+        // "search"가 있으면 headerSearch를 숨김
+        $("#headerSearch").hide();
+    }
 });
 
 // performSearch 함수

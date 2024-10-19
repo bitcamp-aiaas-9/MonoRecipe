@@ -35,7 +35,7 @@
 		<div class="carouselOverlay">
 			<div class="carouselText">프로를 위한 프리미엄 레시피</div>
 			
-					<div class="searchBox">
+					<div class="searchBox" id="search">
 						<input type="text" placeholder="음식, 레시피 검색" id="searchInput" name="SearhKey"> 
 							<img class="searchIcon"
 								id="searchIconBlack"
