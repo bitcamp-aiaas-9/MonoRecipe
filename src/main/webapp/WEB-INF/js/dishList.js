@@ -13,6 +13,8 @@ function handlePaging(pg) {
 }
 
 function dishPaging(pg){
+	
+    
 	const url = context + "/dish/dishList?pg=${pg}";
     location.href = url;
 }
@@ -155,6 +157,8 @@ function updateDishList(dishPageMap) {
             console.log(isAdmin);
             const dishItem = `
                  <div class="dishItem">
+                   ${isAdmin ? `<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" />` : ''}
+           
                   	<div class="dishImgDiv">
                         <img class="dishImg"
                              src="https://kr.object.ncloudstorage.com/monorecipe-9th-bucket/storage/${dishDTO.dimageUUID}" 
@@ -164,7 +168,6 @@ function updateDishList(dishPageMap) {
                         <input type="hidden" id="dcode" name="dcode" value="${dishDTO.dcode}" />
                         <div class="dname">${dishDTO.dname}</div>
                         <div class="scoreDiv">평점 : ${dishDTO.dscore.toFixed(2)}</div>
-                        ${isAdmin ? `<input type="checkbox" class="board-list-check" name="check" value="${dishDTO.dcode}" />` : ''}
                     </div>
                 </div>
             `;
