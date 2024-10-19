@@ -1,5 +1,5 @@
 // MonoRecipe/src/main/webapp/WEB-INF/js/dishList.js
-	function handlePaging(pg) {
+function handlePaging(pg) {
 	
   
     const searchKey = $('#searchInputval').text().trim();
@@ -10,12 +10,14 @@
         dishPaging(pg);
     }
 }
+
 function dishPaging(pg){
 	
 	
 	const url = context + "/dish/dishList?pg=" + pg;
     location.href = url;
 }
+
 $(document).ready(function () {
 	//메인페이지 세션
 	 $(window).on('beforeunload', function() {
