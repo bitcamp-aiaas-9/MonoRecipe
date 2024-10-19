@@ -9,16 +9,13 @@
 </head>
 <body>
 	<script type="text/javascript">
-			var naver_id_login = new naver_id_login("JNIt7kaoRhfyIQV0WGHU", "http://localhost:8080/MonoRecipe/user/callback");
+			var naver_id_login = new naver_id_login("JNIt7kaoRhfyIQV0WGHU", "http://211.188.50.136:8090/MonoRecipe/user/callback");
 			naver_id_login.get_naver_userprofile("naverSignInCallback()");
-			console.log('콜백실행')  
-		  
 		  
 		 function naverSignInCallback() {
 			uname = naver_id_login.getProfileData('name');
 			uemail = naver_id_login.getProfileData('email');
 			uid = naver_id_login.getProfileData('id');
-				
 			
 				$.ajax({
 					type: 'POST',
