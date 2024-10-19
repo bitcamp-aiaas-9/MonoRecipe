@@ -134,6 +134,7 @@ function updateDishList(dishPageMap) {
     const dishGrid = $('.dishGrid');
     dishGrid.empty();
 	
+	
     if (dishPageMap.list && dishPageMap.list.length > 0) {
         $.each(dishPageMap.list, function(index, dishDTO) {
             const dishItem = `
