@@ -235,14 +235,14 @@ section {
     /** <section class="selectSection"> */
     
 	#all-check {
-	    top: -6px;  
+	    top: -7px;  
 	    left :13px;	
 	    transform: scale(1.7);
 	}	 
 	   
     .myPageBtn {
     	width: 40%;
-    	max-height: 40px;
+    	max-height: 45px;
     	font-size: 0.9rem;
     }
     
