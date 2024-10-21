@@ -10,6 +10,10 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta property="og:title" content="Mono Recipe" />
+<meta property="og:description" content="요리 레시피 플랫폼" />
+<meta property="og:image" content="http://211.188.50.136:8090/MonoRecipe/image/mono_og_image.png" />
+<meta property="og:url" content="http://211.188.50.136:8090/MonoRecipe" />	
 <link rel="icon"
 	href="${pageContext.request.contextPath}/image/mono_favicon.png"
 	type="image/png">
