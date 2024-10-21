@@ -13,10 +13,10 @@ http://211.188.50.136:8090/MonoRecipe/
 
 - **프론트엔드**: HTML, CSS, JavaScript, JQuery
 - **백엔드**: Java
-- **IDE**: Eclipse (jdk-11)
+- **프레임워크**:  STS3(jdk-11)
 - **DBMS**: MySQL Database
 - **SQL 툴**: DBeaver
-- **버전 관리**: GitHub
+- **버전 관리**: Git
 - **Naver Cloud DB**: monorecipe
 - **Naver Cloud Object Storage**: monorecipe-9th-bucket
 
