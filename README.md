@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/3a55347c-1bb5-4704-a9ea-ea11dfcbbc29)# Mono Recipe (요리 레시피 사이트)
+# Mono Recipe (요리 레시피 사이트)
 ![MonoRecipe_logo](src/main/resources/screenshot/MonoRecipe_logo.png)
 
 [Mono Recipe PDF](src/main/resources/PPT/MonoRecipe.pdf)
