@@ -2,7 +2,7 @@
 ![MonoRecipe_logo](src/main/resources/screenshot/MonoRecipe_logo.png)
 
 [Mono Recipe PDF](src/main/resources/PPT/MonoRecipe.pdf)
-[MonoRecipe.pdf](https://github.com/user-attachments/files/17457921/MonoRecipe.pdf)
+
 
 
 http://211.188.50.136:8090/MonoRecipe/
