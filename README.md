@@ -1,5 +1,6 @@
 # Mono Recipe (요리 레시피 사이트)
 ![MonoRecipe_logo](src/main/resources/screenshot/MonoRecipe_logo.png)
+
 [프로젝트 설명서 PDF](src/main/resources/PPT/MonoRecipe.pdf)
 
 ## Abstract ##
