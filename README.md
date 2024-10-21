@@ -11,7 +11,7 @@ http://211.188.50.136:8090/MonoRecipe/
 
 ## 🛠️ 개발 환경
 
-- **프론트엔드**: HTML, CSS, JavaScript, JQuery, Java
+- **프론트엔드**: HTML, CSS, JavaScript, JQuery
 - **백엔드**: Java
 - **IDE**: Eclipse (jdk-11)
 - **DBMS**: MySQL Database
