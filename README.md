@@ -5,7 +5,8 @@
 
 
 
-http://211.188.50.136:8090/MonoRecipe/
+[MonoRecipe 링크](http://211.188.50.136:8090/MonoRecipe/) (새 탭에서 열기: 오른쪽 클릭 후 새 탭에서 열기 선택)
+
 
 
 ## Abstract ##
